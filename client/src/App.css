@@ -1,0 +1,41 @@
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+nav {
+  border: 1px dashed green;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.main {
+  border: 1px dashed green;
+  height: 300px;
+}
+
+.popular {
+  border: 1px dashed green;
+  height: 300px;
+}
+
+.popular-map-card {
+  border: 1px dashed green;
+  height: 150px;
+  width: 200px;
+}
