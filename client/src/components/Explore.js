@@ -5,8 +5,9 @@ function Explore() {
 
 
     const [selectedTripOption, setSelectedTripOption] = useState('');
+
     const handleOptionChange = (event) => {
-        console.log(event.target.value)
+        // console.log(event.target.value)
         setSelectedTripOption(event.target.value);
         //render correct destination input boxes
     };

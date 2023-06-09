@@ -36,15 +36,23 @@ function CategorySearch() {
 
 // Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
 const categories = [
-
-    { categoryName: 'Architecture' },
-    { categoryName: 'History' },
-    { categoryName: 'Sports' },
-    { categoryName: 'Nature' },
-    { categoryName: 'Cuisine' },
-    { categoryName: 'Wine' },
-    { categoryName: 'Parties' }
+    { "categoryName": "Adventure" },
+    { "categoryName": "Architecture" },
+    { "categoryName": "Art" },
+    { "categoryName": "Beaches" },
+    { "categoryName": "Cuisine" },
+    { "categoryName": "History" },
+    { "categoryName": "Nature" },
+    { "categoryName": "Nightlife" },
+    { "categoryName": "Parties" },
+    { "categoryName": "Relaxation" },
+    { "categoryName": "Shopping" },
+    { "categoryName": "Sports" },
+    { "categoryName": "Wine" },
+    { "categoryName": "Wildlife" }
 ]
+
+
 
 
 export default CategorySearch
