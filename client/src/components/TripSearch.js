@@ -1,5 +1,9 @@
 import { useRef, useState, useEffect } from 'react';
+// import { useDispath } from 'react-redux';
+// import { setDestination } from '../store/actions';
+
 import { Google, Autocomplete } from "@react-google-maps/api";
+
 import {
 	BrowserRouter as Router,
 	Route,
@@ -10,7 +14,11 @@ import {
 
 
 
+
 function TripSearch({ selectedTripOption }) {
+
+	// const dispatch = useDispath();
+
 	const [googleLoaded, setGoogleLoaded] = useState(false);
 	const autocompleteRefA = useRef(null);
 	const autocompleteRefB = useRef(null);
@@ -29,67 +37,49 @@ function TripSearch({ selectedTripOption }) {
 		};
 	}, []);
 
-	// const onPlaceChanged = (place) => {
-	// 	const { geometry } = place;
-	// 	if (place.geometry) {
-	// 		const { lat, lng } = place.geometry.location;
-	// 		const coordinates = {
-	// 			latitude: lat(),
-	// 			longitude: lng()
-	// 		};
-	// 	}
-	// };
-
 	const [destination, setDestination] = useState({
 		type: selectedTripOption,
 		start: null,
 		midpoint: null,
 		end: null,
+		tags: null
 	});
-	// change object to
-	// { type: 'selectedTripOption',
-	//   route: {
-	//     start: {
-	//         name: "A",
-	//         lat: 40.4168,
-	//         lng: -3.70383,
-	//     },
-	//     midPoint: {
-	//         name: "B",
-	//         lat: 41.6488,
-	//         lng: -0.8891,
-	//     },
-	//     end: {
-	//         name: "C",
-	//         lat: 41.3851,
-	//         lng: 2.1734,
-	//     }
-	// },
-
-	// const handleChange = (event) => {
-	// 	const name = event.target.name;
-	// 	const value = event.target.value;
-	// 	// setDestination(prevDestination => ({ ...prevDestination, [name]: name.value }))
-	// }
 
 	const handlePlaceSelect = (place, name) => {
+		console.log(destination.selectedTripOption)
 		console.log(place)
-		setDestination((prevDestination) => ({ ...prevDestination, [name]: place }));
+		const { geometry } = place;
+		if (geometry) {
+			const { lat, lng } = geometry.location;
+			console.log(place, name)
+			setDestination((prevDestination) => ({
+				...prevDestination,
+				type: selectedTripOption,
+				[name]: {
+					// name: place.name,
+					lat: lat(),
+					lng: lng()
+				}
+			}));
+		}
 	};
 
 	const navigate = useNavigate()
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		// console.log(destination.type)
+
+
+		// const destination = event.target.elements.destination.value
+		// dispatch(setDestination(destination))
+
+
 		console.log(destination)
-		// send newTrip
 		navigate('/create')
-		const newTrip = destination;
+		// send destination & setDestination to createMap
 		//send newTrip values to create map page
 		//post values
 	};
-
 
 	return (
 		<>
@@ -108,7 +98,7 @@ function TripSearch({ selectedTripOption }) {
 										apiKey={apiKey}
 										onLoad={autocomplete => {
 											autocompleteRefA.current = autocomplete;
-											autocomplete.setFields(['formatted_address']);
+											autocomplete.setFields(['geometry']);
 										}}
 										onPlaceChanged={() => handlePlaceSelect(autocompleteRefA.current.getPlace(), 'start')}
 									>
@@ -124,7 +114,7 @@ function TripSearch({ selectedTripOption }) {
 										apiKey={apiKey}
 										onLoad={autocomplete => {
 											autocompleteRefB.current = autocomplete;
-											autocomplete.setFields(['formatted_address']);
+											autocomplete.setFields(['geometry']);
 										}}
 										onPlaceChanged={() => handlePlaceSelect(autocompleteRefB.current.getPlace(), 'end')}
 									>

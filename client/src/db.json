@@ -1,0 +1,455 @@
+[
+    {
+        "id": 1,
+        "name": "Statue of Liberty",
+        "lat": 40.6892,
+        "lng": -74.0445,
+        "categories": [
+            "Architecture"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Eiffel Tower",
+        "lat": 48.8584,
+        "lng": 2.2945,
+        "categories": [
+            "Architecture"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Taj Mahal",
+        "lat": 27.1751,
+        "lng": 78.0421,
+        "categories": [
+            "Architecture",
+            "History"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Great Wall of China",
+        "lat": 40.4319,
+        "lng": 116.5704,
+        "categories": [
+            "Architecture",
+            "History"
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Sydney Opera House",
+        "lat": -33.8568,
+        "lng": 151.2153,
+        "categories": [
+            "Architecture"
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Machu Picchu",
+        "lat": -13.1631,
+        "lng": -72.5450,
+        "categories": [
+            "History",
+            "Nature"
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Santorini",
+        "lat": 36.3932,
+        "lng": 25.4615,
+        "categories": [
+            "Architecture",
+            "Nature",
+            "Cuisine",
+            "Wine"
+        ]
+    },
+    {
+        "id": 8,
+        "name": "Uluru",
+        "lat": -25.3444,
+        "lng": 131.0369,
+        "categories": [
+            "Nature"
+        ]
+    },
+    {
+        "id": 9,
+        "name": "Rio de Janeiro",
+        "lat": -22.9068,
+        "lng": -43.1729,
+        "categories": [
+            "Architecture",
+            "Sports",
+            "Parties"
+        ]
+    },
+    {
+        "id": 10,
+        "name": "Banff National Park",
+        "lat": 51.4968,
+        "lng": -115.9281,
+        "categories": [
+            "Nature"
+        ]
+    },
+    {
+        "id": 11,
+        "name": "Cappadocia",
+        "lat": 38.6431,
+        "lng": 34.8303,
+        "categories": [
+            "Architecture",
+            "Nature"
+        ]
+    },
+    {
+        "id": 12,
+        "name": "Great Barrier Reef",
+        "lat": -18.2871,
+        "lng": 147.6992,
+        "categories": [
+            "Nature",
+            "Beaches"
+        ]
+    },
+    {
+        "id": 13,
+        "name": "Angkor Wat",
+        "lat": 13.4125,
+        "lng": 103.8660,
+        "categories": [
+            "Architecture",
+            "History"
+        ]
+    },
+    {
+        "id": 14,
+        "name": "Amsterdam",
+        "lat": 52.3702,
+        "lng": 4.8952,
+        "categories": [
+            "Architecture",
+            "Parties"
+        ]
+    },
+    {
+        "id": 15,
+        "name": "Yosemite National Park",
+        "lat": 37.8651,
+        "lng": -119.5383,
+        "categories": [
+            "Nature"
+        ]
+    },
+    {
+        "id": 16,
+        "name": "Dubai",
+        "lat": 25.2048,
+        "lng": 55.2708,
+        "categories": [
+            "Architecture",
+            "Parties"
+        ]
+    },
+    {
+        "id": 17,
+        "name": "Galapagos Islands",
+        "lat": -0.9624,
+        "lng": -91.7149,
+        "categories": [
+            "Nature"
+        ]
+    },
+    {
+        "id": 18,
+        "name": "Louvre Museum",
+        "lat": 48.8606,
+        "lng": 2.3376,
+        "categories": [
+            "Architecture",
+            "Art"
+        ]
+    },
+    {
+        "id": 19,
+        "name": "British Museum",
+        "lat": 51.5194,
+        "lng": -0.1269,
+        "categories": [
+            "Architecture",
+            "Art"
+        ]
+    },
+    {
+        "id": 20,
+        "name": "Metropolitan Museum of Art",
+        "lat": 40.7794,
+        "lng": -73.9632,
+        "categories": [
+            "Architecture",
+            "Art"
+        ]
+    },
+    {
+        "id": 21,
+        "name": "Hermitage Museum",
+        "lat": 59.9398,
+        "lng": 30.3146,
+        "categories": [
+            "Architecture",
+            "Art"
+        ]
+    },
+    {
+        "id": 22,
+        "name": "Bondi Beach",
+        "lat": -33.8910,
+        "lng": 151.2767,
+        "categories": [
+            "Beaches"
+        ]
+    },
+    {
+        "id": 23,
+        "name": "Copacabana Beach",
+        "lat": -22.9719,
+        "lng": -43.1852,
+        "categories": [
+            "Beaches"
+        ]
+    },
+    {
+        "id": 24,
+        "name": "Waikiki Beach",
+        "lat": 21.2755,
+        "lng": -157.8257,
+        "categories": [
+            "Beaches"
+        ]
+    },
+    {
+        "id": 25,
+        "name": "Ipanema Beach",
+        "lat": -22.9853,
+        "lng": -43.1999,
+        "categories": [
+            "Beaches"
+        ]
+    },
+    {
+        "id": 26,
+        "name": "Yellowstone National Park",
+        "lat": 44.4280,
+        "lng": -110.5885,
+        "categories": [
+            "Nature",
+            "Wildlife",
+            "Adventure"
+        ]
+    },
+    {
+        "id": 27,
+        "name": "Amazon Rainforest",
+        "lat": -3.4653,
+        "lng": -62.2159,
+        "categories": [
+            "Nature",
+            "Wildlife",
+            "Adventure"
+        ]
+    },
+    {
+        "id": 28,
+        "name": "Rocky Mountains",
+        "lat": 51.4273,
+        "lng": -116.1775,
+        "categories": [
+            "Nature",
+            "Adventure"
+        ]
+    },
+    {
+        "id": 29,
+        "name": "Las Vegas Strip",
+        "lat": 36.1699,
+        "lng": -115.1398,
+        "categories": [
+            "Architecture",
+            "Parties",
+            "Shopping"
+        ]
+    },
+    {
+        "id": 30,
+        "name": "Dubai Mall",
+        "lat": 25.1972,
+        "lng": 55.2797,
+        "categories": [
+            "Architecture",
+            "Shopping"
+        ]
+    },
+    {
+        "id": 31,
+        "name": "Paris Fashion District",
+        "lat": 48.8611,
+        "lng": 2.3364,
+        "categories": [
+            "Architecture",
+            "Shopping"
+        ]
+    },
+    {
+        "id": 32,
+        "name": "African Safari",
+        "lat": -3.4653,
+        "lng": 36.5879,
+        "categories": [
+            "Wildlife",
+            "Adventure"
+        ]
+    },
+    {
+        "id": 33,
+        "name": "Barcelona",
+        "lat": 41.3851,
+        "lng": 2.1734,
+        "categories": [
+            "Architecture",
+            "Cuisine",
+            "Culture"
+        ]
+    },
+    {
+        "id": 34,
+        "name": "Seville",
+        "lat": 37.3891,
+        "lng": -5.9845,
+        "categories": [
+            "Architecture",
+            "History",
+            "Culture"
+        ]
+    },
+    {
+        "id": 35,
+        "name": "Madrid",
+        "lat": 40.4168,
+        "lng": -3.7038,
+        "categories": [
+            "Architecture",
+            "Art",
+            "Nightlife"
+        ]
+    },
+    {
+        "id": 36,
+        "name": "Valencia",
+        "lat": 39.4699,
+        "lng": -0.3763,
+        "categories": [
+            "Architecture",
+            "Beaches",
+            "Cuisine"
+        ]
+    },
+    {
+        "id": 37,
+        "name": "Sagrada Familia",
+        "lat": 41.4036,
+        "lng": 2.1744,
+        "categories": [
+            "Architecture"
+        ]
+    },
+    {
+        "id": 38,
+        "name": "Park Güell",
+        "lat": 41.4149,
+        "lng": 2.1527,
+        "categories": [
+            "Architecture",
+            "Nature"
+        ]
+    },
+    {
+        "id": 39,
+        "name": "Alhambra",
+        "lat": 37.1760,
+        "lng": -3.5875,
+        "categories": [
+            "Architecture",
+            "History"
+        ]
+    },
+    {
+        "id": 40,
+        "name": "Plaza de España",
+        "lat": 37.3772,
+        "lng": -5.9869,
+        "categories": [
+            "Architecture"
+        ]
+    },
+    {
+        "id": 41,
+        "name": "Park of the Retiro",
+        "lat": 40.4143,
+        "lng": -3.6827,
+        "categories": [
+            "Nature"
+        ]
+    },
+    {
+        "id": 42,
+        "name": "La Rambla",
+        "lat": 41.3809,
+        "lng": 2.1720,
+        "categories": [
+            "Architecture",
+            "Shopping"
+        ]
+    },
+    {
+        "id": 43,
+        "name": "Ibiza",
+        "lat": 38.9085,
+        "lng": 1.4264,
+        "categories": [
+            "Beaches",
+            "Parties"
+        ]
+    },
+    {
+        "id": 44,
+        "name": "Costa del Sol",
+        "lat": 36.5221,
+        "lng": -4.7809,
+        "categories": [
+            "Beaches"
+        ]
+    },
+    {
+        "id": 45,
+        "name": "Camino de Santiago",
+        "lat": 42.8782,
+        "lng": -8.5448,
+        "categories": [
+            "Adventure"
+        ]
+    },
+    {
+        "id": 46,
+        "name": "La Concha Beach",
+        "lat": 43.3194,
+        "lng": -1.9812,
+        "categories": [
+            "Beaches"
+        ]
+    }
+]

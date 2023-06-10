@@ -1,6 +1,10 @@
-import { GoogleMap, Marker, useLoadScript, DirectionsRenderer, MarkerClusterer } from "@react-google-maps/api";
+import { GoogleMap, Marker, useLoadScript, DirectionsRenderer, MarkerClusterer, InfoBoxF, InfoWindow } from "@react-google-maps/api";
 import { useEffect, useMemo, useState } from "react";
 import "../App.css";
+import locations from "../db.json"
+import { getInitColorSchemeScript } from "@mui/material";
+import MapInfoWindow from "./MapInfoWindow";
+
 
 function GMap() {
     const { isLoaded, loadError } = useLoadScript({
@@ -52,6 +56,7 @@ function GMap() {
     const center = useMemo(() => ({ lat: markersObj.route.start.lat, lng: markersObj.route.start.lng }), []);
 
     const [directions, setDirections] = useState(null);
+    const [selectedLocation, setSelectedLocation] = useState(null);
 
     useEffect(() => {
         if (isLoaded) {
@@ -112,6 +117,32 @@ function GMap() {
                         position={{ lat: markersObj.route.end.lat, lng: markersObj.route.end.lng }}
                         icon={"http://maps.google.com/mapfiles/ms/icons/red-dot.png"}
                     />
+
+                    {locations.map(location => (
+                        <Marker
+                            key={location.name}
+                            position={{
+                                lat: location.lat,
+                                lng: location.lng
+                            }}
+                            onClick={() => {
+                                setSelectedLocation(location)
+                            }}
+                        />
+                    ))}
+                    {selectedLocation && (
+                        <InfoWindow
+                            position={{
+                                lat: selectedLocation.lat,
+                                lng: selectedLocation.lng
+                            }}
+                            onCloseClick={() => {
+                                setSelectedLocation(null);
+                            }}
+                        >
+                            <MapInfoWindow selectedLocation={selectedLocation}></MapInfoWindow>
+                        </InfoWindow>
+                    )}
                 </GoogleMap>
             )}
         </div>
