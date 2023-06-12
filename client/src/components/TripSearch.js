@@ -1,23 +1,13 @@
-import { useRef, useState, useEffect } from 'react';
-// import { useDispath } from 'react-redux';
-// import { setDestination } from '../store/actions';
-
-import { Google, Autocomplete } from "@react-google-maps/api";
-
-import {
-	BrowserRouter as Router,
-	Route,
-	Routes,
-	// Link
-	useNavigate
-} from 'react-router-dom'
-
-
+import { useRef, useState, useEffect, useContext } from 'react';
+import { Autocomplete } from "@react-google-maps/api";
+import { DestinationContext } from '../context';
+import { useNavigate } from 'react-router-dom'
 
 
 function TripSearch({ selectedTripOption }) {
 
-	// const dispatch = useDispath();
+	const [destination, setDestination] = useContext(DestinationContext)
+	const apiKey = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
 
 	const [googleLoaded, setGoogleLoaded] = useState(false);
 	const autocompleteRefA = useRef(null);
@@ -37,29 +27,25 @@ function TripSearch({ selectedTripOption }) {
 		};
 	}, []);
 
-	const [destination, setDestination] = useState({
-		type: selectedTripOption,
-		start: null,
-		midpoint: null,
-		end: null,
-		tags: null
-	});
-
 	const handlePlaceSelect = (place, name) => {
-		console.log(destination.selectedTripOption)
-		console.log(place)
 		const { geometry } = place;
 		if (geometry) {
+			console.log('geometry', geometry)
+			console.log('place', place)
+			console.log('name', name)
+
 			const { lat, lng } = geometry.location;
-			console.log(place, name)
 			setDestination((prevDestination) => ({
 				...prevDestination,
 				type: selectedTripOption,
-				[name]: {
-					// name: place.name,
-					lat: lat(),
-					lng: lng()
-				}
+				coords: {
+					...prevDestination.coords,
+					[name]: {
+						name: place.formatted_address, //returns undefined
+						lat: lat(),
+						lng: lng()
+					},
+				},
 			}));
 		}
 	};
@@ -69,15 +55,8 @@ function TripSearch({ selectedTripOption }) {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-
-		// const destination = event.target.elements.destination.value
-		// dispatch(setDestination(destination))
-
-
-		console.log(destination)
-		navigate('/create')
-		// send destination & setDestination to createMap
-		//send newTrip values to create map page
+		console.log('tripsearch', destination)
+		navigate('/create',)
 		//post values
 	};
 
@@ -87,8 +66,94 @@ function TripSearch({ selectedTripOption }) {
 			{googleLoaded && (
 				<>
 					{selectedTripOption === 'oneWay' &&
-						<div className="flex flex-col items-center justify-center h-72 border-dashed border-2 border-green-800">
-							For one-way trips, enter your start and end points.
+						<div className="flex flex-col items-center justify-center h-72 ">
+							For one-way trips, enter your start and end coords.
+							<form
+								onSubmit={handleSubmit}
+								className='flex flex-col items-center justify-center'
+							>
+								<div>
+									<div className='relative'>
+										<Autocomplete
+											apiKey={apiKey}
+											onLoad={autocomplete => {
+												autocompleteRefA.current = autocomplete;
+												autocomplete.setFields(['geometry']);
+											}}
+											onPlaceChanged={() => handlePlaceSelect(autocompleteRefA.current.getPlace(), 'start')}
+											className='z-[100000]'
+										>
+											<input
+												placeholder="Start"
+												className="border border-gray-500 m-2.5 pl-2 "
+												name='start'
+												value={destination.coords.start ? destination.coords.start.formatted_address : destination.coords.start}
+											/>
+										</Autocomplete>
+									</div>
+
+									<Autocomplete
+										apiKey={apiKey}
+										onLoad={autocomplete => {
+											autocompleteRefB.current = autocomplete;
+											autocomplete.setFields(['geometry']);
+										}}
+										onPlaceChanged={() => handlePlaceSelect(autocompleteRefB.current.getPlace(), 'end')}
+										className='z-[100000]'
+									>
+										<input
+											placeholder="End"
+											className="border border-gray-500 m-2.5 pl-2"
+											name='end'
+											value={destination.coords.end ? destination.coords.end.formatted_address : destination.coords.end}
+										/>
+									</Autocomplete>
+								</div>
+								<button
+									type='submit'
+									className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+									Go!
+								</button>
+							</form>
+						</div>
+					}
+
+					{/* -------------------------- SINGLE DESTINATION ---------------------------------- */}
+
+					{selectedTripOption === 'singleDestination' &&
+						<div className="flex flex-col items-center justify-center h-72 ">
+							For a single destination, enter the main location you want to visit.
+							<form
+								onSubmit={handleSubmit}
+								className='flex flex-col items-center justify-center'
+							>
+								<Autocomplete
+									apiKey={apiKey}
+									onLoad={autocomplete => {
+										autocompleteRefA.current = autocomplete;
+										autocomplete.setFields(['geometry']);
+									}}
+									onPlaceChanged={() => handlePlaceSelect(autocompleteRefA.current.getPlace(), 'start')}
+								>
+									<input
+										placeholder="Destination"
+										className="border border-gray-500 m-2.5 pl-2"
+										name='start'
+										value={destination.coords.start ? destination.coords.start.formatted_address : destination.coords.start}
+									/>
+								</Autocomplete>
+								<button
+									type='submit'
+									className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+									Go!
+								</button>
+							</form>
+						</div>
+					}
+					{/* -------------------------- LOOP TRIP ---------------------------------- */}
+					{selectedTripOption === 'loopTrip' &&
+						<div className="flex flex-col items-center justify-center h-72">
+							For round trips, enter the start and end coords, and the name of a place half way down.
 							<form
 								onSubmit={handleSubmit}
 								className='flex flex-col items-center justify-center'
@@ -104,125 +169,39 @@ function TripSearch({ selectedTripOption }) {
 									>
 										<input
 											placeholder="Start"
-											className="border border-gray-500 m-2.5"
+											className="border border-gray-500 m-2.5 pl-2"
 											name='start'
-											value={destination.start ? destination.start.formatted_address : destination.start}
+											value={destination.coords.start ? destination.coords.start.formatted_address : destination.coords.start}
 										/>
 									</Autocomplete>
-
 									<Autocomplete
 										apiKey={apiKey}
 										onLoad={autocomplete => {
 											autocompleteRefB.current = autocomplete;
 											autocomplete.setFields(['geometry']);
 										}}
-										onPlaceChanged={() => handlePlaceSelect(autocompleteRefB.current.getPlace(), 'end')}
-									>
-										<input
-											placeholder="End"
-											className="border border-gray-500 m-2.5"
-											name='end'
-											value={destination.end ? destination.end.formatted_address : destination.end}
-										/>
-									</Autocomplete>
-								</div>
-								<button
-									type='submit'
-									className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-									Go!
-								</button>
-							</form>
-							<p>Not what you want? <a className="text-blue-500 hover:text-blue-700 cursor-pointer">Go back</a></p>
-
-						</div>
-					}
-
-					{/* -------------------------- SINGLE DESTINATION ---------------------------------- */}
-
-					{selectedTripOption === 'singleDestination' &&
-						<div className="flex flex-col items-center justify-center h-72 border-dashed border-2 border-green-800">
-							For a single destination, enter the main location you want to visit.
-							<form
-								onSubmit={handleSubmit}
-								className='flex flex-col items-center justify-center'
-							>
-								<Autocomplete
-									apiKey={apiKey}
-									onLoad={autocomplete => {
-										autocompleteRefA.current = autocomplete;
-										autocomplete.setFields(['formatted_address']);
-									}}
-								// onPlaceChanged={() => handlePlaceSelect(autocompleteRef.current.getPlace(), 'start')}
-								>
-									<input
-										placeholder="Destination"
-										className="border border-gray-500 m-2.5"
-										name='start'
-										value={destination.start}
-									/>
-								</Autocomplete>
-								<button
-									type='submit'
-									className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-									Go!
-								</button>
-							</form>
-							<p>Not what you want? <a className="text-blue-500 hover:text-blue-700 cursor-pointer">Go back</a></p>
-						</div>
-					}
-					{/* -------------------------- LOOP TRIP ---------------------------------- */}
-					{selectedTripOption === 'loopTrip' &&
-
-						<div className="flex flex-col items-center justify-center h-72 border-dashed border-2 border-green-800">
-							For round trips, enter the start and end points, and the name of a place half way down.
-							<form
-								onSubmit={handleSubmit}
-								className='flex flex-col items-center justify-center'
-							>
-								<div>
-									<Autocomplete
-										apiKey={apiKey}
-										onLoad={autocomplete => {
-											autocompleteRefA.current = autocomplete;
-											autocomplete.setFields(['formatted_address']);
-										}}
-									// onPlaceChanged={() => handlePlaceSelect(autocompleteRef.current.getPlace(), 'start')}
-									>
-										<input
-											placeholder="Start"
-											className="border border-gray-500 m-2.5"
-											name='start'
-											value={destination.start}
-										/>
-									</Autocomplete>
-									<Autocomplete
-										apiKey={apiKey}
-										onLoad={autocomplete => {
-											autocompleteRefB.current = autocomplete;
-											autocomplete.setFields(['formatted_address']);
-										}}
-									// onPlaceChanged={() => handlePlaceSelect(autocompleteRef.current.getPlace(), 'start')}
+										onPlaceChanged={() => handlePlaceSelect(autocompleteRefB.current.getPlace(), 'midpoint')}
 									>
 										<input
 											placeholder="Midpoint"
-											className="border border-gray-500 m-2.5"
+											className="border border-gray-500 m-2.5 pl-2"
 											name='midpoint'
-											value={destination.midpoint}
+											value={destination.coords.midpoint ? destination.coords.midpoint.formatted_address : destination.coords.midpoint}
 										/>
 									</Autocomplete>
 									<Autocomplete
 										apiKey={apiKey}
 										onLoad={autocomplete => {
 											autocompleteRefC.current = autocomplete;
-											autocomplete.setFields(['formatted_address']);
+											autocomplete.setFields(['geometry']);
 										}}
-									// onPlaceChanged={() => handlePlaceSelect(autocompleteRef.current.getPlace(), 'start')}
+										onPlaceChanged={() => handlePlaceSelect(autocompleteRefC.current.getPlace(), 'end')}
 									>
 										<input
 											placeholder="End"
-											className="border border-gray-500 m-2.5"
+											className="border border-gray-500 m-2.5 pl-2"
 											name='end'
-											value={destination.end}
+											value={destination.coords.end ? destination.coords.end.formatted_address : destination.coords.end}
 										/>
 									</Autocomplete>
 								</div>
@@ -232,10 +211,7 @@ function TripSearch({ selectedTripOption }) {
 									Go!
 								</button>
 							</form>
-							<p>Not what you want? <a className="text-blue-500 hover:text-blue-700 cursor-pointer">Go back</a></p>
-
 						</div>
-
 					}
 				</>
 			)}

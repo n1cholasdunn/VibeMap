@@ -21,14 +21,6 @@
   width: 100%;
 }
 
-nav {
-  border: 1px dashed green;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 20px;
-}
 
 .main {
   border: 1px dashed green;

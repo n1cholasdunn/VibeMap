@@ -3,15 +3,29 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import { useEffect, useState } from 'react';
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
-function CategorySearch() {
+function CategorySearch({ setSelectedCategories, selectedCategories }) {
+
+    const handleCategories = (event, value) => {
+        console.log('category changed')
+        console.log('value ==> ', value)
+        setSelectedCategories(value)
+
+    }
+    useEffect(() => {
+        console.log('categoy sel:', selectedCategories)
+
+    }, [selectedCategories])
+
+
     return (
+
         <Autocomplete
             multiple
-            id="checkboxes-tags-demo"
             options={categories}
             disableCloseOnSelect
             getOptionLabel={(option) => option.categoryName}
@@ -20,21 +34,27 @@ function CategorySearch() {
                     <Checkbox
                         icon={icon}
                         checkedIcon={checkedIcon}
-                        style={{ marginRight: 8 }}
+                        style={{ marginRight: 8, }}
+                        className='z-0'
                         checked={selected}
                     />
                     {option.categoryName}
                 </li>
             )}
-            style={{ width: 500 }}
+            style={{ width: 500, }}
+            value={selectedCategories}
+            onChange={handleCategories}
+
             renderInput={(params) => (
-                <TextField {...params} label="Checkboxes" placeholder="Favorites" />
+
+                <TextField {...params} label="Your vibe is..." placeholder="Interests" />
+
             )}
+
         />
     );
 }
 
-// Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
 const categories = [
     { "categoryName": "Adventure" },
     { "categoryName": "Architecture" },
