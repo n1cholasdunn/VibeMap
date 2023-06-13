@@ -1097,5 +1097,511 @@
             "History"
         ],
         "address": "Savannah, Georgia, USA"
+    },
+    {
+        "id": 103,
+        "name": "Casa Batlló",
+        "lat": 41.3916,
+        "lng": 2.1649,
+        "categories": [
+            "Architecture",
+            "Art"
+        ],
+        "address": "Barcelona, Spain"
+    },
+    {
+        "id": 104,
+        "name": "Montserrat Monastery",
+        "lat": 41.5956,
+        "lng": 1.8359,
+        "categories": [
+            "Architecture",
+            "History"
+        ],
+        "address": "Montserrat, Spain"
+    },
+    {
+        "id": 105,
+        "name": "Poble Espanyol",
+        "lat": 41.3689,
+        "lng": 2.1499,
+        "categories": [
+            "Architecture",
+            "Culture"
+        ],
+        "address": "Barcelona, Spain"
+    },
+    {
+        "id": 106,
+        "name": "Aljafería Palace",
+        "lat": 41.6520,
+        "lng": -0.8956,
+        "categories": [
+            "Architecture",
+            "History"
+        ],
+        "address": "Zaragoza, Spain"
+    },
+    {
+        "id": 107,
+        "name": "Basilica of Our Lady of the Pillar",
+        "lat": 41.6563,
+        "lng": -0.8787,
+        "categories": [
+            "Architecture",
+            "Religion"
+        ],
+        "address": "Zaragoza, Spain"
+    },
+    {
+        "id": 108,
+        "name": "Prado Museum",
+        "lat": 40.4138,
+        "lng": -3.6922,
+        "categories": [
+            "Art",
+            "History"
+        ],
+        "address": "Madrid, Spain"
+    },
+    {
+        "id": 109,
+        "name": "Royal Palace of Madrid",
+        "lat": 40.4179,
+        "lng": -3.7144,
+        "categories": [
+            "Architecture",
+            "History"
+        ],
+        "address": "Madrid, Spain"
+    },
+    {
+        "id": 111,
+        "name": "Boqueria Market",
+        "lat": 41.3816,
+        "lng": 2.1722,
+        "categories": [
+            "Cuisine",
+            "Shopping"
+        ],
+        "address": "Barcelona, Spain"
+    },
+    {
+        "id": 112,
+        "name": "San Miguel Market",
+        "lat": 40.4155,
+        "lng": -3.7097,
+        "categories": [
+            "Cuisine",
+            "Shopping"
+        ],
+        "address": "Madrid, Spain"
+    },
+    {
+        "id": 113,
+        "name": "Mercado de San Miguel",
+        "lat": 40.4173,
+        "lng": -3.7088,
+        "categories": [
+            "Cuisine",
+            "Shopping"
+        ],
+        "address": "Madrid, Spain"
+    },
+    {
+        "id": 114,
+        "name": "Taberna el Sur",
+        "lat": 40.4165,
+        "lng": -3.7084,
+        "categories": [
+            "Cuisine",
+            "Nightlife"
+        ],
+        "address": "Madrid, Spain"
+    },
+    {
+        "id": 115,
+        "name": "Can Paixano (La Xampanyeria)",
+        "lat": 41.3827,
+        "lng": 2.1837,
+        "categories": [
+            "Cuisine",
+            "Nightlife"
+        ],
+        "address": "Barcelona, Spain"
+    },
+    {
+        "id": 116,
+        "name": "La Botillería",
+        "lat": 41.3843,
+        "lng": 2.1766,
+        "categories": [
+            "Cuisine",
+            "Nightlife"
+        ],
+        "address": "Barcelona, Spain"
+    },
+    {
+        "id": 117,
+        "name": "El Tubo",
+        "lat": 41.6504,
+        "lng": -0.8828,
+        "categories": [
+            "Cuisine",
+            "Nightlife"
+        ],
+        "address": "Zaragoza, Spain"
+    },
+    {
+        "id": 118,
+        "name": "Mercado Central",
+        "lat": 39.4746,
+        "lng": -0.3774,
+        "categories": [
+            "Cuisine",
+            "Shopping"
+        ],
+        "address": "Valencia, Spain"
+    },
+    {
+        "id": 119,
+        "name": "Mercado de San Miguel",
+        "lat": 41.6526,
+        "lng": -0.8816,
+        "categories": [
+            "Cuisine",
+            "Shopping"
+        ],
+        "address": "Zaragoza, Spain"
+    },
+    {
+        "id": 120,
+        "name": "Mercat de Sant Josep de la Boqueria",
+        "lat": 41.3809,
+        "lng": 2.1726,
+        "categories": [
+            "Cuisine",
+            "Shopping"
+        ],
+        "address": "Barcelona, Spain"
+    },
+    {
+        "id": 121,
+        "name": "Astronomy Park",
+        "lat": 41.6379,
+        "lng": 0.6976,
+        "categories": [
+            "Nature",
+            "Relaxation"
+        ],
+        "address": "Lleida, Spain"
+    },
+    {
+        "id": 122,
+        "name": "Lleida Museum of Art",
+        "lat": 41.6155,
+        "lng": 0.6236,
+        "categories": [
+            "Art",
+            "History"
+        ],
+        "address": "Carrer de la Panereta, 10, 25002 Lleida, Spain"
+    },
+    {
+        "id": 123,
+        "name": "Segre Olympic Park",
+        "lat": 41.6283,
+        "lng": 0.5977,
+        "categories": [
+            "Sports",
+            "Relaxation"
+        ],
+        "address": "Av. de Tortosa, 24, 25005 Lleida, Spain"
+    },
+    {
+        "id": 125,
+        "name": "Les Basses Beach",
+        "lat": 41.5701,
+        "lng": 0.7224,
+        "categories": [
+            "Beaches",
+            "Nature"
+        ],
+        "address": "El Pont de Suert, 25520 Lleida, Spain"
+    },
+    {
+        "id": 126,
+        "name": "Table Mountain",
+        "lat": -33.9625,
+        "lng": 18.4099,
+        "categories": [
+            "Nature",
+            "Adventure"
+        ],
+        "address": "Table Mountain National Park, Cape Town, South Africa"
+    },
+    {
+        "id": 127,
+        "name": "Robben Island",
+        "lat": -33.8067,
+        "lng": 18.3665,
+        "categories": [
+            "History",
+            "Culture"
+        ],
+        "address": "Robben Island, Cape Town, South Africa"
+    },
+    {
+        "id": 128,
+        "name": "Kruger National Park",
+        "lat": -24.4844,
+        "lng": 31.4179,
+        "categories": [
+            "Wildlife",
+            "Nature"
+        ],
+        "address": "Kruger National Park, South Africa"
+    },
+    {
+        "id": 129,
+        "name": "Boulders Beach",
+        "lat": -34.1914,
+        "lng": 18.4515,
+        "categories": [
+            "Beaches",
+            "Wildlife"
+        ],
+        "address": "Boulders Beach, Cape Town, South Africa"
+    },
+    {
+        "id": 130,
+        "name": "V&A Waterfront",
+        "lat": -33.9078,
+        "lng": 18.4207,
+        "categories": [
+            "Shopping",
+            "Nightlife"
+        ],
+        "address": "V&A Waterfront, Cape Town, South Africa"
+    },
+    {
+        "id": 131,
+        "name": "Stellenbosch Wine Route",
+        "lat": -33.9321,
+        "lng": 18.8602,
+        "categories": [
+            "Wine",
+            "Cuisine"
+        ],
+        "address": "Stellenbosch, Western Cape, South Africa"
+    },
+    {
+        "id": 132,
+        "name": "Franschhoek Wine Tram",
+        "lat": -33.9088,
+        "lng": 19.1194,
+        "categories": [
+            "Wine",
+            "Cuisine"
+        ],
+        "address": "Franschhoek, Western Cape, South Africa"
+    },
+    {
+        "id": 133,
+        "name": "Constantia Wine Route",
+        "lat": -34.0257,
+        "lng": 18.4259,
+        "categories": [
+            "Wine",
+            "Cuisine"
+        ],
+        "address": "Constantia, Cape Town, South Africa"
+    },
+    {
+        "id": 134,
+        "name": "Hemel-en-Aarde Valley",
+        "lat": -34.4062,
+        "lng": 19.1927,
+        "categories": [
+            "Wine",
+            "Nature"
+        ],
+        "address": "Hemel-en-Aarde Valley, Hermanus, South Africa"
+    },
+    {
+        "id": 135,
+        "name": "Paarl Wine Route",
+        "lat": -33.7326,
+        "lng": 18.9647,
+        "categories": [
+            "Wine",
+            "Cuisine"
+        ],
+        "address": "Paarl, Western Cape, South Africa"
+    },
+    {
+        "id": 136,
+        "name": "Ilha Grande",
+        "lat": -23.1565,
+        "lng": -44.2436,
+        "categories": [
+            "Nature",
+            "Beaches"
+        ],
+        "address": "Ilha Grande, Rio de Janeiro, Brazil"
+    },
+    {
+        "id": 137,
+        "name": "Chapada Diamantina National Park",
+        "lat": -12.4816,
+        "lng": -41.4925,
+        "categories": [
+            "Nature",
+            "Hiking"
+        ],
+        "address": "Chapada Diamantina National Park, Bahia, Brazil"
+    },
+    {
+        "id": 138,
+        "name": "Pelourinho",
+        "lat": -12.9717,
+        "lng": -38.5108,
+        "categories": [
+            "History",
+            "Party"
+        ],
+        "address": "Pelourinho, Salvador, Brazil"
+    },
+    {
+        "id": 139,
+        "name": "Ipanema Beach",
+        "lat": -22.9856,
+        "lng": -43.2030,
+        "categories": [
+            "Beaches",
+            "Party"
+        ],
+        "address": "Ipanema Beach, Rio de Janeiro, Brazil"
+    },
+    {
+        "id": 140,
+        "name": "Mercado Municipal de São Paulo",
+        "lat": -23.5421,
+        "lng": -46.6324,
+        "categories": [
+            "Food",
+            "Shopping"
+        ],
+        "address": "Mercado Municipal de São Paulo, São Paulo, Brazil"
+    },
+    {
+        "id": 141,
+        "name": "Fernando de Noronha",
+        "lat": -3.8391,
+        "lng": -32.4115,
+        "categories": [
+            "Nature",
+            "Beaches"
+        ],
+        "address": "Fernando de Noronha, Pernambuco, Brazil"
+    },
+    {
+        "id": 142,
+        "name": "Copacabana Beach",
+        "lat": -22.9719,
+        "lng": -43.1868,
+        "categories": [
+            "Beaches",
+            "Party"
+        ],
+        "address": "Copacabana Beach, Rio de Janeiro, Brazil"
+    },
+    {
+        "id": 143,
+        "name": "Mercado Modelo",
+        "lat": -12.9717,
+        "lng": -38.5084,
+        "categories": [
+            "Shopping",
+            "Food"
+        ],
+        "address": "Mercado Modelo, Salvador, Brazil"
+    },
+    {
+        "id": 144,
+        "name": "Jardim Botânico",
+        "lat": -23.5866,
+        "lng": -46.6587,
+        "categories": [
+            "Nature",
+            "Relaxation"
+        ],
+        "address": "Jardim Botânico, São Paulo, Brazil"
+    },
+    {
+        "id": 145,
+        "name": "Barra da Tijuca",
+        "lat": -23.0102,
+        "lng": -43.3344,
+        "categories": [
+            "Beaches",
+            "Water Sports"
+        ],
+        "address": "Barra da Tijuca, Rio de Janeiro, Brazil"
+    },
+    {
+        "id": 146,
+        "name": "Inhotim",
+        "lat": -20.1253,
+        "lng": -44.2222,
+        "categories": [
+            "Art",
+            "Nature"
+        ],
+        "address": "Inhotim, Brumadinho, Minas Gerais, Brazil"
+    },
+    {
+        "id": 147,
+        "name": "Ouro Preto",
+        "lat": -20.3846,
+        "lng": -43.5037,
+        "categories": [
+            "History",
+            "Architecture"
+        ],
+        "address": "Ouro Preto, Minas Gerais, Brazil"
+    },
+    {
+        "id": 148,
+        "name": "Serra do Cipó National Park",
+        "lat": -19.3667,
+        "lng": -43.4833,
+        "categories": [
+            "Nature",
+            "Hiking"
+        ],
+        "address": "Serra do Cipó National Park, Santana do Riacho, Minas Gerais, Brazil"
+    },
+    {
+        "id": 149,
+        "name": "Tiradentes",
+        "lat": -21.1100,
+        "lng": -44.1750,
+        "categories": [
+            "History",
+            "Cuisine"
+        ],
+        "address": "Tiradentes, Minas Gerais, Brazil"
+    },
+    {
+        "id": 150,
+        "name": "Cachoeira do Tabuleiro",
+        "lat": -19.2386,
+        "lng": -43.4730,
+        "categories": [
+            "Nature",
+            "Waterfall"
+        ],
+        "address": "Cachoeira do Tabuleiro, Conceição do Mato Dentro, Minas Gerais, Brazil"
     }
 ]

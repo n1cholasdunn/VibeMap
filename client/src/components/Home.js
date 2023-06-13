@@ -1,6 +1,5 @@
-import Explore from "./Explore"
+import Explore from "./map/Explore"
 import Suggestions from "./Suggestions"
-import NavBar from "./NavBar"
 
 function Home() {
 	return (
@@ -21,9 +20,7 @@ function Home() {
 					</div>
 				</div>
 			</div >
-
-			<Suggestions />
-
+			{/* <Suggestions /> */}
 		</>
 	)
 }

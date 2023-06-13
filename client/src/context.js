@@ -14,11 +14,28 @@ export const DestinationProvider = ({ children }) => {
             end: null,
         },
         categories: null, // tags will be an array of objects
-        points: []
+        points: [],
+        description: null
     });
 
+    const clearDestination = () => {
+        setDestination({
+            id: null,
+            user: null,
+            type: null,
+            coords: {
+                start: null,
+                midpoint: null,
+                end: null,
+            },
+            categories: null,
+            points: [],
+            description: null
+        });
+    };
+
     return (
-        <DestinationContext.Provider value={[destination, setDestination]}>
+        <DestinationContext.Provider value={[destination, setDestination, clearDestination]}>
             {children}
         </DestinationContext.Provider>
     )

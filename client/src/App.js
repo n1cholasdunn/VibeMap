@@ -8,10 +8,10 @@ import {
   Routes,
   // Link
 } from 'react-router-dom'
-import NavBar from './components/NavBar';
-import CreateMap from './components/CreateMap';
 import Home from './components/Home';
-import UserProfile from './components/UserProfile';
+import NavBar from './components/NavBar';
+import UserProfile from './components/user/UserProfile';
+import CreateMap from './components/map/CreateMap';
 
 function App() {
 
