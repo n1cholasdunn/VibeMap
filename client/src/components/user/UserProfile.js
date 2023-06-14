@@ -58,7 +58,7 @@ function UserProfile() {
 						</button>
 					</div >
 
-					<div className="grid grid-cols-2 h-auto gap-4 p-5">
+					<div className="grid grid-cols-2 h-[650px] gap-4 p-5">
 						{userTrips.map(trip => (
 							<ItineraryItem trip={trip} />
 						))}

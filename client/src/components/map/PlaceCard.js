@@ -63,7 +63,7 @@ function PlaceCard({ location, onClick }) {
                     ))}
                 </div>
             </div>
-            <div>
+            <div className="align-start justify-end">
                 <h3
                     className="text-xl h-8"
                     onClick={toggleFavourites}>
@@ -71,7 +71,7 @@ function PlaceCard({ location, onClick }) {
                     {/* ON LIKED PLACE CALL HANDLE SUBMIT */}
                 </h3>
                 <button
-                    className="text-md self-cente hover:text-gray-500 font-normal p-1"
+                    className="text-md self-cente hover:text-gray-500 font-sm p-1"
                     onClick={handleClick}>More Info +</button>
 
 
