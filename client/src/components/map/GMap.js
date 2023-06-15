@@ -147,7 +147,9 @@ const GMap = ({ filteredLocations }) => {
 
           {locations.filter(filteredLocations).map((location) => (
             <Marker
+
               key={location.id}
+
               position={{
                 lat: location.lat,
                 lng: location.lng,

@@ -13,7 +13,7 @@ const TripSearch = ({ selectedTripOption }) => {
   const autocompleteRefC = useRef(null);
 
   useEffect(() => {
-    console.log(apiKey);
+
     const script = document.createElement('script');
     script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`;
     script.onload = () => {
@@ -96,6 +96,7 @@ const TripSearch = ({ selectedTripOption }) => {
                       />
                     </Autocomplete>
                   </div>
+
 
                   <Autocomplete
                     apiKey={apiKey}
@@ -266,5 +267,6 @@ const TripSearch = ({ selectedTripOption }) => {
     </>
   );
 };
+
 
 export default TripSearch;
