@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import Login from "./user/Login"
+
 
 function NavBar() {
 
@@ -21,11 +21,7 @@ function NavBar() {
 
 			</div>
 			<div className="flex-none">
-				{/* <div className="flex flex-row">
-					<Login />
-					<a className="p-6 text-white hover:text-slate-800 drop-shadow-lg text-lg">Sign Up</a>
-				</div> */}
-				{/* only when loged in */}
+
 				<div className="dropdown dropdown-end">
 					<label tabIndex={0} className="btn btn-ghost btn-circle avatar">
 						<div className="w-10 rounded-full">
