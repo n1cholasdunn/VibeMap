@@ -1,5 +1,5 @@
 import Explore from "./map/Explore"
-import Suggestions from "./Suggestions"
+
 
 function Home() {
 	return (
@@ -20,7 +20,7 @@ function Home() {
 					</div>
 				</div>
 			</div >
-			{/* <Suggestions /> */}
+
 		</>
 	)
 }

@@ -57,7 +57,7 @@ function TripSearch({ selectedTripOption }) {
 
 		console.log('tripsearch', destination)
 		navigate('/create',)
-		//post values
+
 	};
 
 	return (

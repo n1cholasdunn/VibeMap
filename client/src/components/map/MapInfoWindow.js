@@ -35,8 +35,7 @@ function MapInfoWindow({ selectedLocation }) {
 
         console.log('MAP INFO WINDOW ADD TO MAP FUNC')
         console.log('SEL. LOC==>', destination)
-        // add location clicked to faves
-        // once clicked, change icon to heart
+
     }
 
     return (

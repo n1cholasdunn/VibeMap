@@ -43,8 +43,7 @@ function PlaceCard({ location, onClick }) {
 
 
         console.log('placecard ADD TO MAP FUNC', destination)
-        // add location clicked to faves
-        // once clicked, change icon to heart
+
     }
 
     return (
@@ -68,7 +67,6 @@ function PlaceCard({ location, onClick }) {
                     className="text-xl h-8"
                     onClick={toggleFavourites}>
                     {likedPlace ? "✔️" : "♡"}
-                    {/* ON LIKED PLACE CALL HANDLE SUBMIT */}
                 </h3>
                 <button
                     className="text-md self-cente hover:text-gray-500 font-sm p-1"

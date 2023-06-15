@@ -9,7 +9,7 @@ import locations from "../../db.json"
 import { postUserTrip } from "../../services/tripService";
 import { getDistance } from 'geolib'
 import { fetchPlaceInfo } from "../../services/googlePlacesService";
-// import ViewMap from "../user/ViewMap";
+
 
 function CreateMap() {
 
@@ -47,7 +47,7 @@ function CreateMap() {
 	const handleAddPoint = (e) => {
 		e.preventDefault();
 
-		// const placeCategory = POP UP INPUT VALUE
+
 		if (selectedPlaceFromSearch) {
 			const { geometry } = selectedPlaceFromSearch;
 			const { lat, lng } = geometry.location;
@@ -182,7 +182,7 @@ function CreateMap() {
 					</div>
 				</div>
 			</div >
-			{/* <ViewMap /> */}
+
 
 		</>
 	)
