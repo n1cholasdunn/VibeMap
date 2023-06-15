@@ -31,7 +31,7 @@ type DestinationProviderProps = {
   children: ReactNode;
 };
 
-const DestinationProvider = ({ children }: DestinationProviderProps) => {
+export const DestinationProvider = ({ children }: DestinationProviderProps) => {
   const [destination, setDestination] = useState<Destination>({
     id: null,
     user: null,
@@ -70,4 +70,4 @@ const DestinationProvider = ({ children }: DestinationProviderProps) => {
   );
 };
 
-export default DestinationProvider;
+// export default DestinationProvider;
