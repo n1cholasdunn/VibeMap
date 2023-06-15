@@ -96,6 +96,7 @@ const TripSearch = ({ selectedTripOption }) => {
                     </Autocomplete>
                   </div>
 
+
                   <Autocomplete
                     apiKey={apiKey}
                     onLoad={(autocomplete) => {

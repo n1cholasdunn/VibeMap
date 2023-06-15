@@ -1,6 +1,7 @@
 import { DestinationContext } from '../../context';
 import { useContext, useState } from 'react';
 
+
 const MapInfoWindow = ({ selectedLocation }) => {
   const [destination, setDestination] = useContext(DestinationContext);
 
@@ -61,3 +62,4 @@ const MapInfoWindow = ({ selectedLocation }) => {
 };
 
 export default MapInfoWindow;
+

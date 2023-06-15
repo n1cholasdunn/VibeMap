@@ -176,6 +176,7 @@ const CreateMap = () => {
               onClick={handleAddPoint}
               className='
 							hover:text-white hover:bg-gray-400 hover:drop-shadow-lg
+
 							text-sm border border-gray-300 p-2 rounded-xl w-28 h-full'>
               + Add to Map
             </button>
@@ -199,3 +200,5 @@ const CreateMap = () => {
 };
 
 export default CreateMap;
+
+

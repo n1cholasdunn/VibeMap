@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react';
 import { DestinationContext } from '../../context';
 
+
 const PlaceCard = ({ location, onClick }) => {
   const [destination, setDestination] = useContext(DestinationContext);
 
@@ -70,3 +71,4 @@ const PlaceCard = ({ location, onClick }) => {
 };
 
 export default PlaceCard;
+

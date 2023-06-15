@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom';
+
+import { Link } from "react-router-dom"
+
 
 const NavBar = () => {
   const clearSelection = () => {
@@ -40,4 +42,6 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+
+export default NavBar
+
