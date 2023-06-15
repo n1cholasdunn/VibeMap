@@ -1,9 +1,10 @@
-require('dotenv').config();
-const express = require('express');
-const sequelize = require('./models/models.index');
-const cors = require('cors');
+import 'dotenv/config';
+import cors from 'cors';
+import express from 'express';
+import sequelize from './models';
+import router from './router';
+
 const app = express();
-const router = require('./router');
 
 console.log(process.env.port);
 app.use(cors());

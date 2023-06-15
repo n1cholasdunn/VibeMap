@@ -1,4 +1,4 @@
-const { Sequelize } = require('sequelize');
+import { Sequelize } from 'sequelize';
 
 const sequelize = new Sequelize('VibeMap', 'postgres', 'admin', {
   host: 'localhost',
@@ -6,4 +6,4 @@ const sequelize = new Sequelize('VibeMap', 'postgres', 'admin', {
   port: 5432,
 });
 
-module.exports = sequelize;
+export default sequelize;
