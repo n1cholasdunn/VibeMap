@@ -7,13 +7,16 @@ import { useEffect } from 'react';
 
 const icon = <CheckBoxOutlineBlankIcon fontSize='small' />;
 const checkedIcon = <CheckBoxIcon fontSize='small' />;
+
 const CategorySearch = ({ setSelectedCategories, selectedCategories }) => {
+
   const handleCategories = (event, value) => {
     console.log('category changed');
     console.log('value ==> ', value);
     setSelectedCategories(value);
   };
   useEffect(() => {
+    console.log(handleCategories())
     console.log('categoy sel:', selectedCategories);
   }, [selectedCategories]);
 
