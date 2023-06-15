@@ -1,7 +1,7 @@
 import sequelize from '../models/index';
 import { Request, Response } from 'express';
 const LocationPoint = sequelize.models.LocationPoint;
-
+//updated
 export const postLocationPoint = async (req: Request, res: Response) => {
   const { type, start, midpoint, end } = req.body;
   try {
@@ -24,6 +24,7 @@ export const getLocationPoint = async (req: Request, res: Response) => {
   try {
     const trips = await LocationPoint.findAll({});
     trips.forEach((trip: { start: string; midpoint: string; end: string }) => {
+      // trips.forEach((trip: { start: string; midpoint: string; end: string }) => {
       trip.start = JSON.parse(trip.start);
       trip.midpoint = JSON.parse(trip.midpoint);
       trip.end = JSON.parse(trip.end);

@@ -5,6 +5,7 @@ import sequelize from './models';
 import router from './router';
 
 const app = express();
+const port = 3333;
 
 console.log(process.env.port);
 app.use(cors());
@@ -16,7 +17,6 @@ app.use('/', router);
     await sequelize.sync();
     console.log('Connected to the db at port 5433 🟦');
     // Start server
-    const port = 3333;
     app.listen(port, () => {
       console.log(`Server listening on port ${port} 🟩`);
     });

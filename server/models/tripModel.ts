@@ -29,11 +29,11 @@ class Trip extends Model<TripAttributes> implements TripAttributes {
 
 Trip.init(
   {
-    id: {
-      type: DataTypes.STRING,
-      primaryKey: true,
-      allowNull: false,
-    },
+    // id: {
+    //   type: DataTypes.INTEGER,
+    //   primaryKey: true,
+    //   allowNull: false,
+    // },
     user: {
       type: DataTypes.STRING,
       primaryKey: false,
