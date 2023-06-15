@@ -19,6 +19,12 @@ export const postLocationPoint = async (req: Request, res: Response) => {
     res.status(400).json({ message: messageErr });
   }
 };
+interface tripTypes {
+  type: string;
+  start: string;
+  midpoint: string;
+  end: string;
+}
 
 export const getLocationPoint = async (req: Request, res: Response) => {
   try {
