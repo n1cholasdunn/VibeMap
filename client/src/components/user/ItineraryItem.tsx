@@ -8,43 +8,9 @@ import {
   useLoadScript,
   DirectionsRenderer,
 } from '@react-google-maps/api';
+import type { tripProps } from '../../services/tripService';
 
-type tripProps = {
-  trip: {
-    id?: null | Number;
-    user?: null | String; //not sure on this type
-    category?: null | {
-      categoryName: String;
-    };
-    coords: {
-      end?: null | {
-        lat: Number;
-        lng: Number;
-      };
-      midpoint?: null | {
-        lat: Number;
-        lng: Number;
-      };
-      start: null | {
-        lat: Number;
-        lng: Number;
-      };
-    };
-    description: String | null;
-    points: [
-      {
-        id: null | Number;
-        name: String;
-        lat: Number;
-        lng: Number;
-        address: String;
-        categories: String[];
-      }
-    ];
-    type: String;
-  };
-};
-
+// const ItineraryItem = ({ trip }) => {
 const ItineraryItem = ({ trip }: tripProps) => {
   const apiKey = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
 
@@ -65,7 +31,7 @@ const ItineraryItem = ({ trip }: tripProps) => {
     return () => {
       document.head.removeChild(script);
     };
-  }, []);
+  }, [apiKey]);
 
   const [directions, setDirections] = useState(null);
 
@@ -76,9 +42,9 @@ const ItineraryItem = ({ trip }: tripProps) => {
   const generateEndPoint = () => {
     if (trip.type === 'singleDestination') {
       return null;
-    } else if (trip.type === 'oneWay') {
+    } else if (trip.type === 'oneWay' && trip.coords.end) {
       return { lat: trip.coords.end.lat, lng: trip.coords.end.lng };
-    } else if (trip.type === 'loopTrip') {
+    } else if (trip.type === 'loopTrip' && trip.coords.start) {
       return { lat: trip.coords.start.lat, lng: trip.coords.start.lng };
     }
   };
@@ -86,7 +52,7 @@ const ItineraryItem = ({ trip }: tripProps) => {
   const generateWaypoints = () => {
     if (trip.type === 'singleDestination' || trip.type === 'oneWay') {
       return null;
-    } else {
+    } else if (trip.coords.midpoint && trip.coords.end) {
       return [
         { location: `${trip.coords.midpoint.lat},${trip.coords.midpoint.lng}` },
         { location: `${trip.coords.end.lat},${trip.coords.end.lng}` },
@@ -95,8 +61,8 @@ const ItineraryItem = ({ trip }: tripProps) => {
   };
 
   const center = useMemo(
-    () => ({ lat: trip.coords.start.lat, lng: trip.coords.start.lng }),
-    []
+    () => ({ lat: trip.coords.start?.lat, lng: trip.coords.start?.lng }),
+    [trip.coords.start]
   );
 
   const mapZoom = () => {
@@ -110,7 +76,10 @@ const ItineraryItem = ({ trip }: tripProps) => {
   useEffect(() => {
     if (isLoaded) {
       const directionsService = new window.google.maps.DirectionsService();
-      const start = { lat: trip.coords.start.lat, lng: trip.coords.start.lng };
+      const start = {
+        lat: trip.coords.start?.lat,
+        lng: trip.coords.start?.lng,
+      };
 
       directionsService.route(
         {
