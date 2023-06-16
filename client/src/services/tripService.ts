@@ -63,7 +63,7 @@ export type tripProps = {
         categories: String[];
       }
     ];
-    updatedAt: String;
+    updatedAt?: String;
     type: String;
   };
 };
