@@ -12,7 +12,43 @@ export async function getUserTrips() {
   }
 }
 
-export async function postUserTrip(newUserTrip) {
+export type tripProps = {
+  trip: {
+    id?: null | Number;
+    user?: null | String; //not sure on this type
+    category?: null | {
+      categoryName: String;
+    };
+    coords: {
+      end?: null | {
+        lat: Number;
+        lng: Number;
+      };
+      midpoint?: null | {
+        lat: Number;
+        lng: Number;
+      };
+      start: null | {
+        lat: Number;
+        lng: Number;
+      };
+    };
+    description: String | null;
+    points: [
+      {
+        id: null | Number;
+        name: String;
+        lat: Number;
+        lng: Number;
+        address: String;
+        categories: String[];
+      }
+    ];
+    updatedAt: String;
+    type: String;
+  };
+};
+export async function postUserTrip(newUserTrip: tripProps) {
   try {
     const response = await fetch(url + '/trips', {
       method: 'POST',
@@ -22,7 +58,7 @@ export async function postUserTrip(newUserTrip) {
       body: JSON.stringify(newUserTrip),
     });
     const res = await response.json();
-    console.log(res);
+    console.log(res, 'THIS IS THE NEWUSERTRIP');
     return res;
   } catch (error) {
     console.log(error, 'NOT POSTED');
