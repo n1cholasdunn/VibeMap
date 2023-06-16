@@ -11,6 +11,25 @@ export async function getUserTrips() {
     return error;
   }
 }
+export async function postUserTrip(newUserTrip: tripProps) {
+  try {
+    const response = await fetch(url + '/trips', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newUserTrip),
+    });
+    const res = await response.json();
+    console.log(res, 'THIS IS THE NEWUSERTRIP');
+    return res;
+  } catch (error) {
+    console.log(error, 'NOT POSTED');
+    return error;
+  }
+}
+
+export async function editUserTrip() {}
 
 export type tripProps = {
   trip: {
@@ -48,22 +67,3 @@ export type tripProps = {
     type: String;
   };
 };
-export async function postUserTrip(newUserTrip: tripProps) {
-  try {
-    const response = await fetch(url + '/trips', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newUserTrip),
-    });
-    const res = await response.json();
-    console.log(res, 'THIS IS THE NEWUSERTRIP');
-    return res;
-  } catch (error) {
-    console.log(error, 'NOT POSTED');
-    return error;
-  }
-}
-
-export async function editUserTrip() {}
