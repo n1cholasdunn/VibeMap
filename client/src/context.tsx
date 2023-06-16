@@ -1,21 +1,30 @@
+import { GeolibInputCoordinates } from 'geolib/es/types';
 import React, { createContext, useState } from 'react';
-import type { ReactNode } from 'react';
+import type { DetailedHTMLProps, InputHTMLAttributes, ReactNode } from 'react';
 
 
 
 export interface Coords {
-  end?: null | {
-    lat: Number;
-    lng: Number;
+  end?: {
+    formatted_address: string | number | readonly string[] | undefined
+    lat: GeolibInputCoordinates | undefined;
+    lng: GeolibInputCoordinates | undefined;
   };
-  midpoint?: null | {
-    lat: Number;
-    lng: Number;
+  midpoint?: {
+    formatted_address: string | number | readonly string[] | undefined
+    lat: GeolibInputCoordinates | undefined;
+    lng: GeolibInputCoordinates | undefined;
   };
-  start: null | {
-    lat: Number;
-    lng: Number;
+  start: {
+    formatted_address: string | number | readonly string[] | undefined
+    lat: GeolibInputCoordinates | undefined;
+    lng: GeolibInputCoordinates | undefined;
   };
+}
+
+
+export interface Points {
+  formatted_address: string | number | readonly string[] | undefined
 }
 
 export interface Destination {
@@ -24,7 +33,7 @@ export interface Destination {
   type: string | null;
   coords: Coords;
   categories: any[] | null; // You can replace `any` with a specific type
-  points: any[]; // You can replace `any` with a specific type
+  points: any; // You can replace `any` with a specific type
   description: string | null;
 }
 

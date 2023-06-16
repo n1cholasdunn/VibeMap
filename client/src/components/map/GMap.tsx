@@ -12,6 +12,9 @@ import MapInfoWindow from './MapInfoWindow';
 import { Destination, DestinationContext } from '../../context';
 import React from 'react';
 
+type Route = google.maps.DirectionsResult
+
+
 interface Location {
     id: string
     name: string
