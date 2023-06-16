@@ -4,29 +4,25 @@ import { DestinationContext } from '../../context';
 import { useNavigate } from 'react-router-dom';
 import React from 'react';
 import { Destination } from '../../context';
+import { AutoComplete, Place } from './CreateMap';
 
 
-interface Place {
-    geometry: {
-        location: {
-            lat: () => void
-            lng: () => void
-        }
-    }
-}
+
 
 interface TripSearchProps {
     selectedTripOption: string
+    // destination: Destination
+    // setDestination: React.Dispatch<React.SetStateAction<Destination[]>>
 }
 
 const TripSearch: React.FC<TripSearchProps> = ({ selectedTripOption }) => {
-    const [destination, setDestination] = useContext(DestinationContext);
+    const { destination, setDestination } = useContext(DestinationContext);
     const apiKey = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
 
     const [googleLoaded, setGoogleLoaded] = useState(false);
-    const autocompleteRefA = useRef(null);
-    const autocompleteRefB = useRef(null);
-    const autocompleteRefC = useRef(null);
+    const autocompleteRefA = useRef<AutoComplete>({} as AutoComplete);
+    const autocompleteRefB = useRef<AutoComplete>({} as AutoComplete);
+    const autocompleteRefC = useRef<AutoComplete>({} as AutoComplete);
 
     useEffect(() => {
         console.log(apiKey);
@@ -48,6 +44,7 @@ const TripSearch: React.FC<TripSearchProps> = ({ selectedTripOption }) => {
             console.log('geometry', geometry);
             console.log('place', place);
             console.log('name', name);
+
 
 
             const { lat, lng } = geometry.location;

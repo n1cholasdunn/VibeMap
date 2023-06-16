@@ -9,24 +9,24 @@ import { useEffect, useMemo, useState, useContext } from 'react';
 import '../../App.css';
 import locations from '../../db.json';
 import MapInfoWindow from './MapInfoWindow';
-import { DestinationContext } from '../../context';
+import { Destination, DestinationContext } from '../../context';
 import React from 'react';
 
-interface Location {
-
-    name: string
-    lat: number
-    lng: number
-    categories: [string]
-    address: string
-}
+// interface Location {
+//     id: string
+//     name: string
+//     lat: number
+//     lng: number
+//     categories: [string]
+//     address: string
+// }
 
 interface GMapProps {
-    filteredLocations: Location[]
+    filteredLocations: Destination[]
 }
 
 const GMap: React.FC<GMapProps> = ({ filteredLocations }) => {
-    const [destination] = useContext(DestinationContext);
+    const { destination } = useContext(DestinationContext);
     const [directions, setDirections] = useState(null);
     const [selectedLocation, setSelectedLocation] = useState(null);
 
@@ -159,7 +159,7 @@ const GMap: React.FC<GMapProps> = ({ filteredLocations }) => {
                             )}
                     </>
 
-                    {locations.filter(filteredLocations).map((location) => (
+                    {locations.filter(filteredLocations).map((location: Location) => (
                         <Marker
                             key={location.id}
                             position={{

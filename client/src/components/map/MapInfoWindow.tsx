@@ -19,7 +19,7 @@ interface MapInfoWindowProp {
 
 
 const MapInfoWindow: React.FC<MapInfoWindowProp> = ({ selectedLocation }) => {
-    const [destination, setDestination] = useContext(DestinationContext);
+    const { destination, setDestination } = useContext(DestinationContext);
 
     const [likedPlace, setLikedPlace] = useState(false);
 

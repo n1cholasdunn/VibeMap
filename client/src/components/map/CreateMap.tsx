@@ -1,7 +1,7 @@
 import CategorySearch from './CategorySearch';
 import GMap from './GMap';
 import '../../App.css';
-import { useRef, useState, useEffect, useContext } from 'react';
+import { useRef, useState, useEffect, useContext, FormEvent } from 'react';
 import { Autocomplete } from '@react-google-maps/api';
 import { Destination, DestinationContext } from '../../context';
 import PlaceCard from './PlaceCard';
@@ -10,20 +10,23 @@ import { postUserTrip } from '../../services/tripService';
 import { getDistance } from 'geolib';
 import { fetchPlaceInfo } from '../../services/googlePlacesService';
 import React from 'react';
-import { Location } from './PlaceCards'
+import { Location } from './PlaceCard'
 
+export type AutoComplete = google.maps.places.Autocomplete
+export type Place = google.maps.places.PlaceResult
+export type Geometry = google.maps.places.PlaceGeometry
 
 const CreateMap = () => {
     const apiKey = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
 
-    const [destination, setDestination, clearDestination] =
+    const { destination, setDestination, clearDestination } =
         useContext(DestinationContext);
-    const [selectedPlaceFromSearch, setSelectedPlaceFromSearch] = useState(null);
+    const [selectedPlaceFromSearch, setSelectedPlaceFromSearch] = useState<Place | Geometry | string>('');
     const [googleLoaded, setGoogleLoaded] = useState(false);
     const [selectedCategories, setSelectedCategories] = useState([]);
     const [tripDescription, setTripDescription] = useState('');
 
-    const autocompleteRef = useRef(null);
+    const autocompleteRef = useRef<AutoComplete>({} as AutoComplete);
 
     useEffect(() => {
         const script = document.createElement('script');
@@ -46,7 +49,7 @@ const CreateMap = () => {
         setSelectedPlaceFromSearch(place);
     };
 
-    const handleAddPoint = (e) => {
+    const handleAddPoint = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         if (selectedPlaceFromSearch) {
@@ -92,7 +95,7 @@ const CreateMap = () => {
 
     const filteredLocations = (location: Location) => {
         const selectedCategoriesObj = selectedCategories.map(
-            (cat) => cat.categoryName
+            (cat: { categoryName: string }) => cat.categoryName
         );
         for (let category of location.categories) {
             if (selectedCategoriesObj.includes(category)) {
@@ -102,7 +105,7 @@ const CreateMap = () => {
         return false;
     };
 
-    const handleSubmitTrip = async (e: React.FormEvent<HTMLInputElement>) => {
+    const handleSubmitTrip = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log(tripDescription);
         setDestination((prevDestination: Destination) => ({

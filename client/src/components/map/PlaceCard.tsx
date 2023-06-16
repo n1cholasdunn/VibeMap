@@ -18,7 +18,7 @@ interface PlaceCardProps {
 
 
 const PlaceCard: React.FC<PlaceCardProps> = ({ location, onClick }) => {
-    const [destination, setDestination] = useContext(DestinationContext);
+    const { destination, setDestination } = useContext(DestinationContext);
 
     const handleClick = () => {
         onClick(location.lat, location.lng);
@@ -56,7 +56,8 @@ const PlaceCard: React.FC<PlaceCardProps> = ({ location, onClick }) => {
 
     return (
         <div className='cursor-pointer label border-solid border-gray-200 border rounded-md mt-3 pl-3 pr-5'>
-            <div flex flex-col>
+            {/* changed data to data-flex to get rid of error */}
+            <div data-flex flex-col>
                 <div className='font-semibold text-lg'>{location.name}</div>
                 <div className='font-normal text-sm'>{location.address}</div>
 

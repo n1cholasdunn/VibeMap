@@ -2,6 +2,8 @@ import { createContext, useState } from 'react';
 import type { ReactNode } from 'react';
 import React from 'react';
 
+
+
 export interface Coords {
   start: number[] | null;
   midpoint: number[] | null;
@@ -24,8 +26,8 @@ export interface DestinationContextType {
   clearDestination: () => void;
 }
 
-export const DestinationContext = createContext<DestinationContextType | null>(
-  null
+export const DestinationContext = createContext<DestinationContextType>(
+  {} as DestinationContextType
 );
 
 type DestinationProviderProps = {
