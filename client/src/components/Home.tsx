@@ -1,6 +1,7 @@
 import Explore from './map/Explore';
+import React from 'react';
 
-const Home = () => {
+const Home: React.FC = () => {
   return (
     <>
       <div
@@ -13,7 +14,12 @@ const Home = () => {
               <h1 className=' self-end pl-3 mb-5 text-5xl font-bold text-white drop-shadow-lg'>
                 Hey{' '}
               </h1>
-              <img src='1bvibe.png' className='h-28 mb-5 self-end pl-3' />
+              {/* TODO fix alt placeholder */}
+              <img
+                src='1bvibe.png'
+                className='h-28 mb-5 self-end pl-3'
+                alt='placeholder'
+              />
               <h1 className=' self-end pl-3 font-pacifico mb-5 text-5xl font-bold text-white drop-shadow-lg'>
                 Vibe{' '}
               </h1>
