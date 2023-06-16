@@ -1,30 +1,32 @@
 import { GeolibInputCoordinates } from 'geolib/es/types';
 import React, { createContext, useState } from 'react';
 import type { DetailedHTMLProps, InputHTMLAttributes, ReactNode } from 'react';
-
-
-
+import { LatLng, LatLngLiteral, Place } from './services/googlePlaceService';
 export interface Coords {
   end?: {
-    formatted_address: string | number | readonly string[] | undefined
+    formatted_address: string | number | readonly string[] | undefined;
     lat: GeolibInputCoordinates | undefined;
     lng: GeolibInputCoordinates | undefined;
   };
   midpoint?: {
-    formatted_address: string | number | readonly string[] | undefined
+    formatted_address: string | number | readonly string[] | undefined;
     lat: GeolibInputCoordinates | undefined;
     lng: GeolibInputCoordinates | undefined;
   };
   start: {
-    formatted_address: string | number | readonly string[] | undefined
+    formatted_address: string | number | readonly string[] | undefined;
     lat: GeolibInputCoordinates | undefined;
     lng: GeolibInputCoordinates | undefined;
   };
 }
-
+// export type Coords = {
+//   end: LatLng | LatLngLiteral | Place | string;
+//   midpoint: LatLng | LatLngLiteral | Place | string;
+//   start: LatLng | LatLngLiteral | Place | string;
+// };
 
 export interface Points {
-  formatted_address: string | number | readonly string[] | undefined
+  formatted_address: string | number | readonly string[] | undefined;
 }
 
 export interface Destination {
@@ -32,8 +34,8 @@ export interface Destination {
   user: string | null;
   type: string | null;
   coords: Coords;
-  categories: any[] | null; // You can replace `any` with a specific type
-  points: any; // You can replace `any` with a specific type
+  categories: any[] | null; // You can replace any with a specific type
+  points: any; // You can replace any with a specific type
   description: string | null;
 }
 
@@ -61,6 +63,11 @@ export const DestinationProvider = ({ children }: DestinationProviderProps) => {
       midpoint: null,
       end: null,
     },
+    // coords: {
+    //   start: '',
+    //   midpoint: '',
+    //   end: '',
+    // },
     categories: null, // tags will be an array of objects
     points: [],
     description: null,
