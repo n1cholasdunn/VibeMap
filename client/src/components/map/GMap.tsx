@@ -12,14 +12,14 @@ import MapInfoWindow from './MapInfoWindow';
 import { Destination, DestinationContext } from '../../context';
 import React from 'react';
 
-// interface Location {
-//     id: string
-//     name: string
-//     lat: number
-//     lng: number
-//     categories: [string]
-//     address: string
-// }
+interface Location {
+    id: string
+    name: string
+    lat: number
+    lng: number
+    categories: [string]
+    address: string
+}
 
 interface GMapProps {
     filteredLocations: Destination[]
@@ -39,13 +39,13 @@ const GMap: React.FC<GMapProps> = ({ filteredLocations }) => {
             return null;
         } else if (destination.type === 'oneWay') {
             return {
-                lat: destination.coords.end.lat,
-                lng: destination.coords.end.lng,
+                lat: destination.coords.end?.lat,
+                lng: destination.coords.end?.lng,
             };
         } else if (destination.type === 'loopTrip') {
             return {
-                lat: destination.coords.start.lat,
-                lng: destination.coords.start.lng,
+                lat: destination.coords.start?.lat,
+                lng: destination.coords.start?.lng,
             };
         }
     };
@@ -59,10 +59,10 @@ const GMap: React.FC<GMapProps> = ({ filteredLocations }) => {
         } else {
             return [
                 {
-                    location: `${destination.coords.midpoint.lat},${destination.coords.midpoint.lng}`,
+                    location: `${destination.coords.midpoint?.lat},${destination.coords.midpoint?.lng}`,
                 },
                 {
-                    location: `${destination.coords.end.lat},${destination.coords.end.lng}`,
+                    location: `${destination.coords.end?.lat},${destination.coords.end?.lng}`,
                 },
             ];
         }
@@ -70,8 +70,8 @@ const GMap: React.FC<GMapProps> = ({ filteredLocations }) => {
 
     const center = useMemo(
         () => ({
-            lat: destination.coords.start.lat,
-            lng: destination.coords.start.lng,
+            lat: destination.coords.start?.lat,
+            lng: destination.coords.start?.lng,
         }),
         []
     );
@@ -80,8 +80,8 @@ const GMap: React.FC<GMapProps> = ({ filteredLocations }) => {
         if (isLoaded) {
             const directionsService = new window.google.maps.DirectionsService();
             const start = {
-                lat: destination.coords.start.lat,
-                lng: destination.coords.start.lng,
+                lat: destination.coords.start?.lat,
+                lng: destination.coords.start?.lng,
             };
 
             directionsService.route(
