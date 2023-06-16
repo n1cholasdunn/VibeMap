@@ -1,3 +1,5 @@
+import { LatLng, LatLngLiteral, Place } from './googlePlaceService';
+
 const url = 'http://localhost:3333';
 
 export async function getUserTrips() {
@@ -38,20 +40,37 @@ export type tripProps = {
     category?: null | {
       categoryName: string;
     };
-    coords: {
-      end?: null | {
-        lat: number;
-        lng: number;
-      };
-      midpoint?: null | {
-        lat: number;
-        lng: number;
-      };
-      start: null | {
-        lat: number;
-        lng: number;
-      };
+    coords: // string | GoogleLatLng | GooglePlace | GoogleLatLngLiteral;
+    {
+      // end?: string | GoogleLatLng | GooglePlace | GoogleLatLngLiteral;
+      // midpoint?: string | GoogleLatLng | GooglePlace | GoogleLatLngLiteral;
+      end: LatLng | LatLngLiteral | Place;
+      midpoint: LatLng | LatLngLiteral | Place;
+      start: LatLng | LatLngLiteral | Place;
     };
+    //  {
+    //   end?:
+    //     | null
+    //     | GoogleLatLng
+    //     | {
+    //         lat: string;
+    //         lng: string;
+    //       };
+    //   midpoint?:
+    //     | null
+    //     | GoogleLatLng
+    //     | {
+    //         lat: number;
+    //         lng: number;
+    //       };
+    //   start:
+    //     | null
+    //     | GoogleLatLng
+    //     | {
+    //         lat: number;
+    //         lng: number;
+    //       };
+    // };
     description: string | null;
     points: [
       {

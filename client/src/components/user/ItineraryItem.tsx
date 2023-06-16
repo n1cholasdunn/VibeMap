@@ -40,7 +40,7 @@ const ItineraryItem = ({ trip }: tripProps) => {
   });
 
   const generateEndPoint = () => {
-    if (trip.type === 'singleDestination') {
+    if (trip.type === 'singleDestination' || !trip.coords) {
       return null;
     } else if (trip.type === 'oneWay' && trip.coords.end) {
       return { lat: trip.coords.end.lat, lng: trip.coords.end.lng };
@@ -50,7 +50,11 @@ const ItineraryItem = ({ trip }: tripProps) => {
   };
 
   const generateWaypoints = () => {
-    if (trip.type === 'singleDestination' || trip.type === 'oneWay') {
+    if (
+      trip.type === 'singleDestination' ||
+      trip.type === 'oneWay' ||
+      !trip.coords
+    ) {
       return null;
     } else if (trip.coords.midpoint && trip.coords.end) {
       return [
@@ -61,7 +65,7 @@ const ItineraryItem = ({ trip }: tripProps) => {
   };
 
   const center = useMemo(
-    () => ({ lat: trip.coords.start?.lat, lng: trip.coords.start?.lng }),
+    () => ({ lat: trip.coords.start.lat, lng: trip.coords.start.lng }),
     [trip.coords.start]
   );
 
@@ -77,8 +81,8 @@ const ItineraryItem = ({ trip }: tripProps) => {
     if (isLoaded) {
       const directionsService = new window.google.maps.DirectionsService();
       const start = {
-        lat: trip.coords.start?.lat,
-        lng: trip.coords.start?.lng,
+        lat: trip.coords.start.lat,
+        lng: trip.coords.start.lng,
       };
 
       directionsService.route(
