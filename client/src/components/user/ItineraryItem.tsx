@@ -9,7 +9,43 @@ import {
   DirectionsRenderer,
 } from '@react-google-maps/api';
 
-const ItineraryItem = ({ trip }) => {
+type tripProps = {
+  trip: {
+    id?: null | Number;
+    user?: null | String; //not sure on this type
+    category?: null | {
+      categoryName: String;
+    };
+    coords: {
+      end?: null | {
+        lat: Number;
+        lng: Number;
+      };
+      midpoint?: null | {
+        lat: Number;
+        lng: Number;
+      };
+      start: null | {
+        lat: Number;
+        lng: Number;
+      };
+    };
+    description: String | null;
+    points: [
+      {
+        id: null | Number;
+        name: String;
+        lat: Number;
+        lng: Number;
+        address: String;
+        categories: String[];
+      }
+    ];
+    type: String;
+  };
+};
+
+const ItineraryItem = ({ trip }: tripProps) => {
   const apiKey = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
 
   const [googleLoaded, setGoogleLoaded] = useState(false);

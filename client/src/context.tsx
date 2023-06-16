@@ -1,10 +1,18 @@
-import { createContext, useState } from 'react';
+import React, { createContext, useState } from 'react';
 import type { ReactNode } from 'react';
-
 export interface Coords {
-  start: number[] | null;
-  midpoint: number[] | null;
-  end: number[] | null;
+  end?: null | {
+    lat: Number;
+    lng: Number;
+  };
+  midpoint?: null | {
+    lat: Number;
+    lng: Number;
+  };
+  start: null | {
+    lat: Number;
+    lng: Number;
+  };
 }
 
 export interface Destination {
