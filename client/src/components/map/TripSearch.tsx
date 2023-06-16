@@ -46,20 +46,23 @@ const TripSearch: React.FC<TripSearchProps> = ({ selectedTripOption }) => {
             console.log('name', name);
 
 
+            if (geometry.location) {
 
-            const { lat, lng } = geometry.location;
-            setDestination((prevDestination: Destination) => ({
-                ...prevDestination,
-                type: selectedTripOption,
-                coords: {
-                    ...prevDestination.coords,
-                    [name]: {
-                        // name: place.formatted_address, //returns undefined
-                        lat: lat(),
-                        lng: lng(),
+                const { lat, lng } = geometry.location;
+                setDestination((prevDestination: Destination) => ({
+                    ...prevDestination,
+                    type: selectedTripOption,
+                    coords: {
+                        ...prevDestination.coords,
+                        [name]: {
+                            // name: place.formatted_address, //returns undefined
+                            lat: lat(),
+                            lng: lng(),
+                        },
                     },
-                },
-            }));
+                }));
+
+            }
         }
     };
 

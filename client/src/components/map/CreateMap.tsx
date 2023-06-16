@@ -27,6 +27,8 @@ const CreateMap = () => {
     const [googleLoaded, setGoogleLoaded] = useState(false);
     const [selectedCategories, setSelectedCategories] = useState([]);
     const [tripDescription, setTripDescription] = useState('');
+
+
     const autocompleteRef = useRef<AutoComplete>({} as AutoComplete);
     useEffect(() => {
         const script = document.createElement('script');
@@ -62,18 +64,23 @@ const CreateMap = () => {
                         categories: [],
                         address: selectedPlaceFromSearch.address_components,
                     }
+
+
+                    setDestination((prevDestination: Destination) => ({
+                        ...prevDestination,
+                        points: [...prevDestination.points, newPoint],
+                    }));
+                    console.log('search place: ', destination);
+                    setSelectedPlaceFromSearch('');
+                    autocompleteRef.current.value = '';
+
+
                 }
 
 
 
             };
-            setDestination((prevDestination: Destination) => ({
-                ...prevDestination,
-                points: [...prevDestination.points, newPoint],
-            }));
-            console.log('search place: ', destination);
-            setSelectedPlaceFromSearch('');
-            autocompleteRef.current.value = '';
+
         }
     };
     const sortedLocations = locations.sort((a: Location, b: Location) => {
