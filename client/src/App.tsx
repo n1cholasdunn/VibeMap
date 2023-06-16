@@ -3,7 +3,8 @@ import './App.css';
 import { DestinationProvider } from './context';
 import React from 'react';
 import {
-  BrowserRouter as Router,
+  // BrowserRouter as Router,
+  // BrowserRouter,
   Route,
   Routes,
   // Link
