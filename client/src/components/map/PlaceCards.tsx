@@ -1,12 +1,12 @@
 import { useState, useContext } from 'react';
-import { DestinationContext } from '../../context';
+import { Destination, DestinationContext } from '../../context';
 import React from 'react';
 
 
-interface Location {
+export interface Location {
     name: string
-    lat: string
-    lng: string
+    lat: number
+    lng: number
     categories: string[]
     address: string
 }
@@ -17,7 +17,7 @@ interface PlaceCardProps {
 }
 
 
-const PlaceCard = ({ location, onClick }) => {
+const PlaceCard: React.FC<PlaceCardProps> = ({ location, onClick }) => {
     const [destination, setDestination] = useContext(DestinationContext);
 
     const handleClick = () => {
@@ -46,7 +46,7 @@ const PlaceCard = ({ location, onClick }) => {
             address: location.address,
         };
 
-        setDestination((prevDestination) => ({
+        setDestination((prevDestination: Destination) => ({
             ...prevDestination,
             points: [...prevDestination.points, newPoint],
         }));

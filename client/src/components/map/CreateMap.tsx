@@ -3,13 +3,15 @@ import GMap from './GMap';
 import '../../App.css';
 import { useRef, useState, useEffect, useContext } from 'react';
 import { Autocomplete } from '@react-google-maps/api';
-import { DestinationContext } from '../../context';
+import { Destination, DestinationContext } from '../../context';
 import PlaceCard from './PlaceCard';
 import locations from '../../db.json';
 import { postUserTrip } from '../../services/tripService';
 import { getDistance } from 'geolib';
 import { fetchPlaceInfo } from '../../services/googlePlacesService';
 import React from 'react';
+import { Location } from './PlaceCards'
+
 
 const CreateMap = () => {
     const apiKey = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
@@ -59,7 +61,7 @@ const CreateMap = () => {
                 address: selectedPlaceFromSearch.address_components,
             };
 
-            setDestination((prevDestination) => ({
+            setDestination((prevDestination: Destination) => ({
                 ...prevDestination,
                 points: [...prevDestination.points, newPoint],
             }));
@@ -70,7 +72,7 @@ const CreateMap = () => {
         }
     };
 
-    const sortedLocations = locations.sort((a, b) => {
+    const sortedLocations = locations.sort((a: Location, b: Location) => {
         const distanceA = getDistance(
             {
                 latitude: destination.coords.start.lat,
@@ -88,7 +90,7 @@ const CreateMap = () => {
         return distanceA - distanceB;
     });
 
-    const filteredLocations = (location) => {
+    const filteredLocations = (location: Location) => {
         const selectedCategoriesObj = selectedCategories.map(
             (cat) => cat.categoryName
         );
@@ -100,10 +102,10 @@ const CreateMap = () => {
         return false;
     };
 
-    const handleSubmitTrip = async (e) => {
+    const handleSubmitTrip = async (e: React.FormEvent<HTMLInputElement>) => {
         e.preventDefault();
         console.log(tripDescription);
-        setDestination((prevDestination) => ({
+        setDestination((prevDestination: Destination) => ({
             ...prevDestination,
             description: tripDescription,
         }));
@@ -121,7 +123,7 @@ const CreateMap = () => {
         console.log(newDestination);
     };
 
-    const openPlaceInfo = async (lat, lng, name) => {
+    const openPlaceInfo = async (lat: number, lng: number, name: string) => {
         const res = await fetchPlaceInfo(lat, lng, name);
         console.log('res ==> ', res);
     };
@@ -184,7 +186,7 @@ const CreateMap = () => {
                     </form>
 
                     <div className='overflow-scroll overflow-y-scroll no-scrollbar h-[500px]'>
-                        {sortedLocations.filter(filteredLocations).map((location) => (
+                        {sortedLocations.filter(filteredLocations).map((location: Location) => (
                             <PlaceCard
                                 location={location}
                                 handleAddPoint={handleAddPoint}
