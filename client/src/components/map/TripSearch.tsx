@@ -1,9 +1,19 @@
-import { useRef, useState, useEffect, useContext } from 'react';
+import { useRef, useState, useEffect, useContext, FormEvent } from 'react';
 import { Autocomplete } from '@react-google-maps/api';
 import { DestinationContext } from '../../context';
 import { useNavigate } from 'react-router-dom';
 import React from 'react';
+import { Destination } from '../../context';
 
+
+interface Place {
+    geometry: {
+        location: {
+            lat: () => void
+            lng: () => void
+        }
+    }
+}
 
 interface TripSearchProps {
     selectedTripOption: string
@@ -32,21 +42,22 @@ const TripSearch: React.FC<TripSearchProps> = ({ selectedTripOption }) => {
         };
     }, []);
 
-    const handlePlaceSelect = (place, name) => {
+    const handlePlaceSelect = (place: Place, name: string) => {
         const { geometry } = place;
         if (geometry) {
             console.log('geometry', geometry);
             console.log('place', place);
             console.log('name', name);
 
+
             const { lat, lng } = geometry.location;
-            setDestination((prevDestination) => ({
+            setDestination((prevDestination: Destination) => ({
                 ...prevDestination,
                 type: selectedTripOption,
                 coords: {
                     ...prevDestination.coords,
                     [name]: {
-                        name: place.formatted_address, //returns undefined
+                        // name: place.formatted_address, //returns undefined
                         lat: lat(),
                         lng: lng(),
                     },
@@ -57,7 +68,7 @@ const TripSearch: React.FC<TripSearchProps> = ({ selectedTripOption }) => {
 
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         console.log('tripsearch', destination);

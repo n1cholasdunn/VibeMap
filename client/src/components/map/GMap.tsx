@@ -15,8 +15,8 @@ import React from 'react';
 interface Location {
 
     name: string
-    lat: string
-    lng: string
+    lat: number
+    lng: number
     categories: [string]
     address: string
 }

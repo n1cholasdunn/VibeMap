@@ -1,4 +1,4 @@
-import { DestinationContext } from '../../context';
+import { Destination, DestinationContext } from '../../context';
 import { useContext, useState } from 'react';
 import React from 'react';
 
@@ -6,8 +6,8 @@ import React from 'react';
 interface SelectedLocation {
 
     name: string
-    lat: string
-    lng: string
+    lat: number
+    lng: number
     categories: [string]
     address: string
 }
@@ -43,7 +43,7 @@ const MapInfoWindow: React.FC<MapInfoWindowProp> = ({ selectedLocation }) => {
             address: selectedLocation.address,
         };
 
-        setDestination((prevDestination) => ({
+        setDestination((prevDestination: Destination) => ({
             ...prevDestination,
             points: [...prevDestination.points, newPoint],
         }));

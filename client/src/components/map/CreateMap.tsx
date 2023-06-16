@@ -1,28 +1,30 @@
 import CategorySearch from './CategorySearch';
 import GMap from './GMap';
 import '../../App.css';
-import { useRef, useState, useEffect, useContext } from 'react';
+import { useRef, useState, useEffect, useContext, FormEvent } from 'react';
 import { Autocomplete } from '@react-google-maps/api';
-import { DestinationContext } from '../../context';
+import { Destination, DestinationContext } from '../../context';
 import PlaceCard from './PlaceCard';
 import locations from '../../db.json';
 import { postUserTrip } from '../../services/tripService';
 import { getDistance } from 'geolib';
 import { fetchPlaceInfo } from '../../services/googlePlacesService';
 import React from 'react';
-
+import { Location } from './PlaceCard';
+export type AutoComplete = google.maps.places.Autocomplete;
+export type Place = google.maps.places.PlaceResult;
+export type Geometry = google.maps.places.PlaceGeometry;
 const CreateMap = () => {
   const apiKey = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
-
-  const [destination, setDestination, clearDestination] =
+  const { destination, setDestination, clearDestination } =
     useContext(DestinationContext);
-  const [selectedPlaceFromSearch, setSelectedPlaceFromSearch] = useState(null);
+  const [selectedPlaceFromSearch, setSelectedPlaceFromSearch] = useState<
+    Place | Geometry | string
+  >('');
   const [googleLoaded, setGoogleLoaded] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [tripDescription, setTripDescription] = useState('');
-
-  const autocompleteRef = useRef(null);
-
+  const autocompleteRef = useRef<AutoComplete>({} as AutoComplete);
   useEffect(() => {
     const script = document.createElement('script');
     script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`;
@@ -30,12 +32,10 @@ const CreateMap = () => {
       setGoogleLoaded(true);
     };
     document.head.appendChild(script);
-
     return () => {
       document.head.removeChild(script);
     };
   }, []);
-
   const handlePlaceSelect = () => {
     const place = autocompleteRef.current.getPlace();
     if (!place.geometry || !place.geometry.location) {
@@ -43,10 +43,8 @@ const CreateMap = () => {
     }
     setSelectedPlaceFromSearch(place);
   };
-
-  const handleAddPoint = (e) => {
+  const handleAddPoint = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     if (selectedPlaceFromSearch) {
       const { geometry } = selectedPlaceFromSearch;
       const { lat, lng } = geometry.location;
@@ -58,19 +56,16 @@ const CreateMap = () => {
         categories: [],
         address: selectedPlaceFromSearch.address_components,
       };
-
-      setDestination((prevDestination) => ({
+      setDestination((prevDestination: Destination) => ({
         ...prevDestination,
         points: [...prevDestination.points, newPoint],
       }));
       console.log('search place: ', destination);
-
       setSelectedPlaceFromSearch('');
       autocompleteRef.current.value = '';
     }
   };
-
-  const sortedLocations = locations.sort((a, b) => {
+  const sortedLocations = locations.sort((a: Location, b: Location) => {
     const distanceA = getDistance(
       {
         latitude: destination.coords.start.lat,
@@ -87,10 +82,9 @@ const CreateMap = () => {
     );
     return distanceA - distanceB;
   });
-
-  const filteredLocations = (location) => {
+  const filteredLocations = (location: Location) => {
     const selectedCategoriesObj = selectedCategories.map(
-      (cat) => cat.categoryName
+      (cat: { categoryName: string }) => cat.categoryName
     );
     for (let category of location.categories) {
       if (selectedCategoriesObj.includes(category)) {
@@ -99,33 +93,27 @@ const CreateMap = () => {
     }
     return false;
   };
-
-  const handleSubmitTrip = async (e) => {
+  const handleSubmitTrip = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(tripDescription);
-    setDestination((prevDestination) => ({
+    setDestination((prevDestination: Destination) => ({
       ...prevDestination,
       description: tripDescription,
     }));
-
     await new Promise((resolve) => setTimeout(resolve, 0));
-
     const newDestination = {
       ...destination,
       user: 1,
       id: `34567890kjnbvt6789${Math.round(Math.random() * 100000)}`,
     };
-
     await postUserTrip(newDestination, clearDestination);
     //create condition to PUT instead of post if destination is already created by user
     console.log(newDestination);
   };
-
-  const openPlaceInfo = async (lat, lng, name) => {
+  const openPlaceInfo = async (lat: number, lng: number, name: string) => {
     const res = await fetchPlaceInfo(lat, lng, name);
     console.log('res ==> ', res);
   };
-
   return (
     <>
       <div className='flex flex-row justify-center p-6 z-[-1]'>
@@ -140,8 +128,8 @@ const CreateMap = () => {
             <button
               type='submit'
               className='
-							hover:text-white text-white hover:bg-gray-500 bg-gradient-to-r from-blue-600 to-indigo-400   hover:drop-shadow-lg
-							text-md font-semibold border p-2 rounded-lg w-1/6'>
+                            hover:text-white text-white hover:bg-gray-500 bg-gradient-to-r from-blue-600 to-indigo-400   hover:drop-shadow-lg
+                            text-md font-semibold border p-2 rounded-lg w-1/6'>
               Save Map ♡
             </button>
           </form>
@@ -171,33 +159,31 @@ const CreateMap = () => {
                 }
               />
             </Autocomplete>
-
             <button
               type='submit'
               onClick={handleAddPoint}
               className='
-							hover:text-white hover:bg-gray-400 hover:drop-shadow-lg
-
-							text-sm border border-gray-300 p-2 rounded-xl w-28 h-full'>
+                            hover:text-white hover:bg-gray-400 hover:drop-shadow-lg
+                            text-sm border border-gray-300 p-2 rounded-xl w-28 h-full'>
               + Add to Map
             </button>
           </form>
-
           <div className='overflow-scroll overflow-y-scroll no-scrollbar h-[500px]'>
-            {sortedLocations.filter(filteredLocations).map((location) => (
-              <PlaceCard
-                location={location}
-                handleAddPoint={handleAddPoint}
-                onClick={() =>
-                  openPlaceInfo(location.lat, location.lng, location.name)
-                }
-              />
-            ))}
+            {sortedLocations
+              .filter(filteredLocations)
+              .map((location: Location) => (
+                <PlaceCard
+                  location={location}
+                  handleAddPoint={handleAddPoint}
+                  onClick={() =>
+                    openPlaceInfo(location.lat, location.lng, location.name)
+                  }
+                />
+              ))}
           </div>
         </div>
       </div>
     </>
   );
 };
-
 export default CreateMap;
