@@ -1,6 +1,6 @@
 import '../../App.css';
 import { useState, useEffect, useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import React from 'react';
 import {
   GoogleMap,
@@ -65,7 +65,7 @@ const ItineraryItem = ({ trip }: tripProps) => {
   };
 
   const center = useMemo(
-    () => ({ lat: trip.coords.start.lat, lng: trip.coords.start.lng }),
+    () => ({ lat: trip.coords.start?.lat, lng: trip.coords.start?.lng }),
     [trip.coords.start]
   );
 
@@ -184,11 +184,16 @@ const ItineraryItem = ({ trip }: tripProps) => {
             {trip.description}
           </h5>
         </a>
-        <a
+        <Link
+          to={'/'}
+          onClick={handleViewMap}
+          className='inline-flex items-center px-3 py-2 text-sm font-medium text-center bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300  hover:text-white text-white hover:bg-gray-500 bg-gradient-to-r from-blue-600 to-indigo-400   hover:drop-shadow-lg
+          text-md border p-2 rounded-lg'>
+          {/* <a
           href='#'
           onClick={handleViewMap}
           className='inline-flex items-center px-3 py-2 text-sm font-medium text-center bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300  hover:text-white text-white hover:bg-gray-500 bg-gradient-to-r from-blue-600 to-indigo-400   hover:drop-shadow-lg
-							text-md border p-2 rounded-lg'>
+          text-md border p-2 rounded-lg'> */}
           View Map
           <svg
             aria-hidden='true'
@@ -201,7 +206,8 @@ const ItineraryItem = ({ trip }: tripProps) => {
               d='M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z'
               clip-rule='evenodd'></path>
           </svg>
-        </a>
+          {/* </a> */}
+        </Link>
       </div>
     </div>
   );
