@@ -33,37 +33,37 @@ export async function editUserTrip() {}
 
 export type tripProps = {
   trip: {
-    id?: null | Number;
-    user?: null | String; //not sure on this type
+    id?: null | number;
+    user?: null | string; //not sure on this type
     category?: null | {
-      categoryName: String;
+      categoryName: string;
     };
     coords: {
       end?: null | {
-        lat: Number;
-        lng: Number;
+        lat: number;
+        lng: number;
       };
       midpoint?: null | {
-        lat: Number;
-        lng: Number;
+        lat: number;
+        lng: number;
       };
       start: null | {
-        lat: Number;
-        lng: Number;
+        lat: number;
+        lng: number;
       };
     };
-    description: String | null;
+    description: string | null;
     points: [
       {
-        id: null | Number;
-        name: String;
-        lat: Number;
-        lng: Number;
-        address: String;
-        categories: String[];
+        id: null | number;
+        name: string;
+        lat: number;
+        lng: number;
+        address: string;
+        categories: string[];
       }
     ];
-    updatedAt?: String;
-    type: String;
+    updatedAt?: string;
+    type: string;
   };
 };

@@ -33,10 +33,10 @@ const ItineraryItem = ({ trip }: tripProps) => {
     };
   }, [apiKey]);
 
-  const [directions, setDirections] = useState(null);
+  const [directions, setDirections] = useState<google.maps.DirectionsResult>();
 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
+    googleMapsApiKey: apiKey,
   });
 
   const generateEndPoint = () => {
