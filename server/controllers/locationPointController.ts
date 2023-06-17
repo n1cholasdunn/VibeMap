@@ -1,7 +1,10 @@
-import { Model } from 'sequelize';
 import sequelize from '../models/index';
+import { Model } from 'sequelize';
 import { Request, Response } from 'express';
-const LocationPoint = sequelize.models.LocationPoint;
+import LocationPoint, {
+    LocationPointAttributes,
+} from '../models/locationPointModel';
+const LocationPointModel = sequelize.models.LocationPoint;
 //updated
 
 interface Trip {
@@ -13,7 +16,7 @@ interface Trip {
 export const postLocationPoint = async (req: Request, res: Response) => {
     const { type, start, midpoint, end } = req.body;
     try {
-        const trip = await LocationPoint.create({
+        const trip = await LocationPointModel.create({
             type,
             start: JSON.stringify(start),
             midpoint: JSON.stringify(midpoint),
@@ -28,18 +31,18 @@ export const postLocationPoint = async (req: Request, res: Response) => {
     }
 };
 interface tripTypes {
-    type: string;
-    start: string
+    type?: string;
+    start: string;
     midpoint: string;
     end: string;
 }
 
 export const getLocationPoint = async (req: Request, res: Response) => {
     try {
-        const trips: any = await LocationPoint.findAll({})
-        trips.forEach((trip: any) => {
-            // trips.forEach((trip: { start: string; midpoint: string; end: string }) => {
-            (trip.start) = JSON.parse(trip.start);
+        const trips: any = await LocationPointModel.findAll({});
+        trips.forEach((trip: Trip) => {
+            //   trips.forEach((trip: { start: string; midpoint: string; end: string }) => {
+            trip.start = JSON.parse(trip.start);
             trip.midpoint = JSON.parse(trip.midpoint);
             trip.end = JSON.parse(trip.end);
         });
@@ -51,4 +54,3 @@ export const getLocationPoint = async (req: Request, res: Response) => {
         res.status(400).json({ message: messageErr });
     }
 };
-

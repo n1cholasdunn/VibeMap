@@ -3,14 +3,14 @@ import sequelize from './index';
 
 export interface LocationPointAttributes {
   id: string;
-  name: string;
-  lat: string;
-  lng: string;
-  categories: string;
-  address: string;
-
-
-
+  name?: string;
+  lat?: string;
+  lng?: string;
+  categories?: string;
+  address?: string;
+  start: string;
+  midpoint: string;
+  endpoint: string;
 }
 
 
@@ -26,6 +26,9 @@ class LocationPoint
   public lng!: string;
   public categories!: string;
   public address!: string;
+  public start!: string;
+  public midpoint!: string;
+  public endpoint!: string;
 
 
 
@@ -67,7 +70,21 @@ LocationPoint.init(
       primaryKey: false,
       allowNull: false,
     },
-
+    start: {
+      type: DataTypes.STRING,
+      primaryKey: false,
+      allowNull: false,
+    },
+    midpoint: {
+      type: DataTypes.STRING,
+      primaryKey: false,
+      allowNull: false,
+    },
+    endpoint: {
+      type: DataTypes.STRING,
+      primaryKey: false,
+      allowNull: false,
+    },
   },
   {
     sequelize,
