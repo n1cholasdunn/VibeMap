@@ -1,24 +1,33 @@
-import { GeolibInputCoordinates, GeolibLatitudeInputValue, GeolibLongitudeInputValue } from 'geolib/es/types';
+import {
+  GeolibLatitudeInputValue,
+  GeolibLongitudeInputValue,
+} from 'geolib/es/types';
 import React, { createContext, useState } from 'react';
-import type { DetailedHTMLProps, InputHTMLAttributes, ReactNode } from 'react';
-import { LatLng, LatLngLiteral, Place } from './services/googlePlaceService';
+import type { ReactNode } from 'react';
+// import { LatLng, LatLngLiteral, Place } from './services/googlePlaceService';
 
 export interface Coords {
-  end?: undefined | {
-    formatted_address: string | number | readonly string[] | undefined;
-    lat: GeolibLatitudeInputValue
-    lng: GeolibLongitudeInputValue
-  };
-  midpoint?: undefined | {
-    formatted_address: string | number | readonly string[] | undefined;
-    lat: GeolibLatitudeInputValue
-    lng: GeolibLongitudeInputValue
-  };
-  start?: undefined | {
-    formatted_address: string | number | readonly string[] | undefined;
-    lat: GeolibLatitudeInputValue
-    lng: GeolibLongitudeInputValue
-  };
+  end?:
+    | undefined
+    | {
+        formatted_address: string | number | readonly string[] | undefined;
+        lat: GeolibLatitudeInputValue;
+        lng: GeolibLongitudeInputValue;
+      };
+  midpoint?:
+    | undefined
+    | {
+        formatted_address: string | number | readonly string[] | undefined;
+        lat: GeolibLatitudeInputValue;
+        lng: GeolibLongitudeInputValue;
+      };
+  start?:
+    | undefined
+    | {
+        formatted_address: string | number | readonly string[] | undefined;
+        lat: GeolibLatitudeInputValue;
+        lng: GeolibLongitudeInputValue;
+      };
 }
 // export type Coords = {
 //   end: LatLng | LatLngLiteral | Place | string;

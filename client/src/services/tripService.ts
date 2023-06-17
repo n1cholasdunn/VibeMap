@@ -1,5 +1,5 @@
 import { Destination } from '../context';
-import { LatLng, LatLngLiteral, Place } from './googlePlaceService';
+// import { LatLng, LatLngLiteral, Place } from './googlePlaceService';
 const url = 'http://localhost:3333';
 
 export async function getUserTrips() {
