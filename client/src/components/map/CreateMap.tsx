@@ -72,7 +72,7 @@ const CreateMap = () => {
                     }));
                     console.log('search place: ', destination);
                     setSelectedPlaceFromSearch('');
-                    // autocompleteRef.current.value = '';   DONT THINK THIS CODE IS BEING USED
+                    // autocompleteRef.current.value = '';   DONT THINK THIS CODE IS BEING USED!!!
 
 
                 }
