@@ -11,7 +11,7 @@ import { getDistance } from 'geolib';
 import { fetchPlaceInfo } from '../../services/googlePlacesService';
 import React from 'react';
 import { Location } from './PlaceCard';
-
+import { tripProps } from '../../services/tripService';
 
 
 export type AutoComplete = google.maps.places.Autocomplete;
@@ -72,7 +72,7 @@ const CreateMap = () => {
                     }));
                     console.log('search place: ', destination);
                     setSelectedPlaceFromSearch('');
-                    autocompleteRef.current.value = '';
+                    // autocompleteRef.current.value = '';   DONT THINK THIS CODE IS BEING USED
 
 
                 }
@@ -124,7 +124,10 @@ const CreateMap = () => {
             user: 1,
             id: `34567890kjnbvt6789${Math.round(Math.random() * 100000)}`,
         };
-        await postUserTrip(newDestination, clearDestination);
+        // await postUserTrip(newDestination, clearDestination);    <---- BEFORE
+        clearDestination                                            //
+        await postUserTrip(newDestination)                          //AFTER
+
         //create condition to PUT instead of post if destination is already created by user
         console.log(newDestination);
     };
@@ -159,7 +162,7 @@ const CreateMap = () => {
                     />
                     <form className='flex flex-row justify-between w-full mt-2.5 h-10'>
                         <Autocomplete
-                            apiKey={apiKey}
+                            // apiKey={apiKey}
                             onLoad={(autocomplete) => {
                                 autocompleteRef.current = autocomplete;
                                 autocomplete.setFields(['geometry']);

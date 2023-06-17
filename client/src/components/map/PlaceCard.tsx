@@ -13,16 +13,16 @@ export interface Location {
 
 interface PlaceCardProps {
     location: Location
-    onClick: React.Dispatch<React.SetStateAction<any>> //NEED TO FIX
+    onClick: any //onclick is not functional!!!!
 }
 
 
 const PlaceCard: React.FC<PlaceCardProps> = ({ location, onClick }) => {
     const { destination, setDestination } = useContext(DestinationContext);
 
-    const handleClick = () => {
-        onClick(location.lat, location.lng);
-    };
+    // const handleClick = () => {
+    //     onClick(location.lat, location.lng);
+    // };
 
     const [likedPlace, setLikedPlace] = useState(false);
 
@@ -78,7 +78,8 @@ const PlaceCard: React.FC<PlaceCardProps> = ({ location, onClick }) => {
                 </h3>
                 <button
                     className='text-md self-cente hover:text-gray-500 font-sm p-1'
-                    onClick={handleClick}>
+                // onClick={handleClick} NON FUNCTIONAL!
+                >
                     More Info +
                 </button>
             </div>

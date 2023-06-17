@@ -1,3 +1,5 @@
+import { Destination } from "../context";
+
 const url = 'http://localhost:3333';
 
 export async function getUserTrips() {
@@ -11,7 +13,7 @@ export async function getUserTrips() {
     return error;
   }
 }
-export async function postUserTrip(newUserTrip: tripProps) {
+export async function postUserTrip(newUserTrip: Destination) {
   try {
     const response = await fetch(url + '/trips', {
       method: 'POST',
@@ -29,7 +31,7 @@ export async function postUserTrip(newUserTrip: tripProps) {
   }
 }
 
-export async function editUserTrip() {}
+export async function editUserTrip() { }
 
 export type tripProps = {
   trip: {

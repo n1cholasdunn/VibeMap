@@ -29,7 +29,7 @@ export interface Points {
 
 export interface Destination {
   id: string | null;
-  user: string | null;
+  user: string | number | null;
   type: string | null;
   coords: Coords;
   categories: any[] | null; // You can replace `any` with a specific type
