@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Destination } from "../context";
+=======
+import { LatLng, LatLngLiteral, Place } from './googlePlaceService';
+>>>>>>> e8f94b383ccf2dca38c0f1c170ba0191f02ccca4
 
 const url = 'http://localhost:3333';
 
@@ -40,21 +44,32 @@ export type tripProps = {
     category?: null | {
       categoryName: string;
     };
-    coords: {
-      end?: null | {
+    coords: // string | GoogleLatLng | GooglePlace | GoogleLatLngLiteral;
+    // {
+    //   // end?: string | GoogleLatLng | GooglePlace | GoogleLatLngLiteral;
+    //   // midpoint?: string | GoogleLatLng | GooglePlace | GoogleLatLngLiteral;
+    //   end: LatLng | LatLngLiteral | Place;
+    //   midpoint: LatLng | LatLngLiteral | Place;
+    //   start: LatLng | LatLngLiteral | Place;
+    // };
+    {
+      end: // | LatLng
+      {
         lat: number;
         lng: number;
       };
-      midpoint?: null | {
+      midpoint?: // | LatLng
+      {
         lat: number;
         lng: number;
       };
-      start: null | {
+      start: // | LatLng
+      {
         lat: number;
         lng: number;
       };
     };
-    description: string | null;
+    description: number | null;
     points: [
       {
         id: null | number;

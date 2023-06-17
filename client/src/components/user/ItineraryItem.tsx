@@ -1,6 +1,6 @@
 import '../../App.css';
 import { useState, useEffect, useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import React from 'react';
 import {
   GoogleMap,
@@ -9,7 +9,11 @@ import {
   DirectionsRenderer,
 } from '@react-google-maps/api';
 import type { tripProps } from '../../services/tripService';
-
+import {
+  DirectionsResult,
+  DirectionsWaypoint,
+  LatLng,
+} from '../../services/googlePlaceService';
 // const ItineraryItem = ({ trip }) => {
 const ItineraryItem = ({ trip }: tripProps) => {
   const apiKey = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
@@ -39,19 +43,34 @@ const ItineraryItem = ({ trip }: tripProps) => {
     googleMapsApiKey: apiKey,
   });
 
-  const generateEndPoint = () => {
-    if (trip.type === 'singleDestination') {
-      return null;
+  type pointType = {};
+  const generateEndPoint = (): LatLng | string => {
+    if (trip.type === 'singleDestination' || !trip.coords) {
+      // return null;
+      return 'NULL';
+      // return new google.maps.LatLng(new google.maps.LatLng(0, 0));
     } else if (trip.type === 'oneWay' && trip.coords.end) {
-      return { lat: trip.coords.end.lat, lng: trip.coords.end.lng };
-    } else if (trip.type === 'loopTrip' && trip.coords.start) {
-      return { lat: trip.coords.start.lat, lng: trip.coords.start.lng };
+      // return { lat: trip.coords.end.lat, lng: trip.coords.end.lng };
+      return new google.maps.LatLng(
+        new google.maps.LatLng(trip.coords.end.lat, trip.coords.end.lng)
+      );
+    } else {
+      // (trip.type === 'loopTrip' && trip.coords.start)
+      // return { lat: trip.coords.start.lat, lng: trip.coords.start.lng };
+      return new google.maps.LatLng(
+        trip.coords.start.lat,
+        trip.coords.start.lng
+      );
     }
   };
 
-  const generateWaypoints = () => {
-    if (trip.type === 'singleDestination' || trip.type === 'oneWay') {
-      return null;
+  const generateWaypoints = (): DirectionsWaypoint[] | undefined => {
+    if (
+      trip.type === 'singleDestination' ||
+      trip.type === 'oneWay' ||
+      !trip.coords
+    ) {
+      return undefined;
     } else if (trip.coords.midpoint && trip.coords.end) {
       return [
         { location: `${trip.coords.midpoint.lat},${trip.coords.midpoint.lng}` },
@@ -61,7 +80,7 @@ const ItineraryItem = ({ trip }: tripProps) => {
   };
 
   const center = useMemo(
-    () => ({ lat: trip.coords.start?.lat, lng: trip.coords.start?.lng }),
+    () => ({ lat: trip.coords.start.lat, lng: trip.coords.start.lng }),
     [trip.coords.start]
   );
 
@@ -77,8 +96,8 @@ const ItineraryItem = ({ trip }: tripProps) => {
     if (isLoaded) {
       const directionsService = new window.google.maps.DirectionsService();
       const start = {
-        lat: trip.coords.start?.lat,
-        lng: trip.coords.start?.lng,
+        lat: trip.coords.start.lat,
+        lng: trip.coords.start.lng,
       };
 
       directionsService.route(
@@ -89,7 +108,7 @@ const ItineraryItem = ({ trip }: tripProps) => {
           optimizeWaypoints: true,
           travelMode: window.google.maps.TravelMode.DRIVING,
         },
-        (result, status) => {
+        (result: DirectionsResult | undefined, status) => {
           if (status === window.google.maps.DirectionsStatus.OK) {
             setDirections(result);
           } else {
@@ -179,12 +198,18 @@ const ItineraryItem = ({ trip }: tripProps) => {
           <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 '>
             {trip.description}
           </h5>
+          {/* TODO check if link below is supposed to go to profile or just top of a page that is different */}
         </a>
-        <a
+        <Link
+          to={'/profile'}
+          onClick={handleViewMap}
+          className='inline-flex items-center px-3 py-2 text-sm font-medium text-center bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300  hover:text-white text-white hover:bg-gray-500 bg-gradient-to-r from-blue-600 to-indigo-400   hover:drop-shadow-lg
+          text-md border p-2 rounded-lg'>
+          {/* <a
           href='#'
           onClick={handleViewMap}
           className='inline-flex items-center px-3 py-2 text-sm font-medium text-center bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300  hover:text-white text-white hover:bg-gray-500 bg-gradient-to-r from-blue-600 to-indigo-400   hover:drop-shadow-lg
-							text-md border p-2 rounded-lg'>
+          text-md border p-2 rounded-lg'> */}
           View Map
           <svg
             aria-hidden='true'
@@ -197,7 +222,8 @@ const ItineraryItem = ({ trip }: tripProps) => {
               d='M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z'
               clip-rule='evenodd'></path>
           </svg>
-        </a>
+          {/* </a> */}
+        </Link>
       </div>
     </div>
   );
