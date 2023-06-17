@@ -1,7 +1,7 @@
 import CategorySearch, { Category } from './CategorySearch';
 import GMap from './GMap';
 import '../../App.css';
-import { useRef, useState, useEffect, useContext, FormEvent } from 'react';
+import { useRef, useState, useEffect, useContext } from 'react';
 import { Autocomplete } from '@react-google-maps/api';
 import { Destination, DestinationContext } from '../../context';
 import PlaceCard from './PlaceCard';
@@ -25,6 +25,7 @@ const CreateMap = () => {
   const [selectedPlaceFromSearch, setSelectedPlaceFromSearch] = useState<
     Place | string
   >('');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [googleLoaded, setGoogleLoaded] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState<Category[]>([]);
   const [tripDescription, setTripDescription] = useState('');
@@ -40,7 +41,7 @@ const CreateMap = () => {
     return () => {
       document.head.removeChild(script);
     };
-  }, []);
+  }, [apiKey]);
   const handlePlaceSelect = () => {
     const place = autocompleteRef.current.getPlace();
     if (!place.geometry || !place.geometry.location) {
