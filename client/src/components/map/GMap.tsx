@@ -136,8 +136,8 @@ const GMap: React.FC<GMapProps> = ({ filteredLocationsCallback }) => {
                     <>
                         <Marker
                             position={{
-                                lat: destination.coords.start.lat,
-                                lng: destination.coords.start.lng,
+                                lat: destination.coords.start?.lat,
+                                lng: destination.coords.start?.lng,
                             } as LatLng | LatLngLiteral}
                             icon={'http://maps.google.com/mapfiles/ms/icons/green-dot.png'}
                         />

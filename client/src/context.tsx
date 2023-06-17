@@ -4,17 +4,17 @@ import type { DetailedHTMLProps, InputHTMLAttributes, ReactNode } from 'react';
 import { LatLng, LatLngLiteral, Place } from './services/googlePlaceService';
 
 export interface Coords {
-  end?: {
+  end?: undefined | {
     formatted_address: string | number | readonly string[] | undefined;
     lat: GeolibLatitudeInputValue
     lng: GeolibLongitudeInputValue
   };
-  midpoint?: {
+  midpoint?: undefined | {
     formatted_address: string | number | readonly string[] | undefined;
     lat: GeolibLatitudeInputValue
     lng: GeolibLongitudeInputValue
   };
-  start: {
+  start?: undefined | {
     formatted_address: string | number | readonly string[] | undefined;
     lat: GeolibLatitudeInputValue
     lng: GeolibLongitudeInputValue
@@ -60,9 +60,9 @@ export const DestinationProvider = ({ children }: DestinationProviderProps) => {
     user: null,
     type: null,
     coords: {
-      start: null,
-      midpoint: null,
-      end: null,
+      start: undefined,
+      midpoint: undefined,
+      end: undefined,
     },
     // coords: {
     //   start: '',
@@ -80,9 +80,9 @@ export const DestinationProvider = ({ children }: DestinationProviderProps) => {
       user: null,
       type: null,
       coords: {
-        start: null,
-        midpoint: null,
-        end: null,
+        start: undefined,
+        midpoint: undefined,
+        end: undefined,
       },
       categories: null,
       points: [],

@@ -86,15 +86,15 @@ const CreateMap = () => {
     const sortedLocations = locations.sort((a: Location, b: Location) => {
         const distanceA = getDistance(
             {
-                latitude: destination.coords.start.lat,
-                longitude: destination.coords.start.lng,
+                latitude: destination.coords.start!.lat,
+                longitude: destination.coords.start!.lng,
             },
             { latitude: a.lat, longitude: a.lng }
         );
         const distanceB = getDistance(
             {
-                latitude: destination.coords.start.lat,
-                longitude: destination.coords.start.lng,
+                latitude: destination.coords.start!.lat,
+                longitude: destination.coords.start!.lng,
             },
             { latitude: b.lat, longitude: b.lng }
         );
