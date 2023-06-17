@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import ScrollTop from './helpers/scrolltop';
+import ScrollTop from './helpers/ScrollTop';
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 const rootElement = document.getElementById('root');
