@@ -1,4 +1,4 @@
-import CategorySearch from './CategorySearch';
+import CategorySearch, { Category } from './CategorySearch';
 import GMap from './GMap';
 import '../../App.css';
 import { useRef, useState, useEffect, useContext, FormEvent } from 'react';
@@ -8,10 +8,10 @@ import PlaceCard from './PlaceCard';
 import locations from '../../db.json';
 import { postUserTrip } from '../../services/tripService';
 import { getDistance } from 'geolib';
-import { fetchPlaceInfo } from '../../services/googlePlacesService';
+import { fetchPlaceInfo } from '../../services/googlePlaceService';
 import React from 'react';
 import { Location } from './PlaceCard';
-import { tripProps } from '../../services/tripService';
+
 
 
 export type AutoComplete = google.maps.places.Autocomplete;
@@ -25,7 +25,7 @@ const CreateMap = () => {
         useContext(DestinationContext);
     const [selectedPlaceFromSearch, setSelectedPlaceFromSearch] = useState<Place | string>('');
     const [googleLoaded, setGoogleLoaded] = useState(false);
-    const [selectedCategories, setSelectedCategories] = useState([]);
+    const [selectedCategories, setSelectedCategories] = useState<Category[]>([]);
     const [tripDescription, setTripDescription] = useState('');
 
 
@@ -139,7 +139,7 @@ const CreateMap = () => {
         <>
             <div className='flex flex-row justify-center p-6 z-[-1]'>
                 <div className='flex flex-col  justify-end w-4/5 h-auto aspect-w-1 aspect-h-1'>
-                    <GMap filteredLocations={filteredLocations} />
+                    <GMap filteredLocationsCallback={filteredLocations} />
                     <form className='flex flex-row py-2 self' onSubmit={handleSubmitTrip}>
                         <input
                             placeholder='Give your trip a name...'
@@ -182,7 +182,7 @@ const CreateMap = () => {
                         </Autocomplete>
                         <button
                             type='submit'
-                            onClick={handleAddPoint}
+                            // onClick={handleAddPoint}  NON-FUNCTIONAL
                             className='
                             hover:text-white hover:bg-gray-400 hover:drop-shadow-lg
                             text-sm border border-gray-300 p-2 rounded-xl w-28 h-full'>

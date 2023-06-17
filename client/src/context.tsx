@@ -1,7 +1,8 @@
-import { GeolibInputCoordinates, GeolibLatitudeInputValue } from 'geolib/es/types';
+import { GeolibInputCoordinates, GeolibLatitudeInputValue, GeolibLongitudeInputValue } from 'geolib/es/types';
 import React, { createContext, useState } from 'react';
 import type { DetailedHTMLProps, InputHTMLAttributes, ReactNode } from 'react';
 import { LatLng, LatLngLiteral, Place } from './services/googlePlaceService';
+
 export interface Coords {
   end?: {
     formatted_address: string | number | readonly string[] | undefined;
@@ -16,7 +17,7 @@ export interface Coords {
   start: {
     formatted_address: string | number | readonly string[] | undefined;
     lat: GeolibLatitudeInputValue
-    lng: GeolibLatitudeInputValue
+    lng: GeolibLongitudeInputValue
   };
 }
 // export type Coords = {

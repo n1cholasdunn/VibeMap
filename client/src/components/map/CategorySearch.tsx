@@ -9,7 +9,7 @@ import React from 'react';
 const icon = <CheckBoxOutlineBlankIcon fontSize='small' />;
 const checkedIcon = <CheckBoxIcon fontSize='small' />;
 
-interface Category {
+export interface Category {
     categoryName: string
 }
 
