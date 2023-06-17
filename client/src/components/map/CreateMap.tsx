@@ -121,7 +121,7 @@ const CreateMap = () => {
       id: `34567890kjnbvt6789${Math.round(Math.random() * 100000)}`,
     };
     // await postUserTrip(newDestination, clearDestination);    <---- BEFORE
-    clearDestination; //
+    void clearDestination; //
     await postUserTrip(newDestination); //AFTER
 
     //create condition to PUT instead of post if destination is already created by user
