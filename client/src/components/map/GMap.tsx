@@ -15,6 +15,7 @@ import React from 'react';
 type Route = google.maps.DirectionsResult
 
 
+
 interface Location {
     id: string
     name: string
@@ -23,18 +24,18 @@ interface Location {
     categories: [string]
     address: string
 }
-
+//change the naming
 interface GMapProps {
-    filteredLocations: Destination[]
+    filteredLocationsCallback: (location: Location) => boolean
 }
 
-const GMap: React.FC<GMapProps> = ({ filteredLocations }) => {
+const GMap: React.FC<GMapProps> = ({ filteredLocationsCallback }) => {
     const { destination } = useContext(DestinationContext);
     const [directions, setDirections] = useState(null);
-    const [selectedLocation, setSelectedLocation] = useState(null);
+    const [selectedLocation, setSelectedLocation] = useState<Location | null>(null);
 
     const { isLoaded, loadError } = useLoadScript({
-        googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
+        googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY!,
     });
 
     const generateEndPoint = () => {
@@ -161,8 +162,9 @@ const GMap: React.FC<GMapProps> = ({ filteredLocations }) => {
                                 />
                             )}
                     </>
-
-                    {locations.filter(filteredLocations).map((location: Location) => (
+                    {/* 
+                        filter takes a callback */}
+                    {locations.filter(filteredLocationsCallback).map((location: Location) => (
                         <Marker
                             key={location.id}
                             position={{

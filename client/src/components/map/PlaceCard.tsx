@@ -13,16 +13,17 @@ export interface Location {
 
 interface PlaceCardProps {
     location: Location
-    onClick: any //onclick is not functional!!!!
+    handleAddPoint: (e: React.FormEvent<HTMLFormElement>) => void
+    onClick: any //dont think this is functional
 }
 
 
-const PlaceCard: React.FC<PlaceCardProps> = ({ location, onClick }) => {
+const PlaceCard: React.FC<PlaceCardProps> = ({ location, handleAddPoint, onClick }) => {
     const { destination, setDestination } = useContext(DestinationContext);
 
-    // const handleClick = () => {
-    //     onClick(location.lat, location.lng);
-    // };
+    const handleClick = () => {
+        onClick(location.lat, location.lng);
+    };
 
     const [likedPlace, setLikedPlace] = useState(false);
 
@@ -78,7 +79,7 @@ const PlaceCard: React.FC<PlaceCardProps> = ({ location, onClick }) => {
                 </h3>
                 <button
                     className='text-md self-cente hover:text-gray-500 font-sm p-1'
-                // onClick={handleClick} NON FUNCTIONAL!
+                    onClick={handleClick}
                 >
                     More Info +
                 </button>
