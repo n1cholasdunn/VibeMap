@@ -1,6 +1,6 @@
 import '../../App.css';
 import { useState, useEffect, useMemo } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, redirect } from 'react-router-dom';
 import React from 'react';
 import {
   GoogleMap,
@@ -9,18 +9,15 @@ import {
   DirectionsRenderer,
 } from '@react-google-maps/api';
 import type { tripProps } from '../../services/tripService';
-import {
-  DirectionsResult,
-  DirectionsWaypoint,
-  LatLng,
-} from '../../services/googlePlaceService';
+import { DirectionsWaypoint, LatLng } from '../../services/googlePlaceService';
 // const ItineraryItem = ({ trip }) => {
 const ItineraryItem = ({ trip }: tripProps) => {
-  const apiKey = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
+  const apiKey = process.env.REACT_APP_GOOGLE_MAP_API_KEY as string;
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [googleLoaded, setGoogleLoaded] = useState(false);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   //   const autocompleteRef = useRef(null);
 
@@ -43,7 +40,7 @@ const ItineraryItem = ({ trip }: tripProps) => {
     googleMapsApiKey: apiKey,
   });
 
-  type pointType = {};
+  // type pointType = {};
 
   const center = useMemo(
     () => ({ lat: trip.coords.start.lat, lng: trip.coords.start.lng }),
@@ -147,10 +144,12 @@ const ItineraryItem = ({ trip }: tripProps) => {
     return <div>Error loading Google Maps</div>;
   }
 
-  const handleViewMap = (e) => {
+  const handleViewMap = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
 
-    navigate(`/mapview`, trip);
+    return redirect('/mapview');
+    // navigate(`/mapview`, trip);
+    // ** not sure why ^^ has trip as a second argument and navigate isn't reccomened so using redirect now
     //post values
   };
 
@@ -159,71 +158,75 @@ const ItineraryItem = ({ trip }: tripProps) => {
       {!isLoaded ? (
         <h1>Loading...</h1>
       ) : (
-        <GoogleMap
-          className='rounded-t-lg'
-          mapContainerClassName='map-container'
-          center={center}
-          zoom={mapZoom()}>
-          {directions && (
-            <DirectionsRenderer
-              directions={directions}
-              options={{
-                polylineOptions: {
-                  strokeColor: 'blue',
-                },
-              }}
-            />
-          )}
-          <>
-            <Marker
-              position={{
-                lat: trip.coords.start.lat,
-                lng: trip.coords.start.lng,
-              }}
-              icon={'http://maps.google.com/mapfiles/ms/icons/green-dot.png'}
-            />
-
-            {trip.coords.midpoint !== null &&
-              trip.coords.midpoint !== undefined && (
-                <Marker
-                  position={{
-                    lat: trip.coords.midpoint.lat,
-                    lng: trip.coords.midpoint.lng,
-                  }}
-                  icon={
-                    'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
-                  }
-                />
-              )}
-            {trip.coords.end !== null && trip.coords.end !== undefined && (
-              <Marker
-                position={{
-                  lat: trip.coords.end.lat,
-                  lng: trip.coords.end.lng,
+        <div className='rounded-t-lg'>
+          <GoogleMap
+            // className='rounded-t-lg'
+            mapContainerClassName='map-container'
+            center={center}
+            zoom={mapZoom()}>
+            {directions && (
+              <DirectionsRenderer
+                directions={directions}
+                options={{
+                  polylineOptions: {
+                    strokeColor: 'blue',
+                  },
                 }}
-                icon={'http://maps.google.com/mapfiles/ms/icons/red-dot.png'}
               />
             )}
-          </>
+            <>
+              <Marker
+                position={{
+                  lat: trip.coords.start.lat,
+                  lng: trip.coords.start.lng,
+                }}
+                icon={'http://maps.google.com/mapfiles/ms/icons/green-dot.png'}
+              />
 
-          {trip.points.map((location) => (
-            <Marker
-              key={location.name}
-              position={{
-                lat: location.lat,
-                lng: location.lng,
-              }}
-            />
-          ))}
-        </GoogleMap>
+              {trip.coords.midpoint !== null &&
+                trip.coords.midpoint !== undefined && (
+                  <Marker
+                    position={{
+                      lat: trip.coords.midpoint.lat,
+                      lng: trip.coords.midpoint.lng,
+                    }}
+                    icon={
+                      'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
+                    }
+                  />
+                )}
+              {trip.coords.end !== null && trip.coords.end !== undefined && (
+                <Marker
+                  position={{
+                    lat: trip.coords.end.lat,
+                    lng: trip.coords.end.lng,
+                  }}
+                  icon={'http://maps.google.com/mapfiles/ms/icons/red-dot.png'}
+                />
+              )}
+            </>
+
+            {trip.points.map((location) => (
+              <Marker
+                key={location.name}
+                position={{
+                  lat: location.lat,
+                  lng: location.lng,
+                }}
+              />
+            ))}
+          </GoogleMap>
+        </div>
       )}
       <div className='pt-5'>
-        <a href='#'>
+        <Link to={'/profile'}>
+          {/* <a href='#'> */}
           <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 '>
             {trip.description}
           </h5>
-          {/* TODO check if link below is supposed to go to profile or just top of a page that is different */}
-        </a>
+          {/* TODO check if link above and below is supposed to go to profile or just top of a page that is different */}
+          {/* </a> */}
+        </Link>
         <Link
           to={'/profile'}
           onClick={handleViewMap}
