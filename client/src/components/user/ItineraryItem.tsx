@@ -114,22 +114,6 @@ const ItineraryItem = ({ trip }: tripProps) => {
         .catch((e) => {
           alert('Could not display directions due to: ' + e);
         });
-      // directionsService.route(
-      //   {
-      //     origin: start,
-      //     destination: generateEndPoint(),
-      //     waypoints: generateWaypoints(),
-      //     optimizeWaypoints: true,
-      //     travelMode: window.google.maps.TravelMode.DRIVING,
-      //   },
-      //   (result: DirectionsResult | undefined, status) => {
-      //     if (status === window.google.maps.DirectionsStatus.OK) {
-      //       setDirections(result);
-      //     } else {
-      //       console.error(`Error fetching directions ${result}`);
-      //     }
-      //   }
-      // );
     }
   }, [
     isLoaded,

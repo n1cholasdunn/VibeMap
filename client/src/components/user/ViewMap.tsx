@@ -8,10 +8,12 @@ import {
   useLoadScript,
   DirectionsRenderer,
 } from '@react-google-maps/api';
+import { tripProps } from '../../services/tripService';
 
-const ViewMap = ({ trip }) => {
-  const apiKey = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
+const ViewMap = ({ trip }: tripProps) => {
+  const apiKey = process.env.REACT_APP_GOOGLE_MAP_API_KEY as string;
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [googleLoaded, setGoogleLoaded] = useState(false);
   const [directions, setDirections] = useState(null);
 
@@ -28,14 +30,14 @@ const ViewMap = ({ trip }) => {
     return () => {
       document.head.removeChild(script);
     };
-  }, []);
+  }, [apiKey]);
 
   const editUserTrip = () => {
     console.log('something');
   };
 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
+    googleMapsApiKey: apiKey,
   });
 
   const generateEndPoint = () => {
