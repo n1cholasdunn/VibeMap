@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-import { Destination } from "../context";
-=======
+import { Destination } from '../context';
 import { LatLng, LatLngLiteral, Place } from './googlePlaceService';
->>>>>>> e8f94b383ccf2dca38c0f1c170ba0191f02ccca4
-
 const url = 'http://localhost:3333';
 
 export async function getUserTrips() {
@@ -35,7 +31,7 @@ export async function postUserTrip(newUserTrip: Destination) {
   }
 }
 
-export async function editUserTrip() { }
+export async function editUserTrip() {}
 
 export type tripProps = {
   trip: {

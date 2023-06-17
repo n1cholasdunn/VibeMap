@@ -44,40 +44,6 @@ const ItineraryItem = ({ trip }: tripProps) => {
   });
 
   type pointType = {};
-  const generateEndPoint = (): LatLng | string => {
-    if (trip.type === 'singleDestination' || !trip.coords) {
-      // return null;
-      return 'NULL';
-      // return new google.maps.LatLng(new google.maps.LatLng(0, 0));
-    } else if (trip.type === 'oneWay' && trip.coords.end) {
-      // return { lat: trip.coords.end.lat, lng: trip.coords.end.lng };
-      return new google.maps.LatLng(
-        new google.maps.LatLng(trip.coords.end.lat, trip.coords.end.lng)
-      );
-    } else {
-      // (trip.type === 'loopTrip' && trip.coords.start)
-      // return { lat: trip.coords.start.lat, lng: trip.coords.start.lng };
-      return new google.maps.LatLng(
-        trip.coords.start.lat,
-        trip.coords.start.lng
-      );
-    }
-  };
-
-  const generateWaypoints = (): DirectionsWaypoint[] | undefined => {
-    if (
-      trip.type === 'singleDestination' ||
-      trip.type === 'oneWay' ||
-      !trip.coords
-    ) {
-      return undefined;
-    } else if (trip.coords.midpoint && trip.coords.end) {
-      return [
-        { location: `${trip.coords.midpoint.lat},${trip.coords.midpoint.lng}` },
-        { location: `${trip.coords.end.lat},${trip.coords.end.lng}` },
-      ];
-    }
-  };
 
   const center = useMemo(
     () => ({ lat: trip.coords.start.lat, lng: trip.coords.start.lng }),
@@ -93,6 +59,43 @@ const ItineraryItem = ({ trip }: tripProps) => {
   };
 
   useEffect(() => {
+    const generateEndPoint = (): LatLng | string => {
+      if (trip.type === 'singleDestination' || !trip.coords) {
+        // return null;
+        return 'NULL';
+        // return new google.maps.LatLng(new google.maps.LatLng(0, 0));
+      } else if (trip.type === 'oneWay' && trip.coords.end) {
+        // return { lat: trip.coords.end.lat, lng: trip.coords.end.lng };
+        return new google.maps.LatLng(
+          new google.maps.LatLng(trip.coords.end.lat, trip.coords.end.lng)
+        );
+      } else {
+        // (trip.type === 'loopTrip' && trip.coords.start)
+        // return { lat: trip.coords.start.lat, lng: trip.coords.start.lng };
+        return new google.maps.LatLng(
+          trip.coords.start.lat,
+          trip.coords.start.lng
+        );
+      }
+    };
+
+    const generateWaypoints = (): DirectionsWaypoint[] | undefined => {
+      if (
+        trip.type === 'singleDestination' ||
+        trip.type === 'oneWay' ||
+        !trip.coords
+      ) {
+        return undefined;
+      } else if (trip.coords.midpoint && trip.coords.end) {
+        return [
+          {
+            location: `${trip.coords.midpoint.lat},${trip.coords.midpoint.lng}`,
+          },
+          { location: `${trip.coords.end.lat},${trip.coords.end.lng}` },
+        ];
+      }
+    };
+
     if (isLoaded) {
       const directionsService = new window.google.maps.DirectionsService();
       const start = {
@@ -100,24 +103,45 @@ const ItineraryItem = ({ trip }: tripProps) => {
         lng: trip.coords.start.lng,
       };
 
-      directionsService.route(
-        {
+      directionsService
+        .route({
           origin: start,
           destination: generateEndPoint(),
           waypoints: generateWaypoints(),
           optimizeWaypoints: true,
           travelMode: window.google.maps.TravelMode.DRIVING,
-        },
-        (result: DirectionsResult | undefined, status) => {
-          if (status === window.google.maps.DirectionsStatus.OK) {
-            setDirections(result);
-          } else {
-            console.error(`Error fetching directions ${result}`);
-          }
-        }
-      );
+        })
+        .then((result: google.maps.DirectionsResult) => {
+          setDirections(result);
+        })
+        .catch((e) => {
+          alert('Could not display directions due to: ' + e);
+        });
+      // directionsService.route(
+      //   {
+      //     origin: start,
+      //     destination: generateEndPoint(),
+      //     waypoints: generateWaypoints(),
+      //     optimizeWaypoints: true,
+      //     travelMode: window.google.maps.TravelMode.DRIVING,
+      //   },
+      //   (result: DirectionsResult | undefined, status) => {
+      //     if (status === window.google.maps.DirectionsStatus.OK) {
+      //       setDirections(result);
+      //     } else {
+      //       console.error(`Error fetching directions ${result}`);
+      //     }
+      //   }
+      // );
     }
-  }, [isLoaded]);
+  }, [
+    isLoaded,
+
+    trip.coords.start.lat,
+    trip.coords.start.lng,
+    trip.coords,
+    trip.type,
+  ]);
 
   if (loadError) {
     return <div>Error loading Google Maps</div>;
