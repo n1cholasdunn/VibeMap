@@ -9,7 +9,11 @@ import {
   DirectionsRenderer,
 } from '@react-google-maps/api';
 import type { tripProps } from '../../services/tripService';
-
+import {
+  DirectionsResult,
+  DirectionsWaypoint,
+  LatLng,
+} from '../../services/googlePlaceService';
 // const ItineraryItem = ({ trip }) => {
 const ItineraryItem = ({ trip }: tripProps) => {
   const apiKey = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
@@ -39,23 +43,34 @@ const ItineraryItem = ({ trip }: tripProps) => {
     googleMapsApiKey: apiKey,
   });
 
-  const generateEndPoint = () => {
+  type pointType = {};
+  const generateEndPoint = (): LatLng | string => {
     if (trip.type === 'singleDestination' || !trip.coords) {
-      return null;
+      // return null;
+      return 'NULL';
+      // return new google.maps.LatLng(new google.maps.LatLng(0, 0));
     } else if (trip.type === 'oneWay' && trip.coords.end) {
-      return { lat: trip.coords.end.lat, lng: trip.coords.end.lng };
-    } else if (trip.type === 'loopTrip' && trip.coords.start) {
-      return { lat: trip.coords.start.lat, lng: trip.coords.start.lng };
+      // return { lat: trip.coords.end.lat, lng: trip.coords.end.lng };
+      return new google.maps.LatLng(
+        new google.maps.LatLng(trip.coords.end.lat, trip.coords.end.lng)
+      );
+    } else {
+      // (trip.type === 'loopTrip' && trip.coords.start)
+      // return { lat: trip.coords.start.lat, lng: trip.coords.start.lng };
+      return new google.maps.LatLng(
+        trip.coords.start.lat,
+        trip.coords.start.lng
+      );
     }
   };
 
-  const generateWaypoints = () => {
+  const generateWaypoints = (): DirectionsWaypoint[] | undefined => {
     if (
       trip.type === 'singleDestination' ||
       trip.type === 'oneWay' ||
       !trip.coords
     ) {
-      return null;
+      return undefined;
     } else if (trip.coords.midpoint && trip.coords.end) {
       return [
         { location: `${trip.coords.midpoint.lat},${trip.coords.midpoint.lng}` },
@@ -65,7 +80,7 @@ const ItineraryItem = ({ trip }: tripProps) => {
   };
 
   const center = useMemo(
-    () => ({ lat: trip.coords.start?.lat, lng: trip.coords.start?.lng }),
+    () => ({ lat: trip.coords.start.lat, lng: trip.coords.start.lng }),
     [trip.coords.start]
   );
 
@@ -93,7 +108,7 @@ const ItineraryItem = ({ trip }: tripProps) => {
           optimizeWaypoints: true,
           travelMode: window.google.maps.TravelMode.DRIVING,
         },
-        (result, status) => {
+        (result: DirectionsResult | undefined, status) => {
           if (status === window.google.maps.DirectionsStatus.OK) {
             setDirections(result);
           } else {
@@ -183,9 +198,10 @@ const ItineraryItem = ({ trip }: tripProps) => {
           <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 '>
             {trip.description}
           </h5>
+          {/* TODO check if link below is supposed to go to profile or just top of a page that is different */}
         </a>
         <Link
-          to={'/'}
+          to={'/profile'}
           onClick={handleViewMap}
           className='inline-flex items-center px-3 py-2 text-sm font-medium text-center bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300  hover:text-white text-white hover:bg-gray-500 bg-gradient-to-r from-blue-600 to-indigo-400   hover:drop-shadow-lg
           text-md border p-2 rounded-lg'>
