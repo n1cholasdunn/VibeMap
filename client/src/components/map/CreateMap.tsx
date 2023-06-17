@@ -12,6 +12,8 @@ import { fetchPlaceInfo } from '../../services/googlePlaceService';
 import React from 'react';
 import { Location } from './PlaceCard';
 
+//added comment to commit
+
 export type AutoComplete = google.maps.places.Autocomplete;
 export type Place = google.maps.places.PlaceResult;
 export type Geometry = google.maps.places.PlaceGeometry;
