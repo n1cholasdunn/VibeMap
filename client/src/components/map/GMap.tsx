@@ -11,6 +11,7 @@ import locations from '../../db.json';
 import MapInfoWindow from './MapInfoWindow';
 import { Destination, DestinationContext } from '../../context';
 import React from 'react';
+import { DirectionsWaypoint, LatLng, LatLngLiteral, Place } from '../../services/googlePlaceService';
 
 type Route = google.maps.DirectionsResult
 
@@ -31,7 +32,7 @@ interface GMapProps {
 
 const GMap: React.FC<GMapProps> = ({ filteredLocationsCallback }) => {
     const { destination } = useContext(DestinationContext);
-    const [directions, setDirections] = useState(null);
+    const [directions, setDirections] = useState<Route | null>(null);
     const [selectedLocation, setSelectedLocation] = useState<Location | null>(null);
 
     const { isLoaded, loadError } = useLoadScript({
@@ -90,9 +91,11 @@ const GMap: React.FC<GMapProps> = ({ filteredLocationsCallback }) => {
 
             directionsService.route(
                 {
-                    origin: start,
-                    destination: generateEndPoint(),
-                    waypoints: generateWaypoints(),
+                    ////////////////////////////////////////////////////////////////
+                    origin: start as string | LatLng | Place | LatLngLiteral,                            //FIXED THE ERRORS HERE USING "AS" NOT SURE IF THIS IS WRONG
+                    destination: generateEndPoint() as string | LatLng | LatLngLiteral | Place,          //
+                    waypoints: generateWaypoints() as DirectionsWaypoint[] | undefined,                 //
+                    ////////////////////////////////////////////////////////////////                 
                     optimizeWaypoints: true,
                     travelMode: window.google.maps.TravelMode.DRIVING,
                 },
@@ -117,7 +120,7 @@ const GMap: React.FC<GMapProps> = ({ filteredLocationsCallback }) => {
             ) : (
                 <GoogleMap
                     mapContainerClassName='map-container'
-                    center={center}
+                    center={center as LatLng | LatLngLiteral | undefined}
                     zoom={20}>
                     {directions && (
                         <DirectionsRenderer
@@ -135,7 +138,7 @@ const GMap: React.FC<GMapProps> = ({ filteredLocationsCallback }) => {
                             position={{
                                 lat: destination.coords.start.lat,
                                 lng: destination.coords.start.lng,
-                            }}
+                            } as LatLng | LatLngLiteral}
                             icon={'http://maps.google.com/mapfiles/ms/icons/green-dot.png'}
                         />
 
@@ -145,7 +148,7 @@ const GMap: React.FC<GMapProps> = ({ filteredLocationsCallback }) => {
                                     position={{
                                         lat: destination.coords.midpoint.lat,
                                         lng: destination.coords.midpoint.lng,
-                                    }}
+                                    } as LatLng | LatLngLiteral}
                                     icon={
                                         'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
                                     }
@@ -157,7 +160,7 @@ const GMap: React.FC<GMapProps> = ({ filteredLocationsCallback }) => {
                                     position={{
                                         lat: destination.coords.end.lat,
                                         lng: destination.coords.end.lng,
-                                    }}
+                                    } as LatLng | LatLngLiteral}
                                     icon={'http://maps.google.com/mapfiles/ms/icons/red-dot.png'}
                                 />
                             )}

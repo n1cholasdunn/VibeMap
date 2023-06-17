@@ -6,13 +6,13 @@ import { LatLng, LatLngLiteral, Place } from './services/googlePlaceService';
 export interface Coords {
   end?: {
     formatted_address: string | number | readonly string[] | undefined;
-    lat: GeolibInputCoordinates | undefined;
-    lng: GeolibInputCoordinates | undefined;
+    lat: GeolibLatitudeInputValue
+    lng: GeolibLongitudeInputValue
   };
   midpoint?: {
     formatted_address: string | number | readonly string[] | undefined;
-    lat: GeolibInputCoordinates | undefined;
-    lng: GeolibInputCoordinates | undefined;
+    lat: GeolibLatitudeInputValue
+    lng: GeolibLongitudeInputValue
   };
   start: {
     formatted_address: string | number | readonly string[] | undefined;
