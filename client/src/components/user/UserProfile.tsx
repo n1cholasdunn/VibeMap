@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import ItineraryItem from './ItineraryItem';
 import { getUserTrips } from '../../services/tripService';
+import { redirect } from 'react-router-dom';
 
 const UserProfile = () => {
   const [userTrips, setUserTrips] = useState([]);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchUserTrips() {
@@ -21,7 +19,7 @@ const UserProfile = () => {
   }, []);
 
   function handleCreateMap() {
-    // navigate('/create',)
+    return redirect('/create');
   }
 
   return (

@@ -30,7 +30,10 @@ const Home: React.FC = () => {
             <p className='mb-20 text-lg text-white drop-shadow-lg'>
               Discover Your Roadtrip Vibe and Create the Perfect Map!
             </p>
-            <Explore className='rounded-md ' />
+            <div className='rounded-md'>
+              <Explore />
+              {/* <Explore className='rounded-md ' /> */}
+            </div>
           </div>
         </div>
       </div>

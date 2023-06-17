@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
   return (
@@ -50,15 +51,18 @@ const SignUp = () => {
               className='w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800'
             />
           </div>
+          I agree with the{' '}
           <label
             htmlFor='terms'
             className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'>
-            I agree with the{' '}
-            <a
+            {/* TODO signup isn't implemented so we need to set the route to a signup page or something */}
+            <Link to={'#'}></Link>
+            {/*TODO ^^not sure if # is valid to go to  top or what page to route to  */}
+            {/* <a
               href='#'
               className='text-blue-600 hover:underline dark:text-blue-500'>
               terms and conditions
-            </a>
+            </a> */}
           </label>
         </div>
         <button
