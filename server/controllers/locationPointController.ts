@@ -1,3 +1,4 @@
+import { Model } from 'sequelize';
 import sequelize from '../models/index';
 import { Request, Response } from 'express';
 const LocationPoint = sequelize.models.LocationPoint;
@@ -27,16 +28,16 @@ export const postLocationPoint = async (req: Request, res: Response) => {
     }
 };
 interface tripTypes {
-  type: string;
-  start: string;
-  midpoint: string;
-  end: string;
+    type: string;
+    start: string
+    midpoint: string;
+    end: string;
 }
 
 export const getLocationPoint = async (req: Request, res: Response) => {
     try {
-        const trips = await LocationPoint.findAll({});
-        trips.forEach((trip) => {
+        const trips: any = await LocationPoint.findAll({})
+        trips.forEach((trip: any) => {
             // trips.forEach((trip: { start: string; midpoint: string; end: string }) => {
             (trip.start) = JSON.parse(trip.start);
             trip.midpoint = JSON.parse(trip.midpoint);

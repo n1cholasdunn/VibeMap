@@ -8,18 +8,27 @@ export interface LocationPointAttributes {
   lng: string;
   categories: string;
   address: string;
+
+
+
 }
+
+
+
+
 
 class LocationPoint
   extends Model<LocationPointAttributes>
-  implements LocationPointAttributes
-{
+  implements LocationPointAttributes {
   public id!: string;
   public name!: string;
   public lat!: string;
   public lng!: string;
   public categories!: string;
   public address!: string;
+
+
+
 
   // Timestamps in db necessary?
   public readonly createdAt!: Date;
@@ -58,6 +67,7 @@ LocationPoint.init(
       primaryKey: false,
       allowNull: false,
     },
+
   },
   {
     sequelize,
