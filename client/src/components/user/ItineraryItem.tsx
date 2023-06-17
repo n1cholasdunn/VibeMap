@@ -59,7 +59,7 @@ const ItineraryItem = ({ trip }: tripProps) => {
     const generateEndPoint = (): LatLng | string => {
       if (trip.type === 'singleDestination' || !trip.coords) {
         // return null;
-        return 'NULL';
+        return 'NULL!!!';
         // return new google.maps.LatLng(new google.maps.LatLng(0, 0));
       } else if (trip.type === 'oneWay' && trip.coords.end) {
         // return { lat: trip.coords.end.lat, lng: trip.coords.end.lng };
@@ -117,7 +117,6 @@ const ItineraryItem = ({ trip }: tripProps) => {
     }
   }, [
     isLoaded,
-
     trip.coords.start.lat,
     trip.coords.start.lng,
     trip.coords,

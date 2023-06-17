@@ -1,5 +1,5 @@
 import '../../App.css';
-import { useRef, useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import React from 'react';
 
 import {
@@ -9,15 +9,16 @@ import {
   DirectionsRenderer,
 } from '@react-google-maps/api';
 import { tripProps } from '../../services/tripService';
+import { DirectionsWaypoint, LatLng } from '../../services/googlePlaceService';
 
 const ViewMap = ({ trip }: tripProps) => {
   const apiKey = process.env.REACT_APP_GOOGLE_MAP_API_KEY as string;
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [googleLoaded, setGoogleLoaded] = useState(false);
-  const [directions, setDirections] = useState(null);
+  const [directions, setDirections] = useState<google.maps.DirectionsResult>();
 
-  const autocompleteRef = useRef(null);
+  // const autocompleteRef = useRef(null);
 
   useEffect(() => {
     const script = document.createElement('script');
@@ -40,55 +41,91 @@ const ViewMap = ({ trip }: tripProps) => {
     googleMapsApiKey: apiKey,
   });
 
-  const generateEndPoint = () => {
-    if (trip.type === 'singleDestination') {
-      return null;
-    } else if (trip.type === 'oneWay') {
-      return { lat: trip.coords.end.lat, lng: trip.coords.end.lng };
-    } else if (trip.type === 'loopTrip') {
-      return { lat: trip.coords.start.lat, lng: trip.coords.start.lng };
-    }
-  };
-
-  const generateWaypoints = () => {
-    if (trip.type === 'singleDestination' || trip.type === 'oneWay') {
-      return null;
-    } else {
-      return [
-        { location: `${trip.coords.midpoint.lat},${trip.coords.midpoint.lng}` },
-        { location: `${trip.coords.end.lat},${trip.coords.end.lng}` },
-      ];
-    }
-  };
-
   const center = useMemo(
     () => ({ lat: trip.coords.start.lat, lng: trip.coords.start.lng }),
-    []
+    [trip.coords.start]
   );
 
   useEffect(() => {
+    const generateEndPoint = (): LatLng | string => {
+      if (trip.type === 'singleDestination' || !trip.coords) {
+        // return null;
+        return 'NULL!!!';
+      } else if (trip.type === 'oneWay' && trip.coords.end) {
+        return new google.maps.LatLng(
+          new google.maps.LatLng(trip.coords.end.lat, trip.coords.end.lng)
+        );
+        // return { lat: trip.coords.end.lat, lng: trip.coords.end.lng };
+      }
+      // else if (trip.type === 'loopTrip') {
+      else {
+        // return { lat: trip.coords.start.lat, lng: trip.coords.start.lng };
+        return new google.maps.LatLng(
+          trip.coords.start.lat,
+          trip.coords.start.lng
+        );
+      }
+    };
+
+    const generateWaypoints = (): DirectionsWaypoint[] | undefined => {
+      if (
+        trip.type === 'singleDestination' ||
+        trip.type === 'oneWay' ||
+        !trip.coords
+      ) {
+        return undefined;
+      } else if (trip.coords.midpoint && trip.coords.end) {
+        return [
+          {
+            location: `${trip.coords.midpoint.lat},${trip.coords.midpoint.lng}`,
+          },
+          { location: `${trip.coords.end.lat},${trip.coords.end.lng}` },
+        ];
+      }
+    };
+
     if (isLoaded) {
       const directionsService = new window.google.maps.DirectionsService();
       const start = { lat: trip.coords.start.lat, lng: trip.coords.start.lng };
 
-      directionsService.route(
-        {
+      // directionsService.route(
+      //   {
+      //     origin: start,
+      //     trip: generateEndPoint(),
+      //     waypoints: generateWaypoints(),
+      //     optimizeWaypoints: true,
+      //     travelMode: window.google.maps.TravelMode.DRIVING,
+      //   },
+      //   (result, status) => {
+      //     if (status === window.google.maps.DirectionsStatus.OK) {
+      //       setDirections(result);
+      //     } else {
+      //       console.error(`Error fetching directions ${result}`);
+      //     }
+      //   }
+      // );
+      directionsService
+        .route({
           origin: start,
-          trip: generateEndPoint(),
+          destination: generateEndPoint(),
           waypoints: generateWaypoints(),
           optimizeWaypoints: true,
           travelMode: window.google.maps.TravelMode.DRIVING,
-        },
-        (result, status) => {
-          if (status === window.google.maps.DirectionsStatus.OK) {
-            setDirections(result);
-          } else {
-            console.error(`Error fetching directions ${result}`);
-          }
-        }
-      );
+        })
+        .then((result: google.maps.DirectionsResult) => {
+          setDirections(result);
+        })
+        .catch((e) => {
+          alert('Could not display directions due to: ' + e);
+        });
     }
-  }, [isLoaded]);
+  }, [
+    isLoaded,
+    trip.coords.start.lat,
+    trip.coords.start.lng,
+    trip.coords,
+    trip.type,
+  ]);
   if (loadError) {
     return <div>Error loading Google Maps</div>;
   }
@@ -177,7 +214,7 @@ const ViewMap = ({ trip }: tripProps) => {
         <div className='overflow-scroll h-[500px] w-[500px] overflow-y-scroll no-scrollbar'>
           {trip.points.map((location) => (
             <div className='cursor-pointer label border-solid border-gray-200 border rounded-md mt-3 pl-3 pr-5 '>
-              <div flex flex-col>
+              <div className={'flex flex-col'}>
                 <div className='font-semibold text-lg'>{location.name}</div>
                 <div className='font-normal text-sm'>{location.address}</div>
 
