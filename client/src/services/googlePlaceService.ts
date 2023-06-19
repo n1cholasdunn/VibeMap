@@ -4,7 +4,10 @@ export const fetchPlaceInfo = async function (
   name: string
 ) {
   const URL = `http://localhost:3333/place/${lat}/${lng}/${name}`;
-  return await fetch(URL).then((res) => res.json());
+  const data = await fetch(URL).then((res) => res.json());
+  console.log(data, 'HERE IS DATA');
+
+  return data;
 };
 
 export type LatLng = google.maps.LatLng;
