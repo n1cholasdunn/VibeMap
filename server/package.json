@@ -8,8 +8,7 @@
     "hstore": "^0.0.1",
     "pg": "^8.11.0",
     "pg-hstore": "^2.3.4",
-    "sequelize": "^6.32.0",
-    "supertest": "^6.3.3"
+    "sequelize": "^6.32.0"
   },
   "name": "server",
   "version": "1.0.0",
@@ -25,8 +24,11 @@
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
     "@types/node": "^20.3.1",
+    "@types/supertest": "^2.0.12",
+    "chai": "^4.3.7",
     "cypress": "^12.14.0",
     "nodemon": "^2.0.22",
+    "supertest": "^6.3.3",
     "ts-node": "^10.9.1",
     "typescript": "^5.1.3"
   }

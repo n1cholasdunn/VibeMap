@@ -1,0 +1,1607 @@
+[
+    {
+        "id": 1,
+        "name": "Statue of Liberty",
+        "lat": 40.6892,
+        "lng": -74.0445,
+        "categories": [
+            "Architecture"
+        ],
+        "address": "Liberty Island, New York, NY 10004, USA"
+    },
+    {
+        "id": 2,
+        "name": "Eiffel Tower",
+        "lat": 48.8584,
+        "lng": 2.2945,
+        "categories": [
+            "Architecture"
+        ],
+        "address": "Champ de Mars, 5 Avenue Anatole France, 75007 Paris, France"
+    },
+    {
+        "id": 3,
+        "name": "Taj Mahal",
+        "lat": 27.1751,
+        "lng": 78.0421,
+        "categories": [
+            "Architecture",
+            "History"
+        ],
+        "address": "Dharmapuri, Forest Colony, Tajganj, Agra, Uttar Pradesh 282001, India"
+    },
+    {
+        "id": 4,
+        "name": "Great Wall of China",
+        "lat": 40.4319,
+        "lng": 116.5704,
+        "categories": [
+            "Architecture",
+            "History"
+        ],
+        "address": "Huairou, China"
+    },
+    {
+        "id": 5,
+        "name": "Sydney Opera House",
+        "lat": -33.8568,
+        "lng": 151.2153,
+        "categories": [
+            "Architecture"
+        ],
+        "address": "Bennelong Point, Sydney NSW 2000, Australia"
+    },
+    {
+        "id": 6,
+        "name": "Machu Picchu",
+        "lat": -13.1631,
+        "lng": -72.5450,
+        "categories": [
+            "History",
+            "Nature"
+        ],
+        "address": "Machu Picchu, Aguas Calientes, Peru"
+    },
+    {
+        "id": 7,
+        "name": "Santorini",
+        "lat": 36.3932,
+        "lng": 25.4615,
+        "categories": [
+            "Architecture",
+            "Nature",
+            "Cuisine",
+            "Wine"
+        ],
+        "address": "Santorini, Greece"
+    },
+    {
+        "id": 8,
+        "name": "Uluru",
+        "lat": -25.3444,
+        "lng": 131.0369,
+        "categories": [
+            "Nature"
+        ],
+        "address": "Uluru-Kata Tjuta National Park, Petermann NT 0872, Australia"
+    },
+    {
+        "id": 9,
+        "name": "Rio de Janeiro",
+        "lat": -22.9068,
+        "lng": -43.1729,
+        "categories": [
+            "Architecture",
+            "Sports",
+            "Parties"
+        ],
+        "address": "Rio de Janeiro, State of Rio de Janeiro, Brazil"
+    },
+    {
+        "id": 10,
+        "name": "Banff National Park",
+        "lat": 51.4968,
+        "lng": -115.9281,
+        "categories": [
+            "Nature"
+        ],
+        "address": "Banff National Park, Improvement District No. 9, AB, Canada"
+    },
+    {
+        "id": 11,
+        "name": "Cappadocia",
+        "lat": 38.6431,
+        "lng": 34.8303,
+        "categories": [
+            "Architecture",
+            "Nature"
+        ],
+        "address": "Cappadocia, Turkey"
+    },
+    {
+        "id": 12,
+        "name": "Great Barrier Reef",
+        "lat": -18.2871,
+        "lng": 147.6992,
+        "categories": [
+            "Nature",
+            "Beaches"
+        ],
+        "address": "Great Barrier Reef, Australia"
+    },
+    {
+        "id": 13,
+        "name": "Angkor Wat",
+        "lat": 13.4125,
+        "lng": 103.8660,
+        "categories": [
+            "Architecture",
+            "History"
+        ],
+        "address": "Angkor Wat, Krong Siem Reap, Cambodia"
+    },
+    {
+        "id": 14,
+        "name": "Amsterdam",
+        "lat": 52.3702,
+        "lng": 4.8952,
+        "categories": [
+            "Architecture",
+            "Parties"
+        ],
+        "address": "Amsterdam, Netherlands"
+    },
+    {
+        "id": 15,
+        "name": "Yosemite National Park",
+        "lat": 37.8651,
+        "lng": -119.5383,
+        "categories": [
+            "Nature"
+        ],
+        "address": "Yosemite National Park, California, USA"
+    },
+    {
+        "id": 16,
+        "name": "Dubai",
+        "lat": 25.2048,
+        "lng": 55.2708,
+        "categories": [
+            "Architecture",
+            "Parties"
+        ],
+        "address": "Dubai, United Arab Emirates"
+    },
+    {
+        "id": 17,
+        "name": "Galapagos Islands",
+        "lat": -0.9624,
+        "lng": -91.7149,
+        "categories": [
+            "Nature"
+        ],
+        "address": "Galapagos Islands, Ecuador"
+    },
+    {
+        "id": 18,
+        "name": "Louvre Museum",
+        "lat": 48.8606,
+        "lng": 2.3376,
+        "categories": [
+            "Architecture",
+            "Art"
+        ],
+        "address": "Musée du Louvre, Rue de Rivoli, 75001 Paris, France"
+    },
+    {
+        "id": 19,
+        "name": "British Museum",
+        "lat": 51.5194,
+        "lng": -0.1269,
+        "categories": [
+            "Architecture",
+            "Art"
+        ],
+        "address": "Great Russell St, Bloomsbury, London WC1B 3DG, United Kingdom"
+    },
+    {
+        "id": 20,
+        "name": "Metropolitan Museum of Art",
+        "lat": 40.7794,
+        "lng": -73.9632,
+        "categories": [
+            "Architecture",
+            "Art"
+        ],
+        "address": "Metropolitan Museum of Art, 1000 5th Ave, New York, NY 10028, USA"
+    },
+    {
+        "id": 21,
+        "name": "Hermitage Museum",
+        "lat": 59.9398,
+        "lng": 30.3146,
+        "categories": [
+            "Architecture",
+            "Art"
+        ],
+        "address": "Palace Square, 2, St. Petersburg, Russia"
+    },
+    {
+        "id": 22,
+        "name": "Bondi Beach",
+        "lat": -33.8910,
+        "lng": 151.2767,
+        "categories": [
+            "Beaches"
+        ],
+        "address": "Bondi Beach, New South Wales, Australia"
+    },
+    {
+        "id": 23,
+        "name": "Copacabana Beach",
+        "lat": -22.9719,
+        "lng": -43.1852,
+        "categories": [
+            "Beaches"
+        ],
+        "address": "Copacabana Beach, Rio de Janeiro, Brazil"
+    },
+    {
+        "id": 24,
+        "name": "Waikiki Beach",
+        "lat": 21.2755,
+        "lng": -157.8257,
+        "categories": [
+            "Beaches"
+        ],
+        "address": "Waikiki Beach, Honolulu, Hawaii, USA"
+    },
+    {
+        "id": 25,
+        "name": "Ipanema Beach",
+        "lat": -22.9853,
+        "lng": -43.1999,
+        "categories": [
+            "Beaches"
+        ],
+        "address": "Ipanema Beach, Rio de Janeiro, Brazil"
+    },
+    {
+        "id": 26,
+        "name": "Yellowstone National Park",
+        "lat": 44.4280,
+        "lng": -110.5885,
+        "categories": [
+            "Nature",
+            "Wildlife",
+            "Adventure"
+        ],
+        "address": "Yellowstone National Park, Wyoming, Montana, Idaho, USA"
+    },
+    {
+        "id": 27,
+        "name": "Amazon Rainforest",
+        "lat": -3.4653,
+        "lng": -62.2159,
+        "categories": [
+            "Nature",
+            "Wildlife",
+            "Adventure"
+        ],
+        "address": "Amazon Rainforest, South America"
+    },
+    {
+        "id": 28,
+        "name": "Rocky Mountains",
+        "lat": 51.4273,
+        "lng": -116.1775,
+        "categories": [
+            "Nature",
+            "Adventure"
+        ],
+        "address": "Rocky Mountains, USA"
+    },
+    {
+        "id": 29,
+        "name": "Las Vegas Strip",
+        "lat": 36.1699,
+        "lng": -115.1398,
+        "categories": [
+            "Architecture",
+            "Parties",
+            "Shopping"
+        ],
+        "address": "Las Vegas Strip, Las Vegas, Nevada, USA"
+    },
+    {
+        "id": 30,
+        "name": "Dubai Mall",
+        "lat": 25.1972,
+        "lng": 55.2797,
+        "categories": [
+            "Architecture",
+            "Shopping"
+        ],
+        "address": "Dubai Mall, Financial Centre Road, Downtown Dubai, Dubai, United Arab Emirates"
+    },
+    {
+        "id": 31,
+        "name": "Paris Fashion District",
+        "lat": 48.8611,
+        "lng": 2.3364,
+        "categories": [
+            "Architecture",
+            "Shopping"
+        ],
+        "address": "Rue du Faubourg Saint-Honoré, Paris, France"
+    },
+    {
+        "id": 32,
+        "name": "African Safari",
+        "lat": -3.4653,
+        "lng": 36.5879,
+        "categories": [
+            "Wildlife",
+            "Adventure"
+        ],
+        "address": "Various locations across Africa"
+    },
+    {
+        "id": 33,
+        "name": "Barcelona",
+        "lat": 41.3851,
+        "lng": 2.1734,
+        "categories": [
+            "Architecture",
+            "Cuisine",
+            "Culture"
+        ],
+        "address": "Barcelona, Spain"
+    },
+    {
+        "id": 34,
+        "name": "Seville",
+        "lat": 37.3891,
+        "lng": -5.9845,
+        "categories": [
+            "Architecture",
+            "History",
+            "Culture"
+        ],
+        "address": "Seville, Spain"
+    },
+    {
+        "id": 35,
+        "name": "Madrid",
+        "lat": 40.4168,
+        "lng": -3.7038,
+        "categories": [
+            "Architecture",
+            "Art",
+            "Nightlife"
+        ],
+        "address": "Madrid, Spain"
+    },
+    {
+        "id": 36,
+        "name": "Valencia",
+        "lat": 39.4699,
+        "lng": -0.3763,
+        "categories": [
+            "Architecture",
+            "Beaches",
+            "Cuisine"
+        ],
+        "address": "Valencia, Spain"
+    },
+    {
+        "id": 37,
+        "name": "Sagrada Familia",
+        "lat": 41.4036,
+        "lng": 2.1744,
+        "categories": [
+            "Architecture"
+        ],
+        "address": "Carrer de Mallorca, 401, 08013 Barcelona, Spain"
+    },
+    {
+        "id": 38,
+        "name": "Park Güell",
+        "lat": 41.4149,
+        "lng": 2.1527,
+        "categories": [
+            "Architecture",
+            "Nature"
+        ],
+        "address": "08024 Barcelona, Spain"
+    },
+    {
+        "id": 39,
+        "name": "Alhambra",
+        "lat": 37.1760,
+        "lng": -3.5875,
+        "categories": [
+            "Architecture",
+            "History"
+        ],
+        "address": "Calle Real de la Alhambra, s/n, 18009 Granada, Spain"
+    },
+    {
+        "id": 40,
+        "name": "Plaza de España",
+        "lat": 37.3772,
+        "lng": -5.9869,
+        "categories": [
+            "Architecture"
+        ],
+        "address": "Av de Isabel la Católica, 41004 Seville, Spain"
+    },
+    {
+        "id": 41,
+        "name": "Park of the Retiro",
+        "lat": 40.4143,
+        "lng": -3.6827,
+        "categories": [
+            "Nature"
+        ],
+        "address": "Plaza de la Independencia, 7, 28001 Madrid, Spain"
+    },
+    {
+        "id": 42,
+        "name": "La Rambla",
+        "lat": 41.3809,
+        "lng": 2.1720,
+        "categories": [
+            "Architecture",
+            "Shopping"
+        ],
+        "address": "La Rambla, Barcelona, Spain"
+    },
+    {
+        "id": 43,
+        "name": "Ibiza",
+        "lat": 38.9085,
+        "lng": 1.4264,
+        "categories": [
+            "Beaches",
+            "Parties"
+        ],
+        "address": "Ibiza, Balearic Islands, Spain"
+    },
+    {
+        "id": 44,
+        "name": "Costa del Sol",
+        "lat": 36.5221,
+        "lng": -4.7809,
+        "categories": [
+            "Beaches"
+        ],
+        "address": "Costa del Sol, Andalusia, Spain"
+    },
+    {
+        "id": 45,
+        "name": "Camino de Santiago",
+        "lat": 42.8782,
+        "lng": -8.5448,
+        "categories": [
+            "Adventure"
+        ],
+        "address": "Camino de Santiago, Spain"
+    },
+    {
+        "id": 46,
+        "name": "La Concha Beach",
+        "lat": 43.3194,
+        "lng": -1.9812,
+        "categories": [
+            "Beaches"
+        ],
+        "address": "La Concha Beach, San Sebastián, Spain"
+    },
+    {
+        "id": 47,
+        "name": "Mount Everest",
+        "lat": 27.9881,
+        "lng": 86.9250,
+        "categories": [
+            "Adventure",
+            "Nature"
+        ],
+        "address": "Sagarmatha National Park, Nepal"
+    },
+    {
+        "id": 48,
+        "name": "Sushi Bar",
+        "lat": 35.6895,
+        "lng": 139.6917,
+        "categories": [
+            "Cuisine",
+            "Relaxation"
+        ],
+        "address": "Tokyo, Japan"
+    },
+    {
+        "id": 49,
+        "name": "Amazon Rainforest Lodge",
+        "lat": -3.4653,
+        "lng": -62.2159,
+        "categories": [
+            "Nature",
+            "Adventure",
+            "Relaxation"
+        ],
+        "address": "Amazon Rainforest, Brazil"
+    },
+    {
+        "id": 50,
+        "name": "Vineyard Retreat",
+        "lat": 38.2975,
+        "lng": -122.2869,
+        "categories": [
+            "Relaxation",
+            "Wine"
+        ],
+        "address": "Napa Valley, California, USA"
+    },
+    {
+        "id": 51,
+        "name": "Hidden Beach",
+        "lat": 21.1619,
+        "lng": -86.8515,
+        "categories": [
+            "Beaches",
+            "Relaxation"
+        ],
+        "address": "Tulum, Mexico"
+    },
+    {
+        "id": 52,
+        "name": "Ancient Temple",
+        "lat": 13.4125,
+        "lng": 103.8660,
+        "categories": [
+            "Architecture",
+            "History"
+        ],
+        "address": "Angkor Wat, Cambodia"
+    },
+    {
+        "id": 53,
+        "name": "Gourmet Restaurant",
+        "lat": 48.8606,
+        "lng": 2.3376,
+        "categories": [
+            "Cuisine",
+            "Relaxation"
+        ],
+        "address": "Paris, France"
+    },
+    {
+        "id": 54,
+        "name": "Safari Adventure",
+        "lat": -3.4653,
+        "lng": 36.5879,
+        "categories": [
+            "Adventure",
+            "Wildlife"
+        ],
+        "address": "Maasai Mara National Reserve, Kenya"
+    },
+    {
+        "id": 55,
+        "name": "Boutique Shopping",
+        "lat": 25.1972,
+        "lng": 55.2797,
+        "categories": [
+            "Shopping",
+            "Relaxation"
+        ],
+        "address": "Dubai, United Arab Emirates"
+    },
+    {
+        "id": 56,
+        "name": "Snowy Mountain Resort",
+        "lat": 51.4273,
+        "lng": -116.1775,
+        "categories": [
+            "Adventure",
+            "Nature",
+            "Relaxation"
+        ],
+        "address": "Banff National Park, Canada"
+    },
+    {
+        "id": 57,
+        "name": "Central Park",
+        "lat": 40.7829,
+        "lng": -73.9654,
+        "categories": [
+            "Nature",
+            "Relaxation"
+        ],
+        "address": "New York City, USA"
+    },
+    {
+        "id": 58,
+        "name": "Historic Castle",
+        "lat": 51.5014,
+        "lng": -0.1419,
+        "categories": [
+            "Architecture",
+            "History"
+        ],
+        "address": "Windsor, England"
+    },
+    {
+        "id": 59,
+        "name": "Tropical Rainforest",
+        "lat": -3.4653,
+        "lng": -62.2159,
+        "categories": [
+            "Nature",
+            "Adventure",
+            "Relaxation"
+        ],
+        "address": "Amazon Rainforest, Brazil"
+    },
+    {
+        "id": 60,
+        "name": "Sailing Adventure",
+        "lat": -16.2902,
+        "lng": -63.5887,
+        "categories": [
+            "Adventure",
+            "Water"
+        ],
+        "address": "Galapagos Islands, Ecuador"
+    },
+    {
+        "id": 61,
+        "name": "Zen Garden",
+        "lat": 35.0116,
+        "lng": 135.7681,
+        "categories": [
+            "Nature",
+            "Relaxation"
+        ],
+        "address": "Kyoto, Japan"
+    },
+    {
+        "id": 62,
+        "name": "Famous Opera House",
+        "lat": -33.8568,
+        "lng": 151.2153,
+        "categories": [
+            "Architecture",
+            "Culture"
+        ],
+        "address": "Sydney, Australia"
+    },
+    {
+        "id": 63,
+        "name": "White Sandy Beach",
+        "lat": -21.0397,
+        "lng": 55.2190,
+        "categories": [
+            "Beaches",
+            "Relaxation"
+        ],
+        "address": "Réunion Island"
+    },
+    {
+        "id": 64,
+        "name": "Mountain Hiking",
+        "lat": 45.9237,
+        "lng": 6.8694,
+        "categories": [
+            "Adventure",
+            "Nature"
+        ],
+        "address": "Chamonix, France"
+    },
+    {
+        "id": 65,
+        "name": "Art Museum",
+        "lat": 40.7794,
+        "lng": -73.9632,
+        "categories": [
+            "Art",
+            "Culture"
+        ],
+        "address": "New York City, USA"
+    },
+    {
+        "id": 66,
+        "name": "Historic Landmark",
+        "lat": 25.1972,
+        "lng": 55.2797,
+        "categories": [
+            "Architecture",
+            "History"
+        ],
+        "address": "Dubai, United Arab Emirates"
+    },
+    {
+        "id": 67,
+        "name": "Scuba Diving Spot",
+        "lat": 3.8651,
+        "lng": 73.5219,
+        "categories": [
+            "Adventure",
+            "Water"
+        ],
+        "address": "Maldives"
+    },
+    {
+        "id": 68,
+        "name": "Botanical Garden",
+        "lat": -33.9339,
+        "lng": 18.4134,
+        "categories": [
+            "Nature",
+            "Relaxation"
+        ],
+        "address": "Kirstenbosch, South Africa"
+    },
+    {
+        "id": 69,
+        "name": "Historical Museum",
+        "lat": 52.5166,
+        "lng": 13.3779,
+        "categories": [
+            "History",
+            "Culture"
+        ],
+        "address": "Berlin, Germany"
+    },
+    {
+        "id": 70,
+        "name": "Coffee House",
+        "lat": 40.7128,
+        "lng": -74.0060,
+        "categories": [
+            "Cuisine",
+            "Relaxation"
+        ],
+        "address": "New York City, USA"
+    },
+    {
+        "id": 71,
+        "name": "Sandy Beach",
+        "lat": -12.0464,
+        "lng": -77.0428,
+        "categories": [
+            "Beaches",
+            "Relaxation"
+        ],
+        "address": "Lima, Peru"
+    },
+    {
+        "id": 72,
+        "name": "Historic Cathedral",
+        "lat": 41.9028,
+        "lng": 12.4964,
+        "categories": [
+            "Architecture",
+            "History"
+        ],
+        "address": "Vatican City"
+    },
+    {
+        "id": 73,
+        "name": "National Park",
+        "lat": 36.5748,
+        "lng": -118.4961,
+        "categories": [
+            "Nature",
+            "Adventure",
+            "Relaxation"
+        ],
+        "address": "Yosemite, California, USA"
+    },
+    {
+        "id": 74,
+        "name": "Shopping Mall",
+        "lat": 48.8566,
+        "lng": 2.3522,
+        "categories": [
+            "Shopping",
+            "Relaxation"
+        ],
+        "address": "Paris, France"
+    },
+    {
+        "id": 75,
+        "name": "Waterfall",
+        "lat": -3.4653,
+        "lng": -62.2159,
+        "categories": [
+            "Nature",
+            "Adventure",
+            "Relaxation"
+        ],
+        "address": "Amazon Rainforest, Brazil"
+    },
+    {
+        "id": 76,
+        "name": "Historic Ruins",
+        "lat": 40.7489,
+        "lng": -73.9857,
+        "categories": [
+            "Architecture",
+            "History"
+        ],
+        "address": "New York City, USA"
+    },
+    {
+        "id": 77,
+        "name": "Safari Park",
+        "lat": -1.4221,
+        "lng": 36.9277,
+        "categories": [
+            "Adventure",
+            "Wildlife"
+        ],
+        "address": "Nairobi, Kenya"
+    },
+    {
+        "id": 78,
+        "name": "Luxury Spa",
+        "lat": 40.7128,
+        "lng": -74.0060,
+        "categories": [
+            "Relaxation",
+            "Wellness"
+        ],
+        "address": "New York City, USA"
+    },
+    {
+        "id": 79,
+        "name": "Snowy Ski Resort",
+        "lat": 46.6031,
+        "lng": 8.6687,
+        "categories": [
+            "Adventure",
+            "Nature",
+            "Relaxation"
+        ],
+        "address": "Zermatt, Switzerland"
+    },
+    {
+        "id": 80,
+        "name": "Tropical Island",
+        "lat": -8.3405,
+        "lng": 115.0919,
+        "categories": [
+            "Beaches",
+            "Relaxation"
+        ],
+        "address": "Bali, Indonesia"
+    },
+    {
+        "id": 81,
+        "name": "Historic Theater",
+        "lat": 41.8902,
+        "lng": 12.4922,
+        "categories": [
+            "Architecture",
+            "Culture"
+        ],
+        "address": "Rome, Italy"
+    },
+    {
+        "id": 82,
+        "name": "Adventure Park",
+        "lat": 39.6061,
+        "lng": -105.8974,
+        "categories": [
+            "Adventure",
+            "Entertainment"
+        ],
+        "address": "Denver, Colorado, USA"
+    },
+    {
+        "id": 83,
+        "name": "Floating Market",
+        "lat": 13.4125,
+        "lng": 103.8660,
+        "categories": [
+            "Shopping",
+            "Culture"
+        ],
+        "address": "Angkor Wat, Cambodia"
+    },
+    {
+        "id": 84,
+        "name": "Cultural Festival",
+        "lat": 34.6937,
+        "lng": 135.5023,
+        "categories": [
+            "Culture",
+            "Entertainment"
+        ],
+        "address": "Osaka, Japan"
+    },
+    {
+        "id": 85,
+        "name": "Sandy Beach",
+        "lat": -20.2139,
+        "lng": -70.1431,
+        "categories": [
+            "Beaches",
+            "Relaxation"
+        ],
+        "address": "Iquique, Chile"
+    },
+    {
+        "id": 86,
+        "name": "Jungle Adventure",
+        "lat": -8.3405,
+        "lng": 115.0919,
+        "categories": [
+            "Adventure",
+            "Nature"
+        ],
+        "address": "Bali, Indonesia"
+    },
+    {
+        "id": 87,
+        "name": "Famous Landmark",
+        "lat": 55.7512,
+        "lng": 37.6184,
+        "categories": [
+            "Architecture",
+            "History"
+        ],
+        "address": "Moscow, Russia"
+    },
+    {
+        "id": 88,
+        "name": "Fruit Orchard",
+        "lat": -33.8688,
+        "lng": 151.2093,
+        "categories": [
+            "Nature",
+            "Relaxation"
+        ],
+        "address": "Sydney, Australia"
+    },
+    {
+        "id": 89,
+        "name": "Island Resort",
+        "lat": -18.8792,
+        "lng": 147.3240,
+        "categories": [
+            "Beaches",
+            "Relaxation"
+        ],
+        "address": "Great Barrier Reef, Australia"
+    },
+    {
+        "id": 90,
+        "name": "Historic Square",
+        "lat": 43.7315,
+        "lng": 7.4214,
+        "categories": [
+            "Architecture",
+            "History"
+        ],
+        "address": "Monaco"
+    },
+    {
+        "id": 91,
+        "name": "Hiking Trail",
+        "lat": 40.4450,
+        "lng": -79.9820,
+        "categories": [
+            "Adventure",
+            "Nature"
+        ],
+        "address": "Pittsburgh, Pennsylvania, USA"
+    },
+    {
+        "id": 92,
+        "name": "Modern Art Gallery",
+        "lat": 51.5074,
+        "lng": -0.1278,
+        "categories": [
+            "Art",
+            "Culture"
+        ],
+        "address": "London, England"
+    },
+    {
+        "id": 93,
+        "name": "Relaxing Spa",
+        "lat": 38.7223,
+        "lng": -9.1393,
+        "categories": [
+            "Relaxation",
+            "Wellness"
+        ],
+        "address": "Lisbon, Portugal"
+    },
+    {
+        "id": 94,
+        "name": "Mountain Biking",
+        "lat": 51.1789,
+        "lng": -115.5718,
+        "categories": [
+            "Adventure",
+            "Nature"
+        ],
+        "address": "Canmore, Alberta, Canada"
+    },
+    {
+        "id": 95,
+        "name": "Historic Palace",
+        "lat": 41.8902,
+        "lng": 12.4922,
+        "categories": [
+            "Architecture",
+            "History"
+        ],
+        "address": "Rome, Italy"
+    },
+    {
+        "id": 96,
+        "name": "Local Market",
+        "lat": 41.3851,
+        "lng": 2.1734,
+        "categories": [
+            "Shopping",
+            "Culture"
+        ],
+        "address": "Barcelona, Spain"
+    },
+    {
+        "id": 97,
+        "name": "Cruise Ship",
+        "lat": 25.7907,
+        "lng": -80.1300,
+        "categories": [
+            "Adventure",
+            "Relaxation"
+        ],
+        "address": "Miami, Florida, USA"
+    },
+    {
+        "id": 98,
+        "name": "Dessert Bar",
+        "lat": 40.7128,
+        "lng": -74.0060,
+        "categories": [
+            "Cuisine",
+            "Relaxation"
+        ],
+        "address": "New York City, USA"
+    },
+    {
+        "id": 99,
+        "name": "Canyon Hiking",
+        "lat": 36.1069,
+        "lng": -112.1129,
+        "categories": [
+            "Adventure",
+            "Nature"
+        ],
+        "address": "Grand Canyon National Park, Arizona, USA"
+    },
+    {
+        "id": 100,
+        "name": "Historic District",
+        "lat": 32.0809,
+        "lng": -81.0912,
+        "categories": [
+            "Architecture",
+            "History"
+        ],
+        "address": "Savannah, Georgia, USA"
+    },
+    {
+        "id": 103,
+        "name": "Casa Batlló",
+        "lat": 41.3916,
+        "lng": 2.1649,
+        "categories": [
+            "Architecture",
+            "Art"
+        ],
+        "address": "Barcelona, Spain"
+    },
+    {
+        "id": 104,
+        "name": "Montserrat Monastery",
+        "lat": 41.5956,
+        "lng": 1.8359,
+        "categories": [
+            "Architecture",
+            "History"
+        ],
+        "address": "Montserrat, Spain"
+    },
+    {
+        "id": 105,
+        "name": "Poble Espanyol",
+        "lat": 41.3689,
+        "lng": 2.1499,
+        "categories": [
+            "Architecture",
+            "Culture"
+        ],
+        "address": "Barcelona, Spain"
+    },
+    {
+        "id": 106,
+        "name": "Aljafería Palace",
+        "lat": 41.6520,
+        "lng": -0.8956,
+        "categories": [
+            "Architecture",
+            "History"
+        ],
+        "address": "Zaragoza, Spain"
+    },
+    {
+        "id": 107,
+        "name": "Basilica of Our Lady of the Pillar",
+        "lat": 41.6563,
+        "lng": -0.8787,
+        "categories": [
+            "Architecture",
+            "Religion"
+        ],
+        "address": "Zaragoza, Spain"
+    },
+    {
+        "id": 108,
+        "name": "Prado Museum",
+        "lat": 40.4138,
+        "lng": -3.6922,
+        "categories": [
+            "Art",
+            "History"
+        ],
+        "address": "Madrid, Spain"
+    },
+    {
+        "id": 109,
+        "name": "Royal Palace of Madrid",
+        "lat": 40.4179,
+        "lng": -3.7144,
+        "categories": [
+            "Architecture",
+            "History"
+        ],
+        "address": "Madrid, Spain"
+    },
+    {
+        "id": 111,
+        "name": "Boqueria Market",
+        "lat": 41.3816,
+        "lng": 2.1722,
+        "categories": [
+            "Cuisine",
+            "Shopping"
+        ],
+        "address": "Barcelona, Spain"
+    },
+    {
+        "id": 112,
+        "name": "San Miguel Market",
+        "lat": 40.4155,
+        "lng": -3.7097,
+        "categories": [
+            "Cuisine",
+            "Shopping"
+        ],
+        "address": "Madrid, Spain"
+    },
+    {
+        "id": 113,
+        "name": "Mercado de San Miguel",
+        "lat": 40.4173,
+        "lng": -3.7088,
+        "categories": [
+            "Cuisine",
+            "Shopping"
+        ],
+        "address": "Madrid, Spain"
+    },
+    {
+        "id": 114,
+        "name": "Taberna el Sur",
+        "lat": 40.4165,
+        "lng": -3.7084,
+        "categories": [
+            "Cuisine",
+            "Nightlife"
+        ],
+        "address": "Madrid, Spain"
+    },
+    {
+        "id": 115,
+        "name": "Can Paixano (La Xampanyeria)",
+        "lat": 41.3827,
+        "lng": 2.1837,
+        "categories": [
+            "Cuisine",
+            "Nightlife"
+        ],
+        "address": "Barcelona, Spain"
+    },
+    {
+        "id": 116,
+        "name": "La Botillería",
+        "lat": 41.3843,
+        "lng": 2.1766,
+        "categories": [
+            "Cuisine",
+            "Nightlife"
+        ],
+        "address": "Barcelona, Spain"
+    },
+    {
+        "id": 117,
+        "name": "El Tubo",
+        "lat": 41.6504,
+        "lng": -0.8828,
+        "categories": [
+            "Cuisine",
+            "Nightlife"
+        ],
+        "address": "Zaragoza, Spain"
+    },
+    {
+        "id": 118,
+        "name": "Mercado Central",
+        "lat": 39.4746,
+        "lng": -0.3774,
+        "categories": [
+            "Cuisine",
+            "Shopping"
+        ],
+        "address": "Valencia, Spain"
+    },
+    {
+        "id": 119,
+        "name": "Mercado de San Miguel",
+        "lat": 41.6526,
+        "lng": -0.8816,
+        "categories": [
+            "Cuisine",
+            "Shopping"
+        ],
+        "address": "Zaragoza, Spain"
+    },
+    {
+        "id": 120,
+        "name": "Mercat de Sant Josep de la Boqueria",
+        "lat": 41.3809,
+        "lng": 2.1726,
+        "categories": [
+            "Cuisine",
+            "Shopping"
+        ],
+        "address": "Barcelona, Spain"
+    },
+    {
+        "id": 121,
+        "name": "Astronomy Park",
+        "lat": 41.6379,
+        "lng": 0.6976,
+        "categories": [
+            "Nature",
+            "Relaxation"
+        ],
+        "address": "Lleida, Spain"
+    },
+    {
+        "id": 122,
+        "name": "Lleida Museum of Art",
+        "lat": 41.6155,
+        "lng": 0.6236,
+        "categories": [
+            "Art",
+            "History"
+        ],
+        "address": "Carrer de la Panereta, 10, 25002 Lleida, Spain"
+    },
+    {
+        "id": 123,
+        "name": "Segre Olympic Park",
+        "lat": 41.6283,
+        "lng": 0.5977,
+        "categories": [
+            "Sports",
+            "Relaxation"
+        ],
+        "address": "Av. de Tortosa, 24, 25005 Lleida, Spain"
+    },
+    {
+        "id": 125,
+        "name": "Les Basses Beach",
+        "lat": 41.5701,
+        "lng": 0.7224,
+        "categories": [
+            "Beaches",
+            "Nature"
+        ],
+        "address": "El Pont de Suert, 25520 Lleida, Spain"
+    },
+    {
+        "id": 126,
+        "name": "Table Mountain",
+        "lat": -33.9625,
+        "lng": 18.4099,
+        "categories": [
+            "Nature",
+            "Adventure"
+        ],
+        "address": "Table Mountain National Park, Cape Town, South Africa"
+    },
+    {
+        "id": 127,
+        "name": "Robben Island",
+        "lat": -33.8067,
+        "lng": 18.3665,
+        "categories": [
+            "History",
+            "Culture"
+        ],
+        "address": "Robben Island, Cape Town, South Africa"
+    },
+    {
+        "id": 128,
+        "name": "Kruger National Park",
+        "lat": -24.4844,
+        "lng": 31.4179,
+        "categories": [
+            "Wildlife",
+            "Nature"
+        ],
+        "address": "Kruger National Park, South Africa"
+    },
+    {
+        "id": 129,
+        "name": "Boulders Beach",
+        "lat": -34.1914,
+        "lng": 18.4515,
+        "categories": [
+            "Beaches",
+            "Wildlife"
+        ],
+        "address": "Boulders Beach, Cape Town, South Africa"
+    },
+    {
+        "id": 130,
+        "name": "V&A Waterfront",
+        "lat": -33.9078,
+        "lng": 18.4207,
+        "categories": [
+            "Shopping",
+            "Nightlife"
+        ],
+        "address": "V&A Waterfront, Cape Town, South Africa"
+    },
+    {
+        "id": 131,
+        "name": "Stellenbosch Wine Route",
+        "lat": -33.9321,
+        "lng": 18.8602,
+        "categories": [
+            "Wine",
+            "Cuisine"
+        ],
+        "address": "Stellenbosch, Western Cape, South Africa"
+    },
+    {
+        "id": 132,
+        "name": "Franschhoek Wine Tram",
+        "lat": -33.9088,
+        "lng": 19.1194,
+        "categories": [
+            "Wine",
+            "Cuisine"
+        ],
+        "address": "Franschhoek, Western Cape, South Africa"
+    },
+    {
+        "id": 133,
+        "name": "Constantia Wine Route",
+        "lat": -34.0257,
+        "lng": 18.4259,
+        "categories": [
+            "Wine",
+            "Cuisine"
+        ],
+        "address": "Constantia, Cape Town, South Africa"
+    },
+    {
+        "id": 134,
+        "name": "Hemel-en-Aarde Valley",
+        "lat": -34.4062,
+        "lng": 19.1927,
+        "categories": [
+            "Wine",
+            "Nature"
+        ],
+        "address": "Hemel-en-Aarde Valley, Hermanus, South Africa"
+    },
+    {
+        "id": 135,
+        "name": "Paarl Wine Route",
+        "lat": -33.7326,
+        "lng": 18.9647,
+        "categories": [
+            "Wine",
+            "Cuisine"
+        ],
+        "address": "Paarl, Western Cape, South Africa"
+    },
+    {
+        "id": 136,
+        "name": "Ilha Grande",
+        "lat": -23.1565,
+        "lng": -44.2436,
+        "categories": [
+            "Nature",
+            "Beaches"
+        ],
+        "address": "Ilha Grande, Rio de Janeiro, Brazil"
+    },
+    {
+        "id": 137,
+        "name": "Chapada Diamantina National Park",
+        "lat": -12.4816,
+        "lng": -41.4925,
+        "categories": [
+            "Nature",
+            "Hiking"
+        ],
+        "address": "Chapada Diamantina National Park, Bahia, Brazil"
+    },
+    {
+        "id": 138,
+        "name": "Pelourinho",
+        "lat": -12.9717,
+        "lng": -38.5108,
+        "categories": [
+            "History",
+            "Party"
+        ],
+        "address": "Pelourinho, Salvador, Brazil"
+    },
+    {
+        "id": 139,
+        "name": "Ipanema Beach",
+        "lat": -22.9856,
+        "lng": -43.2030,
+        "categories": [
+            "Beaches",
+            "Party"
+        ],
+        "address": "Ipanema Beach, Rio de Janeiro, Brazil"
+    },
+    {
+        "id": 140,
+        "name": "Mercado Municipal de São Paulo",
+        "lat": -23.5421,
+        "lng": -46.6324,
+        "categories": [
+            "Food",
+            "Shopping"
+        ],
+        "address": "Mercado Municipal de São Paulo, São Paulo, Brazil"
+    },
+    {
+        "id": 141,
+        "name": "Fernando de Noronha",
+        "lat": -3.8391,
+        "lng": -32.4115,
+        "categories": [
+            "Nature",
+            "Beaches"
+        ],
+        "address": "Fernando de Noronha, Pernambuco, Brazil"
+    },
+    {
+        "id": 142,
+        "name": "Copacabana Beach",
+        "lat": -22.9719,
+        "lng": -43.1868,
+        "categories": [
+            "Beaches",
+            "Party"
+        ],
+        "address": "Copacabana Beach, Rio de Janeiro, Brazil"
+    },
+    {
+        "id": 143,
+        "name": "Mercado Modelo",
+        "lat": -12.9717,
+        "lng": -38.5084,
+        "categories": [
+            "Shopping",
+            "Food"
+        ],
+        "address": "Mercado Modelo, Salvador, Brazil"
+    },
+    {
+        "id": 144,
+        "name": "Jardim Botânico",
+        "lat": -23.5866,
+        "lng": -46.6587,
+        "categories": [
+            "Nature",
+            "Relaxation"
+        ],
+        "address": "Jardim Botânico, São Paulo, Brazil"
+    },
+    {
+        "id": 145,
+        "name": "Barra da Tijuca",
+        "lat": -23.0102,
+        "lng": -43.3344,
+        "categories": [
+            "Beaches",
+            "Water Sports"
+        ],
+        "address": "Barra da Tijuca, Rio de Janeiro, Brazil"
+    },
+    {
+        "id": 146,
+        "name": "Inhotim",
+        "lat": -20.1253,
+        "lng": -44.2222,
+        "categories": [
+            "Art",
+            "Nature"
+        ],
+        "address": "Inhotim, Brumadinho, Minas Gerais, Brazil"
+    },
+    {
+        "id": 147,
+        "name": "Ouro Preto",
+        "lat": -20.3846,
+        "lng": -43.5037,
+        "categories": [
+            "History",
+            "Architecture"
+        ],
+        "address": "Ouro Preto, Minas Gerais, Brazil"
+    },
+    {
+        "id": 148,
+        "name": "Serra do Cipó National Park",
+        "lat": -19.3667,
+        "lng": -43.4833,
+        "categories": [
+            "Nature",
+            "Hiking"
+        ],
+        "address": "Serra do Cipó National Park, Santana do Riacho, Minas Gerais, Brazil"
+    },
+    {
+        "id": 149,
+        "name": "Tiradentes",
+        "lat": -21.1100,
+        "lng": -44.1750,
+        "categories": [
+            "History",
+            "Cuisine"
+        ],
+        "address": "Tiradentes, Minas Gerais, Brazil"
+    },
+    {
+        "id": 150,
+        "name": "Cachoeira do Tabuleiro",
+        "lat": -19.2386,
+        "lng": -43.4730,
+        "categories": [
+            "Nature",
+            "Waterfall"
+        ],
+        "address": "Cachoeira do Tabuleiro, Conceição do Mato Dentro, Minas Gerais, Brazil"
+    }
+]
