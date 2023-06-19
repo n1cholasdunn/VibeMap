@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Statue of Liberty",
+    "lat": 40.6892,
+    "lng": -74.0445,
+    "categories": ["Architecture"],
+    "address": "Liberty Island, New York, NY 10004, USA"
+  },
+  {
+    "id": 2,
+    "name": "Eiffel Tower",
+    "lat": 48.8584,
+    "lng": 2.2945,
+    "categories": ["Architecture"],
+    "address": "Champ de Mars, 5 Avenue Anatole France, 75007 Paris, France"
+  },
+  {
+    "id": 3,
+    "name": "Taj Mahal",
+    "lat": 27.1751,
+    "lng": 78.0421,
+    "categories": ["Architecture", "History"],
+    "address": "Dharmapuri, Forest Colony, Tajganj, Agra, Uttar Pradesh 282001, India"
+  },
+  {
+    "id": 4,
+    "name": "Great Wall of China",
+    "lat": 40.4319,
+    "lng": 116.5704,
+    "categories": ["Architecture", "History"],
+    "address": "Huairou, China"
+  },
+  {
+    "id": 5,
+    "name": "Sydney Opera House",
+    "lat": -33.8568,
+    "lng": 151.2153,
+    "categories": ["Architecture"],
+    "address": "Bennelong Point, Sydney NSW 2000, Australia"
+  },
+  {
+    "id": 6,
+    "name": "Machu Picchu",
+    "lat": -13.1631,
+    "lng": -72.545,
+    "categories": ["History", "Nature"],
+    "address": "Machu Picchu, Aguas Calientes, Peru"
+  },
+  {
+    "id": 7,
+    "name": "Santorini",
+    "lat": 36.3932,
+    "lng": 25.4615,
+    "categories": ["Architecture", "Nature", "Cuisine", "Wine"],
+    "address": "Santorini, Greece"
+  },
+  {
+    "id": 8,
+    "name": "Uluru",
+    "lat": -25.3444,
+    "lng": 131.0369,
+    "categories": ["Nature"],
+    "address": "Uluru-Kata Tjuta National Park, Petermann NT 0872, Australia"
+  },
+  {
+    "id": 9,
+    "name": "Rio de Janeiro",
+    "lat": -22.9068,
+    "lng": -43.1729,
+    "categories": ["Architecture", "Sports", "Parties"],
+    "address": "Rio de Janeiro, State of Rio de Janeiro, Brazil"
+  },
+  {
+    "id": 10,
+    "name": "Banff National Park",
+    "lat": 51.4968,
+    "lng": -115.9281,
+    "categories": ["Nature"],
+    "address": "Banff National Park, Improvement District No. 9, AB, Canada"
+  }
+]
