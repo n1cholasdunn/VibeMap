@@ -1,6 +1,9 @@
 import Trip from '../models/tripModel';
 import { Request, Response } from 'express';
 import { TripAttributes } from '../models/tripModel';
+
+
+
 export const postTrip = async (req: Request, res: Response) => {
   const { id, user, type, coords, categories, points, description } = req.body;
   try {
