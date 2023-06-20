@@ -9,7 +9,7 @@ import {
   Routes,
   // Link
 } from 'react-router-dom';
-import Home from './Pages/HomePage';
+import Home from './Pages/Home';
 import NavBar from './components/NavBar';
 import UserProfile from './Pages/UserProfile';
 import CreateMap from './Pages/CreateTrip';

@@ -3,7 +3,7 @@ import TripSearch from './TripSearch';
 import '../../App.css';
 import React from 'react';
 
-const Explore = () => {
+const TripChoice = () => {
   const [selectedTripOption, setSelectedTripOption] = useState('');
 
   const handleOptionChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -55,4 +55,4 @@ const Explore = () => {
   );
 };
 
-export default Explore;
+export default TripChoice;
