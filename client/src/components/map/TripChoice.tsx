@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from 'react';
-import TripSearch from '../map/TripSearch';
+import TripSearch from './TripSearch';
 import '../../App.css';
 import React from 'react';
 
