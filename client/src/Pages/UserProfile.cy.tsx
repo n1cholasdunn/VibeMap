@@ -1,5 +1,5 @@
 import React from 'react';
-import UserProfile from '../../Pages/UserProfile';
+import UserProfile from './UserProfile';
 
 describe('<UserProfile />', () => {
   it('renders', () => {

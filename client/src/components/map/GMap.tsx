@@ -18,11 +18,15 @@ import {
   LatLngLiteral,
   Place,
 } from '../../services/googlePlaceService';
+import {
+  generateDestinationEndPoint,
+  generateDestinationPoints,
+} from '../../helpers/pointGeneration';
 
 type Route = google.maps.DirectionsResult;
 
 interface Location {
-  id: string;
+  id: number;
   name: string;
   lat: number;
   lng: number;
@@ -54,39 +58,9 @@ const GMap: React.FC<GMapProps> = ({ filteredLocationsCallback }) => {
   );
 
   useEffect(() => {
-    const generateEndPoint = () => {
-      if (destination.type === 'singleDestination') {
-        return null;
-      } else if (destination.type === 'oneWay') {
-        return {
-          lat: destination.coords.end?.lat,
-          lng: destination.coords.end?.lng,
-        };
-      } else if (destination.type === 'loopTrip') {
-        return {
-          lat: destination.coords.start?.lat,
-          lng: destination.coords.start?.lng,
-        };
-      }
-    };
-
-    const generateWaypoints = () => {
-      if (
-        destination.type === 'singleDestination' ||
-        destination.type === 'oneWay'
-      ) {
-        return null;
-      } else {
-        return [
-          {
-            location: `${destination.coords.midpoint?.lat},${destination.coords.midpoint?.lng}`,
-          },
-          {
-            location: `${destination.coords.end?.lat},${destination.coords.end?.lng}`,
-          },
-        ];
-      }
-    };
+    //
+    generateDestinationEndPoint(destination);
+    generateDestinationPoints(destination);
     if (isLoaded) {
       const directionsService = new window.google.maps.DirectionsService();
       const start = {
@@ -98,12 +72,15 @@ const GMap: React.FC<GMapProps> = ({ filteredLocationsCallback }) => {
         {
           ////////////////////////////////////////////////////////////////
           origin: start as string | LatLng | Place | LatLngLiteral, //FIXED THE ERRORS HERE USING "AS" NOT SURE IF THIS IS WRONG
-          destination: generateEndPoint() as
+          destination: generateDestinationEndPoint(destination) as
             | string
             | LatLng
             | LatLngLiteral
-            | Place, //
-          waypoints: generateWaypoints() as DirectionsWaypoint[] | undefined, //
+            | Place,
+          //
+          waypoints: generateDestinationPoints(destination) as
+            | DirectionsWaypoint[]
+            | undefined, //
           ////////////////////////////////////////////////////////////////
           optimizeWaypoints: true,
           travelMode: window.google.maps.TravelMode.DRIVING,
@@ -117,13 +94,7 @@ const GMap: React.FC<GMapProps> = ({ filteredLocationsCallback }) => {
         }
       );
     }
-  }, [
-    isLoaded,
-    destination.coords.start,
-    destination.coords.end,
-    destination.coords.midpoint,
-    destination.type,
-  ]);
+  }, [isLoaded, destination]);
   if (loadError) {
     return <div>Error loading Google Maps</div>;
   }
