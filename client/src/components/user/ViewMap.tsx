@@ -7,15 +7,9 @@ import {
   Marker,
   useLoadScript,
   DirectionsRenderer,
-<<<<<<< HEAD
 } from '@react-google-maps/api';
 import { tripProps } from '../../services/tripService';
 import { apiKey } from '../../helpers/apiKey';
-=======
-} from "@react-google-maps/api";
-import { tripProps } from "../../services/tripService";
-import { apiKey } from "../../helpers/apiKey";
->>>>>>> 40c4f76a65b07db2af58f1fa12d8c5587b3387c3
 // import { DirectionsWaypoint, LatLng } from '../../services/googlePlaceService';
 import {
   generateTripEndPoint,

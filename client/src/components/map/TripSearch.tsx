@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useRef, useState, useEffect, useContext, FormEvent } from 'react';
 import { Autocomplete } from '@react-google-maps/api';
 import { DestinationContext } from '../../context';
@@ -7,16 +6,6 @@ import React from 'react';
 import { Destination } from '../../context';
 import { AutoComplete, Place } from '../../Pages/CreateTrip';
 import { apiKey } from '../../helpers/apiKey';
-=======
-import { useRef, useState, useEffect, useContext, FormEvent } from "react";
-import { Autocomplete } from "@react-google-maps/api";
-import { DestinationContext } from "../../context";
-import { useNavigate } from "react-router-dom";
-import React from "react";
-import { Destination } from "../../context";
-import { AutoComplete, Place } from "../../Pages/CreateTrip";
-import { apiKey } from "../../helpers/apiKey";
->>>>>>> 40c4f76a65b07db2af58f1fa12d8c5587b3387c3
 interface TripSearchProps {
   selectedTripOption: string;
   // destination: Destination
