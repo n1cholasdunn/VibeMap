@@ -4,7 +4,7 @@ import { DestinationContext } from '../../context';
 import { useNavigate } from 'react-router-dom';
 import React from 'react';
 import { Destination } from '../../context';
-import { AutoComplete, Place } from './CreateMap';
+import { AutoComplete, Place } from '../../Pages/CreateTrip';
 
 interface TripSearchProps {
   selectedTripOption: string;

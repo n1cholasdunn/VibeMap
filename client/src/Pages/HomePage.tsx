@@ -1,7 +1,7 @@
-import Explore from './map/Explore';
+import Explore from '../components/map/Explore';
 import React from 'react';
 
-const Home: React.FC = () => {
+const HomePage: React.FC = () => {
   return (
     <>
       <div
@@ -41,4 +41,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default HomePage;
