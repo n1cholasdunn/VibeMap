@@ -4,6 +4,7 @@ import { getUserTrips } from "../services/tripService";
 import { Link, redirect } from "react-router-dom";
 
 const UserProfile = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [userTrips, setUserTrips] = useState([]);
 
   useEffect(() => {

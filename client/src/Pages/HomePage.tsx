@@ -1,4 +1,4 @@
-import Explore from '../components/map/Explore';
+import TripChoice from '../components/map/TripChoice';
 import React from 'react';
 
 const HomePage: React.FC = () => {
@@ -31,7 +31,7 @@ const HomePage: React.FC = () => {
               Discover Your Roadtrip Vibe and Create the Perfect Map!
             </p>
             <div className='rounded-md'>
-              <Explore />
+              <TripChoice />
               {/* <Explore className='rounded-md ' /> */}
             </div>
           </div>

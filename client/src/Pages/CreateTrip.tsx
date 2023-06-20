@@ -1,4 +1,4 @@
-import CategorySearch, { Category } from "../components/map/CategorySearch";
+import CategorySearch, { Category } from "../components/map/ChooseCategory";
 import GMap from "../components/map/GMap";
 import "../App.css";
 import { useRef, useState, useEffect, useContext } from "react";
