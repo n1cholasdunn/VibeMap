@@ -4,24 +4,24 @@ import {
   useLoadScript,
   DirectionsRenderer,
   InfoWindow,
-} from '@react-google-maps/api';
-import { useEffect, useMemo, useState, useContext } from 'react';
-import '../../App.css';
-import locations from '../../db.json';
-import MapInfoWindow from './MapInfoWindow';
-import { DestinationContext } from '../../context';
-import React from 'react';
+} from "@react-google-maps/api";
+import { useEffect, useMemo, useState, useContext } from "react";
+import "../../App.css";
+import locations from "../../db.json";
+import MapInfoWindow from "./MapInfoWindow";
+import { DestinationContext } from "../../context";
+import React from "react";
 import {
   DirectionsWaypoint,
   LatLng,
   LatLngLiteral,
   Place,
-} from '../../services/googlePlaceService';
+} from "../../services/googlePlaceService";
 import {
   generateDestinationEndPoint,
   generateDestinationPoints,
-} from '../../helpers/pointGeneration';
-import { apiKey } from '../../helpers/apikey';
+} from "../../helpers/pointGeneration";
+import { apiKey } from "../../helpers/apiKey";
 
 type Route = google.maps.DirectionsResult;
 
@@ -105,15 +105,16 @@ const GMap: React.FC<GMapProps> = ({ filteredLocationsCallback }) => {
         <h1>Loading...</h1>
       ) : (
         <GoogleMap
-          mapContainerClassName='map-container'
+          mapContainerClassName="map-container"
           center={center as LatLng | LatLngLiteral | undefined}
-          zoom={20}>
+          zoom={20}
+        >
           {directions && (
             <DirectionsRenderer
               directions={directions}
               options={{
                 polylineOptions: {
-                  strokeColor: 'blue',
+                  strokeColor: "blue",
                 },
               }}
             />
@@ -127,7 +128,7 @@ const GMap: React.FC<GMapProps> = ({ filteredLocationsCallback }) => {
                   lng: destination.coords.start?.lng,
                 } as LatLng | LatLngLiteral
               }
-              icon={'http://maps.google.com/mapfiles/ms/icons/green-dot.png'}
+              icon={"http://maps.google.com/mapfiles/ms/icons/green-dot.png"}
             />
 
             {destination.coords.midpoint !== null &&
@@ -140,7 +141,7 @@ const GMap: React.FC<GMapProps> = ({ filteredLocationsCallback }) => {
                     } as LatLng | LatLngLiteral
                   }
                   icon={
-                    'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
+                    "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
                   }
                 />
               )}
@@ -153,7 +154,7 @@ const GMap: React.FC<GMapProps> = ({ filteredLocationsCallback }) => {
                       lng: destination.coords.end.lng,
                     } as LatLng | LatLngLiteral
                   }
-                  icon={'http://maps.google.com/mapfiles/ms/icons/red-dot.png'}
+                  icon={"http://maps.google.com/mapfiles/ms/icons/red-dot.png"}
                 />
               )}
           </>
@@ -181,9 +182,11 @@ const GMap: React.FC<GMapProps> = ({ filteredLocationsCallback }) => {
               }}
               onCloseClick={() => {
                 setSelectedLocation(null);
-              }}>
+              }}
+            >
               <MapInfoWindow
-                selectedLocation={selectedLocation}></MapInfoWindow>
+                selectedLocation={selectedLocation}
+              ></MapInfoWindow>
             </InfoWindow>
           )}
         </GoogleMap>

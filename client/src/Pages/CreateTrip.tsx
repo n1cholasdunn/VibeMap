@@ -11,7 +11,7 @@ import { getDistance } from "geolib";
 import { fetchPlaceInfo } from "../services/googlePlaceService";
 import React from "react";
 import { Location } from "../components/map/PlaceCard";
-import { apiKey } from "../helpers/apikey";
+import { apiKey } from "../helpers/apiKey";
 //added comment to commit
 
 export type AutoComplete = google.maps.places.Autocomplete;

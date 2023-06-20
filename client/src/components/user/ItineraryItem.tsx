@@ -1,20 +1,20 @@
-import '../../App.css';
-import { useState, useEffect, useMemo } from 'react';
-import { Link, redirect } from 'react-router-dom';
-import React from 'react';
+import "../../App.css";
+import { useState, useEffect, useMemo } from "react";
+import { Link, redirect } from "react-router-dom";
+import React from "react";
 import {
   GoogleMap,
   Marker,
   useLoadScript,
   DirectionsRenderer,
-} from '@react-google-maps/api';
-import type { tripProps } from '../../services/tripService';
+} from "@react-google-maps/api";
+import type { tripProps } from "../../services/tripService";
 // import { DirectionsWaypoint, LatLng } from '../../services/googlePlaceService';
-import { apiKey } from '../../helpers/apikey';
+import { apiKey } from "../../helpers/apiKey";
 import {
   generateTripEndPoint,
   generateTripWaypoints,
-} from '../../helpers/pointGeneration';
+} from "../../helpers/pointGeneration";
 
 const ItineraryItem = ({ trip }: tripProps) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -25,7 +25,7 @@ const ItineraryItem = ({ trip }: tripProps) => {
   //   const autocompleteRef = useRef(null);
 
   useEffect(() => {
-    const script = document.createElement('script');
+    const script = document.createElement("script");
     script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`;
     script.onload = () => {
       setGoogleLoaded(true);
@@ -51,7 +51,7 @@ const ItineraryItem = ({ trip }: tripProps) => {
   );
 
   const mapZoom = () => {
-    if (trip.type === 'singleDestination') {
+    if (trip.type === "singleDestination") {
       return 12;
     } else {
       return 5;
@@ -81,7 +81,7 @@ const ItineraryItem = ({ trip }: tripProps) => {
           setDirections(result);
         })
         .catch((e) => {
-          alert('Could not display directions due to: ' + e);
+          alert("Could not display directions due to: " + e);
         });
     }
   }, [isLoaded, trip]);
@@ -93,29 +93,30 @@ const ItineraryItem = ({ trip }: tripProps) => {
   const handleViewMap = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
 
-    return redirect('/mapview');
+    return redirect("/mapview");
     // navigate(`/mapview`, trip);
     // ** not sure why ^^ has trip as a second argument and navigate isn't reccomened so using redirect now
     //post values
   };
 
   return (
-    <div className='max-w-sm  h-[200px] bg-white border border-gray-200 rounded-lg shadow-md m-3'>
+    <div className="max-w-sm  h-[200px] bg-white border border-gray-200 rounded-lg shadow-md m-3">
       {!isLoaded ? (
         <h1>Loading...</h1>
       ) : (
-        <div className='rounded-t-lg'>
+        <div className="rounded-t-lg">
           <GoogleMap
             // className='rounded-t-lg'
-            mapContainerClassName='map-container'
+            mapContainerClassName="map-container"
             center={center}
-            zoom={mapZoom()}>
+            zoom={mapZoom()}
+          >
             {directions && (
               <DirectionsRenderer
                 directions={directions}
                 options={{
                   polylineOptions: {
-                    strokeColor: 'blue',
+                    strokeColor: "blue",
                   },
                 }}
               />
@@ -126,7 +127,7 @@ const ItineraryItem = ({ trip }: tripProps) => {
                   lat: trip.coords.start.lat,
                   lng: trip.coords.start.lng,
                 }}
-                icon={'http://maps.google.com/mapfiles/ms/icons/green-dot.png'}
+                icon={"http://maps.google.com/mapfiles/ms/icons/green-dot.png"}
               />
 
               {trip.coords.midpoint !== null &&
@@ -137,7 +138,7 @@ const ItineraryItem = ({ trip }: tripProps) => {
                       lng: trip.coords.midpoint.lng,
                     }}
                     icon={
-                      'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
+                      "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
                     }
                   />
                 )}
@@ -147,7 +148,7 @@ const ItineraryItem = ({ trip }: tripProps) => {
                     lat: trip.coords.end.lat,
                     lng: trip.coords.end.lng,
                   }}
-                  icon={'http://maps.google.com/mapfiles/ms/icons/red-dot.png'}
+                  icon={"http://maps.google.com/mapfiles/ms/icons/red-dot.png"}
                 />
               )}
             </>
@@ -164,20 +165,21 @@ const ItineraryItem = ({ trip }: tripProps) => {
           </GoogleMap>
         </div>
       )}
-      <div className='pt-5'>
-        <Link to={'/profile'}>
+      <div className="pt-5">
+        <Link to={"/profile"}>
           {/* <a href='#'> */}
-          <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 '>
+          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
             {trip.description}
           </h5>
           {/* TODO check if link above and below is supposed to go to profile or just top of a page that is different */}
           {/* </a> */}
         </Link>
         <Link
-          to={'/profile'}
+          to={"/profile"}
           onClick={handleViewMap}
-          className='inline-flex items-center px-3 py-2 text-sm font-medium text-center bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300  hover:text-white text-white hover:bg-gray-500 bg-gradient-to-r from-blue-600 to-indigo-400   hover:drop-shadow-lg
-          text-md border p-2 rounded-lg'>
+          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300  hover:text-white text-white hover:bg-gray-500 bg-gradient-to-r from-blue-600 to-indigo-400   hover:drop-shadow-lg
+          text-md border p-2 rounded-lg"
+        >
           {/* <a
           href='#'
           onClick={handleViewMap}
@@ -185,15 +187,17 @@ const ItineraryItem = ({ trip }: tripProps) => {
           text-md border p-2 rounded-lg'> */}
           View Map
           <svg
-            aria-hidden='true'
-            className='w-4 h-4 ml-2 -mr-1'
-            fill='currentColor'
-            viewBox='0 0 20 20'
-            xmlns='http://www.w3.org/2000/svg'>
+            aria-hidden="true"
+            className="w-4 h-4 ml-2 -mr-1"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <path
-              fill-rule='evenodd'
-              d='M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z'
-              clip-rule='evenodd'></path>
+              fill-rule="evenodd"
+              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            ></path>
           </svg>
           {/* </a> */}
         </Link>

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import React from "react";
 import { Destination } from "../../context";
 import { AutoComplete, Place } from "../../Pages/CreateTrip";
-import { apiKey } from "../../helpers/apikey";
+import { apiKey } from "../../helpers/apiKey";
 interface TripSearchProps {
   selectedTripOption: string;
   // destination: Destination
