@@ -6,7 +6,6 @@ import {
   // BrowserRouter as Router,
   // BrowserRouter,
   Route,
-  Routes,
   // Link
 } from 'react-router-dom';
 import Home from './Pages/Home';
@@ -19,11 +18,9 @@ function App() {
     <div>
       <NavBar />
       <DestinationProvider>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/create' element={<CreateMap />} />
-          <Route path='/profile' element={<UserProfile />} />
-        </Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/create' element={<CreateMap />} />
+        <Route path='/profile' element={<UserProfile />} />
       </DestinationProvider>
     </div>
   );

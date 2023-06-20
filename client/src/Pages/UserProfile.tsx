@@ -55,17 +55,24 @@ const UserProfile = () => {
         <div>
           <div className='flex justify-end p-10'>
             {/* ADDED LINK TO REDIRECT USER TO HOME PAGE IF THEY WANT TO CREATE NEW MAP */}
-            <Link to={'/'}>
-              <button
-                type='submit'
-                // onClick={handleCreateMap} NON - FUNCTIONAL
-                className='
+            {/* <Link to={'/'}> */}
+            <button
+              type='submit'
+              // onClick={handleCreateMap} NON - FUNCTIONAL
+              className='
 							hover:text-white text-white hover:bg-gray-500 bg-gradient-to-r from-blue-600 to-indigo-400   hover:drop-shadow-lg
+<<<<<<< HEAD
 							text-md font-semibold border p-2 rounded-lg w-1/4'
               >
                 Create Map +
               </button>
             </Link>
+=======
+							text-md font-semibold border p-2 rounded-lg w-1/4'>
+              Create Map +
+            </button>
+            {/* </Link> */}
+>>>>>>> c72e05652b669e5e13a161706337aaba9ffca42c
           </div>
 
           <div className='grid grid-cols-2 h-[650px] gap-4 p-5'>
