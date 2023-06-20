@@ -3,6 +3,7 @@ import { Destination, DestinationContext } from "../../context";
 import React from "react";
 
 export interface Location {
+  id: number;
   name: string;
   lat: number;
   lng: number;
@@ -60,7 +61,7 @@ const PlaceCard: React.FC<PlaceCardProps> = ({
   return (
     <div className="cursor-pointer label border-solid border-gray-200 border rounded-md mt-3 pl-3 pr-5">
       {/* changed data to data-flex to get rid of error */}
-      <div data-flex flex-col>
+      <div data-flex className="flex-col">
         <div className="font-semibold text-lg">{location.name}</div>
         <div className="font-normal text-sm">{location.address}</div>
 
@@ -69,7 +70,10 @@ const PlaceCard: React.FC<PlaceCardProps> = ({
         </div>
         <div className="flex flex-row">
           {location.categories.map((category) => (
-            <p className="pr-2 text-sm bg-gradient-to-r from-orange-600 to-gray-400 inline-block text-transparent bg-clip-text ">
+            <p
+              key={category}
+              className="pr-2 text-sm bg-gradient-to-r from-orange-600 to-gray-400 inline-block text-transparent bg-clip-text "
+            >
               {category}
             </p>
           ))}

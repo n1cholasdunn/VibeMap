@@ -21,6 +21,7 @@ export const generateDestinationPoints = (destination: Destination) => {
     ];
   }
 };
+
 export const generateDestinationEndPoint = (destination: Destination) => {
   if (destination.type === 'singleDestination') {
     return null;
