@@ -1,10 +1,20 @@
-import Trip from '../models/tripModel';
-import { Request, Response } from 'express';
-import { TripAttributes } from '../models/tripModel';
+import Trip from "../models/tripModel";
+import { Request, Response } from "express";
+import { TripAttributes } from "../models/tripModel";
 
+interface TripRequest extends Request {
+  body: {
+    id: string;
+    user: string;
+    type: string;
+    coords: string;
+    categories: string;
+    points: string;
+    description: string;
+  };
+}
 
-
-export const postTrip = async (req: Request, res: Response) => {
+export const postTrip = async (req: TripRequest, res: Response) => {
   const { id, user, type, coords, categories, points, description } = req.body;
   try {
     const trip = await Trip.create({
