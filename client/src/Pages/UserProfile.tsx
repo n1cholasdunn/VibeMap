@@ -61,7 +61,8 @@ const UserProfile = () => {
                 // onClick={handleCreateMap} NON - FUNCTIONAL
                 className='
 							hover:text-white text-white hover:bg-gray-500 bg-gradient-to-r from-blue-600 to-indigo-400   hover:drop-shadow-lg
-							text-md font-semibold border p-2 rounded-lg w-1/4'>
+							text-md font-semibold border p-2 rounded-lg w-1/4'
+              >
                 Create Map +
               </button>
             </Link>
