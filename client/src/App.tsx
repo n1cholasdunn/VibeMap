@@ -9,10 +9,10 @@ import {
   Routes,
   // Link
 } from 'react-router-dom';
-import Home from './components/Home';
+import Home from './Pages/HomePage';
 import NavBar from './components/NavBar';
-import UserProfile from './components/user/UserProfile';
-import CreateMap from './components/map/CreateMap';
+import UserProfile from './Pages/UserProfile';
+import CreateMap from './Pages/CreateTrip';
 
 function App() {
   return (
