@@ -21,7 +21,7 @@ import {
   generateDestinationEndPoint,
   generateDestinationPoints,
 } from '../../helpers/pointGeneration';
-import { apiKey } from '../../helpers/apikey';
+import { apiKey } from '../../helpers/apiKey';
 
 type Route = google.maps.DirectionsResult;
 

@@ -1,3 +1,4 @@
+import { categories } from '../../helpers/category';
 import Checkbox from '@mui/material/Checkbox';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
@@ -5,19 +6,10 @@ import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import { useEffect } from 'react';
 import React from 'react';
+import { Category, CategorySearchProps } from '../../helpers/category';
 
 const icon = <CheckBoxOutlineBlankIcon fontSize='small' />;
 const checkedIcon = <CheckBoxIcon fontSize='small' />;
-
-export interface Category {
-  categoryName: string;
-}
-
-interface CategorySearchProps {
-  selectedCategories: Category[];
-  setSelectedCategories: React.Dispatch<React.SetStateAction<Category[]>>;
-  // setSelectedCategories: (selectedCategories: Category[]) => void      possible other way to achieve the same thing
-}
 
 const CategorySearch: React.FC<CategorySearchProps> = ({
   setSelectedCategories,
@@ -66,22 +58,5 @@ const CategorySearch: React.FC<CategorySearchProps> = ({
     />
   );
 };
-
-const categories = [
-  { categoryName: 'Adventure' },
-  { categoryName: 'Architecture' },
-  { categoryName: 'Art' },
-  { categoryName: 'Beaches' },
-  { categoryName: 'Cuisine' },
-  { categoryName: 'History' },
-  { categoryName: 'Nature' },
-  { categoryName: 'Nightlife' },
-  { categoryName: 'Parties' },
-  { categoryName: 'Relaxation' },
-  { categoryName: 'Shopping' },
-  { categoryName: 'Sports' },
-  { categoryName: 'Wine' },
-  { categoryName: 'Wildlife' },
-];
 
 export default CategorySearch;

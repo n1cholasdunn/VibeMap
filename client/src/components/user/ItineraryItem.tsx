@@ -10,7 +10,7 @@ import {
 } from '@react-google-maps/api';
 import type { tripProps } from '../../services/tripService';
 // import { DirectionsWaypoint, LatLng } from '../../services/googlePlaceService';
-import { apiKey } from '../../helpers/apikey';
+import { apiKey } from '../../helpers/apiKey';
 import {
   generateTripEndPoint,
   generateTripWaypoints,

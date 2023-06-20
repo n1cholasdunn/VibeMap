@@ -9,7 +9,7 @@ import {
   DirectionsRenderer,
 } from '@react-google-maps/api';
 import { tripProps } from '../../services/tripService';
-import { apiKey } from '../../helpers/apikey';
+import { apiKey } from '../../helpers/apiKey';
 // import { DirectionsWaypoint, LatLng } from '../../services/googlePlaceService';
 import {
   generateTripEndPoint,
