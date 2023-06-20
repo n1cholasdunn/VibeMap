@@ -1,17 +1,18 @@
-import CategorySearch, { Category } from "../components/map/ChooseCategory";
-import GMap from "../components/map/GMap";
-import "../App.css";
-import { useRef, useState, useEffect, useContext } from "react";
-import { Autocomplete } from "@react-google-maps/api";
-import { Destination, DestinationContext } from "../context";
-import PlaceCard from "../components/map/PlaceCard";
-import locations from "../db.json";
-import { postUserTrip } from "../services/tripService";
-import { getDistance } from "geolib";
-import { fetchPlaceInfo } from "../services/googlePlaceService";
-import React from "react";
-import { Location } from "../components/map/PlaceCard";
-import { apiKey } from "../helpers/apiKey";
+import CategorySearch from '../components/map/ChooseCategory';
+import { Category } from '../helpers/category';
+import GMap from '../components/map/GMap';
+import '../App.css';
+import { useRef, useState, useEffect, useContext } from 'react';
+import { Autocomplete } from '@react-google-maps/api';
+import { Destination, DestinationContext } from '../context';
+import PlaceCard from '../components/map/PlaceCard';
+import locations from '../db.json';
+import { postUserTrip } from '../services/tripService';
+import { getDistance } from 'geolib';
+import { fetchPlaceInfo } from '../services/googlePlaceService';
+import React from 'react';
+import { Location } from '../components/map/PlaceCard';
+import { apiKey } from '../helpers/apiKey';
 //added comment to commit
 
 export type AutoComplete = google.maps.places.Autocomplete;
@@ -23,15 +24,15 @@ const CreateTrip = () => {
     useContext(DestinationContext);
   const [selectedPlaceFromSearch, setSelectedPlaceFromSearch] = useState<
     Place | string
-  >("");
+  >('');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [googleLoaded, setGoogleLoaded] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState<Category[]>([]);
-  const [tripDescription, setTripDescription] = useState("");
+  const [tripDescription, setTripDescription] = useState('');
 
   const autocompleteRef = useRef<AutoComplete>({} as AutoComplete);
   useEffect(() => {
-    const script = document.createElement("script");
+    const script = document.createElement('script');
     script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&callback=Function.prototype`;
     script.onload = () => {
       setGoogleLoaded(true);
@@ -52,7 +53,7 @@ const CreateTrip = () => {
     e.preventDefault();
     if (selectedPlaceFromSearch) {
       if (
-        typeof selectedPlaceFromSearch !== "string" &&
+        typeof selectedPlaceFromSearch !== 'string' &&
         selectedPlaceFromSearch.geometry
       ) {
         const { geometry } = selectedPlaceFromSearch;
@@ -71,8 +72,8 @@ const CreateTrip = () => {
             ...prevDestination,
             points: [...prevDestination.points, newPoint],
           }));
-          console.log("search place: ", destination);
-          setSelectedPlaceFromSearch("");
+          console.log('search place: ', destination);
+          setSelectedPlaceFromSearch('');
           // autocompleteRef.current.value = '';   DONT THINK THIS CODE IS BEING USED!!!
         }
       }
@@ -130,49 +131,46 @@ const CreateTrip = () => {
   };
   const openPlaceInfo = async (lat: number, lng: number, name: string) => {
     const res = await fetchPlaceInfo(lat, lng, name);
-    console.log("res ==> ", res);
+    console.log('res ==> ', res);
   };
   return (
     <>
-      <div className="flex flex-row justify-center p-6 z-[-1]">
-        <div className="flex flex-col  justify-end w-4/5 h-auto aspect-w-1 aspect-h-1">
+      <div className='flex flex-row justify-center p-6 z-[-1]'>
+        <div className='flex flex-col  justify-end w-4/5 h-auto aspect-w-1 aspect-h-1'>
           <GMap filteredLocationsCallback={filteredLocations} />
-          <form className="flex flex-row py-2 self" onSubmit={handleSubmitTrip}>
+          <form className='flex flex-row py-2 self' onSubmit={handleSubmitTrip}>
             <input
-              placeholder="Give your trip a name..."
+              placeholder='Give your trip a name...'
               value={tripDescription}
               onChange={(e) => setTripDescription(e.target.value)}
-              className="border rounded-lg border-gray-300 pl-2 h-full w-full mr-2"
-            ></input>
+              className='border rounded-lg border-gray-300 pl-2 h-full w-full mr-2'></input>
             <button
-              type="submit"
-              className="
+              type='submit'
+              className='
                             hover:text-white text-white hover:bg-gray-500 bg-gradient-to-r from-blue-600 to-indigo-400   hover:drop-shadow-lg
-                            text-md font-semibold border p-2 rounded-lg w-1/6"
-            >
+                            text-md font-semibold border p-2 rounded-lg w-1/6'>
               Save Map ♡
             </button>
           </form>
         </div>
-        <div className="pl-6 pr-6">
+        <div className='pl-6 pr-6'>
           <CategorySearch
             selectedCategories={selectedCategories}
             setSelectedCategories={setSelectedCategories}
           />
-          <form className="flex flex-row justify-between w-full mt-2.5 h-10">
+          <form className='flex flex-row justify-between w-full mt-2.5 h-10'>
             <Autocomplete
               // apiKey={apiKey}
               onLoad={(autocomplete) => {
                 autocompleteRef.current = autocomplete;
-                autocomplete.setFields(["geometry"]);
+                autocomplete.setFields(['geometry']);
               }}
               onPlaceChanged={handlePlaceSelect}
-              className="z-[0] w-3/4 "
-            >
+              className='z-[0] w-3/4 '>
               <input
-                placeholder="Search for a place..."
-                className="border rounded-full border-gray-300 pl-2 h-full w-full"
-                name="start"
+                placeholder='Search for a place...'
+                className='border rounded-full border-gray-300 pl-2 h-full w-full'
+                name='start'
                 value={
                   destination.points
                     ? destination.points.formatted_address
@@ -181,16 +179,15 @@ const CreateTrip = () => {
               />
             </Autocomplete>
             <button
-              type="submit"
+              type='submit'
               // onClick={handleAddPoint}  NON-FUNCTIONAL
-              className="
+              className='
                             hover:text-white hover:bg-gray-400 hover:drop-shadow-lg
-                            text-sm border border-gray-300 p-2 rounded-xl w-28 h-full"
-            >
+                            text-sm border border-gray-300 p-2 rounded-xl w-28 h-full'>
               + Add to Map
             </button>
           </form>
-          <div className="overflow-scroll overflow-y-scroll no-scrollbar h-[500px]">
+          <div className='overflow-scroll overflow-y-scroll no-scrollbar h-[500px]'>
             {sortedLocations
               .filter(filteredLocations)
               .map((location: Location) => (
