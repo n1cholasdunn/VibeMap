@@ -194,6 +194,7 @@ const CreateMap = () => {
               .filter(filteredLocations)
               .map((location: Location) => (
                 <PlaceCard
+                  key={location.id}
                   location={location}
                   handleAddPoint={handleAddPoint}
                   onClick={() =>

@@ -4,25 +4,25 @@ import {
   useLoadScript,
   DirectionsRenderer,
   InfoWindow,
-} from '@react-google-maps/api';
-import { useEffect, useMemo, useState, useContext } from 'react';
-import '../../App.css';
-import locations from '../../db.json';
-import MapInfoWindow from './MapInfoWindow';
+} from "@react-google-maps/api";
+import { useEffect, useMemo, useState, useContext } from "react";
+import "../../App.css";
+import locations from "../../db.json";
+import MapInfoWindow from "./MapInfoWindow";
 
-import { DestinationContext } from '../../context';
-import React from 'react';
+import { DestinationContext } from "../../context";
+import React from "react";
 import {
   DirectionsWaypoint,
   LatLng,
   LatLngLiteral,
   Place,
-} from '../../services/googlePlaceService';
+} from "../../services/googlePlaceService";
 
 type Route = google.maps.DirectionsResult;
 
 interface Location {
-  id: string;
+  id: number;
   name: string;
   lat: number;
   lng: number;
@@ -55,14 +55,14 @@ const GMap: React.FC<GMapProps> = ({ filteredLocationsCallback }) => {
 
   useEffect(() => {
     const generateEndPoint = () => {
-      if (destination.type === 'singleDestination') {
+      if (destination.type === "singleDestination") {
         return null;
-      } else if (destination.type === 'oneWay') {
+      } else if (destination.type === "oneWay") {
         return {
           lat: destination.coords.end?.lat,
           lng: destination.coords.end?.lng,
         };
-      } else if (destination.type === 'loopTrip') {
+      } else if (destination.type === "loopTrip") {
         return {
           lat: destination.coords.start?.lat,
           lng: destination.coords.start?.lng,
@@ -72,8 +72,8 @@ const GMap: React.FC<GMapProps> = ({ filteredLocationsCallback }) => {
 
     const generateWaypoints = () => {
       if (
-        destination.type === 'singleDestination' ||
-        destination.type === 'oneWay'
+        destination.type === "singleDestination" ||
+        destination.type === "oneWay"
       ) {
         return null;
       } else {
@@ -134,15 +134,16 @@ const GMap: React.FC<GMapProps> = ({ filteredLocationsCallback }) => {
         <h1>Loading...</h1>
       ) : (
         <GoogleMap
-          mapContainerClassName='map-container'
+          mapContainerClassName="map-container"
           center={center as LatLng | LatLngLiteral | undefined}
-          zoom={20}>
+          zoom={20}
+        >
           {directions && (
             <DirectionsRenderer
               directions={directions}
               options={{
                 polylineOptions: {
-                  strokeColor: 'blue',
+                  strokeColor: "blue",
                 },
               }}
             />
@@ -156,7 +157,7 @@ const GMap: React.FC<GMapProps> = ({ filteredLocationsCallback }) => {
                   lng: destination.coords.start?.lng,
                 } as LatLng | LatLngLiteral
               }
-              icon={'http://maps.google.com/mapfiles/ms/icons/green-dot.png'}
+              icon={"http://maps.google.com/mapfiles/ms/icons/green-dot.png"}
             />
 
             {destination.coords.midpoint !== null &&
@@ -169,7 +170,7 @@ const GMap: React.FC<GMapProps> = ({ filteredLocationsCallback }) => {
                     } as LatLng | LatLngLiteral
                   }
                   icon={
-                    'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
+                    "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
                   }
                 />
               )}
@@ -182,7 +183,7 @@ const GMap: React.FC<GMapProps> = ({ filteredLocationsCallback }) => {
                       lng: destination.coords.end.lng,
                     } as LatLng | LatLngLiteral
                   }
-                  icon={'http://maps.google.com/mapfiles/ms/icons/red-dot.png'}
+                  icon={"http://maps.google.com/mapfiles/ms/icons/red-dot.png"}
                 />
               )}
           </>
@@ -210,9 +211,11 @@ const GMap: React.FC<GMapProps> = ({ filteredLocationsCallback }) => {
               }}
               onCloseClick={() => {
                 setSelectedLocation(null);
-              }}>
+              }}
+            >
               <MapInfoWindow
-                selectedLocation={selectedLocation}></MapInfoWindow>
+                selectedLocation={selectedLocation}
+              ></MapInfoWindow>
             </InfoWindow>
           )}
         </GoogleMap>
