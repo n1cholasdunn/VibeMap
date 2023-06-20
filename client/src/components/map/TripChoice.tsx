@@ -13,7 +13,7 @@ const TripChoice = () => {
   return (
     <div className='flex flex-col opacity-80 w-[468px] rounded-lg drop-shadow-2xl items-center justify-center min-h-72  p-7 bg-white'>
       <p className='text-slate-500'>Select Your Preferred Roadtrip Vibe:</p>
-      <form className='p-2.5'>
+      <form className='p-2.5' id='trip-picker'>
         <label className='m-2.5'>
           <input
             name='trip-option'
