@@ -9,6 +9,7 @@ import {
   DirectionsRenderer,
 } from '@react-google-maps/api';
 import { tripProps } from '../../services/tripService';
+import { apiKey } from '../../helpers/apikey';
 // import { DirectionsWaypoint, LatLng } from '../../services/googlePlaceService';
 import {
   generateTripEndPoint,
@@ -16,8 +17,6 @@ import {
 } from '../../helpers/pointGeneration';
 
 const ViewMap = ({ trip }: tripProps) => {
-  const apiKey = process.env.REACT_APP_GOOGLE_MAP_API_KEY as string;
-
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [googleLoaded, setGoogleLoaded] = useState(false);
   const [directions, setDirections] = useState<google.maps.DirectionsResult>();
@@ -35,7 +34,7 @@ const ViewMap = ({ trip }: tripProps) => {
     return () => {
       document.head.removeChild(script);
     };
-  }, [apiKey]);
+  }, []);
 
   const editUserTrip = () => {
     console.log('something');

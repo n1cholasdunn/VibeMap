@@ -9,7 +9,6 @@ import { useEffect, useMemo, useState, useContext } from 'react';
 import '../../App.css';
 import locations from '../../db.json';
 import MapInfoWindow from './MapInfoWindow';
-
 import { DestinationContext } from '../../context';
 import React from 'react';
 import {
@@ -22,6 +21,7 @@ import {
   generateDestinationEndPoint,
   generateDestinationPoints,
 } from '../../helpers/pointGeneration';
+import { apiKey } from '../../helpers/apikey';
 
 type Route = google.maps.DirectionsResult;
 
@@ -46,7 +46,7 @@ const GMap: React.FC<GMapProps> = ({ filteredLocationsCallback }) => {
   );
 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY!,
+    googleMapsApiKey: apiKey,
   });
 
   const center = useMemo(

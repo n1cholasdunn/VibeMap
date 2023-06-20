@@ -11,7 +11,7 @@ import { getDistance } from 'geolib';
 import { fetchPlaceInfo } from '../services/googlePlaceService';
 import React from 'react';
 import { Location } from '../components/map/PlaceCard';
-
+import { apiKey } from '../helpers/apikey';
 //added comment to commit
 
 export type AutoComplete = google.maps.places.Autocomplete;
@@ -19,7 +19,6 @@ export type Place = google.maps.places.PlaceResult;
 export type Geometry = google.maps.places.PlaceGeometry;
 
 const CreateTrip = () => {
-  const apiKey = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
   const { destination, setDestination, clearDestination } =
     useContext(DestinationContext);
   const [selectedPlaceFromSearch, setSelectedPlaceFromSearch] = useState<
@@ -41,7 +40,7 @@ const CreateTrip = () => {
     return () => {
       document.head.removeChild(script);
     };
-  }, [apiKey]);
+  }, []);
   const handlePlaceSelect = () => {
     const place = autocompleteRef.current.getPlace();
     if (!place.geometry || !place.geometry.location) {

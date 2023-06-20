@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import React from 'react';
 import { Destination } from '../../context';
 import { AutoComplete, Place } from '../../Pages/CreateTrip';
-
+import { apiKey } from '../../helpers/apikey';
 interface TripSearchProps {
   selectedTripOption: string;
   // destination: Destination
@@ -14,7 +14,6 @@ interface TripSearchProps {
 
 const TripSearch: React.FC<TripSearchProps> = ({ selectedTripOption }) => {
   const { destination, setDestination } = useContext(DestinationContext);
-  const apiKey = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
 
   const [googleLoaded, setGoogleLoaded] = useState(false);
   const autocompleteRefA = useRef<AutoComplete>({} as AutoComplete);
@@ -33,7 +32,7 @@ const TripSearch: React.FC<TripSearchProps> = ({ selectedTripOption }) => {
     return () => {
       document.head.removeChild(script);
     };
-  }, [apiKey]);
+  }, []);
 
   const handlePlaceSelect = (place: Place, name: string) => {
     const { geometry } = place;
