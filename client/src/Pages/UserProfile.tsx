@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import ItineraryItem from '../components/user/ItineraryItem';
-import { getUserTrips } from '../services/tripService';
-import { redirect } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import ItineraryItem from "../components/user/ItineraryItem";
+import { getUserTrips } from "../services/tripService";
+import { Link, redirect } from "react-router-dom";
 
 const UserProfile = () => {
   const [userTrips, setUserTrips] = useState([]);
@@ -18,29 +18,30 @@ const UserProfile = () => {
     fetchUserTrips();
   }, []);
 
-  function handleCreateMap() {
-    return redirect('/create');
-  }
+  //NON FUNCTIONAL
+  // function handleCreateMap() {
+  //   return redirect("/");
+  // }
 
   return (
     <>
-      <div className='p-4 mx-3 lg:py-8 lg:px-6 flex justify-center flex-row'>
-        <div className='lg:w-1/4 p-5 min-w-56' id='user-profile'>
-          <div className='text-center text-gray-500'>
+      <div className="p-4 mx-3 lg:py-8 lg:px-6 flex justify-center flex-row">
+        <div className="lg:w-1/4 p-5 min-w-56" id="user-profile">
+          <div className="text-center text-gray-500">
             <img
-              className='mx-auto mb-4 w-36 h-36 rounded-full'
-              src='IMG_7069.jpg'
+              className="mx-auto mb-4 w-36 h-36 rounded-full"
+              src="IMG_7069.jpg"
               //TODO set alt
-              alt='profile pic'
+              alt="profile pic"
             />
-            <h3 className='mb-1 text-2xl font-bold tracking-tight text-gray-900'>
-              <h3 className='py-3'>Juliana Ribas</h3>
+            <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900">
+              <h3 className="py-3">Juliana Ribas</h3>
             </h3>
-            <h4 className='mb-1 text-1xl font-bold tracking-tight text-gray-900'>
+            <h4 className="mb-1 text-1xl font-bold tracking-tight text-gray-900">
               Embrace the world as your playground and let your travels paint
               the canvas of your soul!
             </h4>
-            <p className='py-5'>
+            <p className="py-5">
               "Hi there! I'm Juliana, a travel enthusiast and storyteller. Join
               me as I navigate the globe, seeking immersive cultural
               experiences, hidden gems, and breathtaking landscapes. Let's
@@ -51,18 +52,22 @@ const UserProfile = () => {
         </div>
 
         <div>
-          <div className='flex justify-end p-10'>
-            <button
-              type='submit'
-              onClick={handleCreateMap}
-              className='
+          <div className="flex justify-end p-10">
+            {/* ADDED LINK TO REDIRECT USER TO HOME PAGE IF THEY WANT TO CREATE NEW MAP */}
+            <Link to={"/"}>
+              <button
+                type="submit"
+                // onClick={handleCreateMap} NON - FUNCTIONAL
+                className="
 							hover:text-white text-white hover:bg-gray-500 bg-gradient-to-r from-blue-600 to-indigo-400   hover:drop-shadow-lg
-							text-md font-semibold border p-2 rounded-lg w-1/4'>
-              Create Map +
-            </button>
+							text-md font-semibold border p-2 rounded-lg w-1/4"
+              >
+                Create Map +
+              </button>
+            </Link>
           </div>
 
-          <div className='grid grid-cols-2 h-[650px] gap-4 p-5'>
+          <div className="grid grid-cols-2 h-[650px] gap-4 p-5">
             {/* {userTrips.map((trip) => (                       COMMENTED OUT TEMPRARLY AS ITS CAUSING CRASHES
               <ItineraryItem trip={trip} />
             ))} */}

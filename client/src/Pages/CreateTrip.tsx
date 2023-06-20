@@ -1,11 +1,11 @@
 import CategorySearch, { Category } from "../components/map/CategorySearch";
 import GMap from "../components/map/GMap";
-import "../../App.css";
+import "../App.css";
 import { useRef, useState, useEffect, useContext } from "react";
 import { Autocomplete } from "@react-google-maps/api";
 import { Destination, DestinationContext } from "../context";
 import PlaceCard from "../components/map/PlaceCard";
-import locations from "../../db.json";
+import locations from "../db.json";
 import { postUserTrip } from "../services/tripService";
 import { getDistance } from "geolib";
 import { fetchPlaceInfo } from "../services/googlePlaceService";
