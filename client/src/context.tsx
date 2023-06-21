@@ -91,7 +91,8 @@ export const DestinationProvider = ({ children }: DestinationProviderProps) => {
 
   return (
     <DestinationContext.Provider
-      value={{ destination, setDestination, clearDestination }}>
+      value={{ destination, setDestination, clearDestination }}
+    >
       {children}
     </DestinationContext.Provider>
   );

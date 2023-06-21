@@ -15,17 +15,13 @@ const CategorySearch: React.FC<CategorySearchProps> = ({
   setSelectedCategories,
   selectedCategories,
 }) => {
-  const handleCategories = (event: any, value: Category[]) => {
-    //put any for now because event is not being used
-    console.log('category changed');
-    console.log('value ==> ', value);
+  const handleCategories = (
+    event: React.FormEvent<EventTarget>,
+    value: Category[]
+  ) => {
     setSelectedCategories(value);
   };
-  useEffect(() => {
-    // console.log(handleCategories())
-    console.log('categoy sel:', selectedCategories);
-    console.log(selectedCategories);
-  }, [selectedCategories]);
+  useEffect(() => {}, [selectedCategories]);
 
   return (
     <Autocomplete

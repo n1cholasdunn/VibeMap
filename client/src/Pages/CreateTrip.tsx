@@ -121,7 +121,7 @@ const CreateTrip = () => {
       id: `34567890kjnbvt6789${Math.round(Math.random() * 100000)}`,
     };
     void clearDestination; //
-    await postUserTrip(newDestination); //AFTER
+    await postUserTrip(newDestination);
 
     console.log(newDestination);
   };

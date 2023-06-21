@@ -15,7 +15,6 @@ import {
   DirectionsWaypoint,
   LatLng,
   LatLngLiteral,
-  Place,
 } from '../../services/googlePlaceService';
 import {
   generateDestinationEndPoint,
@@ -70,18 +69,14 @@ const GMap: React.FC<GMapProps> = ({ filteredLocationsCallback }) => {
 
       directionsService.route(
         {
-          ////////////////////////////////////////////////////////////////
-          origin: start as string | LatLng | Place | LatLngLiteral, //FIXED THE ERRORS HERE USING "AS" NOT SURE IF THIS IS WRONG
-          destination: generateDestinationEndPoint(destination) as
-            | string
-            | LatLng
-            | LatLngLiteral
-            | Place,
-          //
+          origin: start as LatLngLiteral,
+          destination: generateDestinationEndPoint(
+            destination
+          ) as LatLngLiteral,
+
           waypoints: generateDestinationPoints(destination) as
             | DirectionsWaypoint[]
-            | undefined, //
-          ////////////////////////////////////////////////////////////////
+            | undefined,
           optimizeWaypoints: true,
           travelMode: window.google.maps.TravelMode.DRIVING,
         },
@@ -107,7 +102,8 @@ const GMap: React.FC<GMapProps> = ({ filteredLocationsCallback }) => {
         <GoogleMap
           mapContainerClassName='map-container'
           center={center as LatLng | LatLngLiteral | undefined}
-          zoom={20}>
+          zoom={20}
+        >
           {directions && (
             <DirectionsRenderer
               directions={directions}
@@ -157,8 +153,7 @@ const GMap: React.FC<GMapProps> = ({ filteredLocationsCallback }) => {
                 />
               )}
           </>
-          {/*
-                        filter takes a callback */}
+
           {locations
             .filter(filteredLocationsCallback)
             .map((location: Location) => (
@@ -181,9 +176,11 @@ const GMap: React.FC<GMapProps> = ({ filteredLocationsCallback }) => {
               }}
               onCloseClick={() => {
                 setSelectedLocation(null);
-              }}>
+              }}
+            >
               <MapInfoWindow
-                selectedLocation={selectedLocation}></MapInfoWindow>
+                selectedLocation={selectedLocation}
+              ></MapInfoWindow>
             </InfoWindow>
           )}
         </GoogleMap>
