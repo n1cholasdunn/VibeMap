@@ -1,13 +1,13 @@
 const express = require('express');
 const supertest = require('supertest');
-const router = require('../router');
+const router = require('../router.ts');
 const mockTrips = require('./db.json');
 
 require('chai').should();
 
 const app = express();
 app.use(express.json());
-app.use(router);
+app.use(router.default);
 
 const request = supertest(app);
 

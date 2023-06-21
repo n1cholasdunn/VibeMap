@@ -1,6 +1,6 @@
-import Trip from "../models/tripModel";
-import { Request, Response } from "express";
-import { TripAttributes } from "../models/tripModel";
+import Trip from '../models/tripModel';
+import { Request, Response } from 'express';
+import { TripAttributes } from '../models/tripModel';
 
 interface TripRequest extends Request {
   body: {
@@ -65,6 +65,7 @@ export const postTrip = async (req: TripRequest, res: Response) => {
 export const getTrip = async (req: Request, res: Response) => {
   try {
     const trips = await Trip.findAll({});
+    console.log(trips);
     trips.forEach((trip: TripAttributes) => {
       trip.coords = JSON.parse(trip.coords);
       //null checks
