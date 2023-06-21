@@ -2,8 +2,6 @@ import { Destination } from '../context';
 import { DirectionsWaypoint, LatLng } from '../services/googlePlaceService';
 import { tripProps } from '../services/tripService';
 
-//! from GMap.tsx
-// const { destination } = useContext(DestinationContext);
 export const generateDestinationPoints = (destination: Destination) => {
   if (
     destination.type === 'singleDestination' ||
@@ -38,20 +36,14 @@ export const generateDestinationEndPoint = (destination: Destination) => {
   }
 };
 //*
-//! from ItinerayItem.tsx
 export const generateTripEndPoint = ({ trip }: tripProps): LatLng | string => {
   if (trip.type === 'singleDestination' || !trip.coords) {
-    // return null;
     return 'NULL!!!';
-    // return new google.maps.LatLng(new google.maps.LatLng(0, 0));
   } else if (trip.type === 'oneWay' && trip.coords.end) {
-    // return { lat: trip.coords.end.lat, lng: trip.coords.end.lng };
     return new google.maps.LatLng(
       new google.maps.LatLng(trip.coords.end.lat, trip.coords.end.lng)
     );
   } else {
-    // (trip.type === 'loopTrip' && trip.coords.start)
-    // return { lat: trip.coords.start.lat, lng: trip.coords.start.lng };
     return new google.maps.LatLng(trip.coords.start.lat, trip.coords.start.lng);
   }
 };

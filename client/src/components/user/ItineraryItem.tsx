@@ -9,7 +9,6 @@ import {
   DirectionsRenderer,
 } from '@react-google-maps/api';
 import type { tripProps } from '../../services/tripService';
-// import { DirectionsWaypoint, LatLng } from '../../services/googlePlaceService';
 import { apiKey } from '../../helpers/apiKey';
 import {
   generateTripEndPoint,
@@ -19,10 +18,6 @@ import {
 const ItineraryItem = ({ trip }: tripProps) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [googleLoaded, setGoogleLoaded] = useState(false);
-
-  // const navigate = useNavigate();
-
-  //   const autocompleteRef = useRef(null);
 
   useEffect(() => {
     const script = document.createElement('script');
@@ -42,8 +37,6 @@ const ItineraryItem = ({ trip }: tripProps) => {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: apiKey,
   });
-
-  // type pointType = {};
 
   const center = useMemo(
     () => ({ lat: trip.coords.start.lat, lng: trip.coords.start.lng }),
@@ -94,9 +87,7 @@ const ItineraryItem = ({ trip }: tripProps) => {
     e.preventDefault();
 
     return redirect('/mapview');
-    // navigate(`/mapview`, trip);
     // ** not sure why ^^ has trip as a second argument and navigate isn't reccomened so using redirect now
-    //post values
   };
 
   return (
@@ -106,7 +97,6 @@ const ItineraryItem = ({ trip }: tripProps) => {
       ) : (
         <div className='rounded-t-lg'>
           <GoogleMap
-            // className='rounded-t-lg'
             mapContainerClassName='map-container'
             center={center}
             zoom={mapZoom()}>
@@ -166,23 +156,15 @@ const ItineraryItem = ({ trip }: tripProps) => {
       )}
       <div className='pt-5'>
         <Link to={'/profile'}>
-          {/* <a href='#'> */}
           <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 '>
             {trip.description}
           </h5>
-          {/* TODO check if link above and below is supposed to go to profile or just top of a page that is different */}
-          {/* </a> */}
         </Link>
         <Link
           to={'/profile'}
           onClick={handleViewMap}
           className='inline-flex items-center px-3 py-2 text-sm font-medium text-center bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300  hover:text-white text-white hover:bg-gray-500 bg-gradient-to-r from-blue-600 to-indigo-400   hover:drop-shadow-lg
           text-md border p-2 rounded-lg'>
-          {/* <a
-          href='#'
-          onClick={handleViewMap}
-          className='inline-flex items-center px-3 py-2 text-sm font-medium text-center bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300  hover:text-white text-white hover:bg-gray-500 bg-gradient-to-r from-blue-600 to-indigo-400   hover:drop-shadow-lg
-          text-md border p-2 rounded-lg'> */}
           View Map
           <svg
             aria-hidden='true'
@@ -195,7 +177,6 @@ const ItineraryItem = ({ trip }: tripProps) => {
               d='M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z'
               clip-rule='evenodd'></path>
           </svg>
-          {/* </a> */}
         </Link>
       </div>
     </div>

@@ -14,13 +14,10 @@ export const categories = [
   { categoryName: 'Wine' },
   { categoryName: 'Wildlife' },
 ];
-
 export interface Category {
   categoryName: string;
 }
-
 export interface CategorySearchProps {
   selectedCategories: Category[];
   setSelectedCategories: React.Dispatch<React.SetStateAction<Category[]>>;
-  // setSelectedCategories: (selectedCategories: Category[]) => void      possible other way to achieve the same thing
 }
