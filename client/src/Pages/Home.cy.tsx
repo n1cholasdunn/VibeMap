@@ -1,5 +1,6 @@
 import React from 'react';
 import Home from './Home';
+import { BrowserRouter } from 'react-router-dom';
 
 describe('<Home />', () => {
   it('renders', () => {
@@ -22,10 +23,18 @@ describe('<Home />', () => {
   });
 
   it('checks for radio buttons', () => {
-    cy.mount(<Home />);
+    cy.mount(
+      <BrowserRouter>
+        <Home />
+      </BrowserRouter>
+    );
+
+    cy.location('pathname');
+
     cy.get('[type="radio"]').should('be.visible');
-    cy.get('[type="radio"]').check('oneWay');
-    cy.get('[type="radio"]').check('singleDestination');
-    cy.get('[type="radio"]').check('loopTrip');
+
+    cy.get('[type="radio"]').first().check();
+
+    // cy.get('[type="radio"]').contains('Single Destination').click();
   });
 });

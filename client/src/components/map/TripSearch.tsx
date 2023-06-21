@@ -55,7 +55,6 @@ const TripSearch: React.FC<TripSearchProps> = ({ selectedTripOption }) => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     navigate('/create');
   };
 

@@ -1,12 +1,14 @@
 import TripChoice from '../components/map/TripChoice';
 import React from 'react';
+// import bvibe from '../../public/1bvibe.png';
 
 const Home: React.FC = () => {
   return (
     <>
       <div
         className='hero min-h-screen'
-        style={{ backgroundImage: 'url(pexels-roman-odintsov-4553618.jpg)' }}>
+        style={{ backgroundImage: 'url(pexels-roman-odintsov-4553618.jpg)' }}
+      >
         <div className='hero-overlay bg-opacity-50'></div>
         <div className='hero-content text-center'>
           <div className='max-w-lg'>
@@ -29,9 +31,8 @@ const Home: React.FC = () => {
             <p className='mb-20 text-lg text-white drop-shadow-lg'>
               Discover Your Roadtrip Vibe and Create the Perfect Map!
             </p>
-            <div className='rounded-md'>
-              <TripChoice />
-            </div>
+            <div className='rounded-md'></div>
+            <TripChoice />
           </div>
         </div>
       </div>
