@@ -1,14 +1,7 @@
 import './App.css';
-// import { useState } from 'react';
 import { DestinationProvider } from './context';
 import React from 'react';
-import {
-  // BrowserRouter as Router,
-  // BrowserRouter,
-  Route,
-  Routes,
-  // Link
-} from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home';
 import NavBar from './components/NavBar';
 import UserProfile from './Pages/UserProfile';

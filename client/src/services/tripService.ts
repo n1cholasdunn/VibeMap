@@ -1,5 +1,4 @@
 import { Destination } from '../context';
-// import { LatLng, LatLngLiteral, Place } from './googlePlaceService';
 const url = 'http://localhost:3333';
 
 export async function getUserTrips() {
@@ -36,31 +35,20 @@ export async function editUserTrip() {}
 export type tripProps = {
   trip: {
     id?: null | number;
-    user?: null | string; //not sure on this type
+    user?: null | string;
     category?: null | {
       categoryName: string;
     };
-    coords: // string | GoogleLatLng | GooglePlace | GoogleLatLngLiteral;
-    // {
-    //   // end?: string | GoogleLatLng | GooglePlace | GoogleLatLngLiteral;
-    //   // midpoint?: string | GoogleLatLng | GooglePlace | GoogleLatLngLiteral;
-    //   end: LatLng | LatLngLiteral | Place;
-    //   midpoint: LatLng | LatLngLiteral | Place;
-    //   start: LatLng | LatLngLiteral | Place;
-    // };
-    {
-      end: // | LatLng
-      {
+    coords: {
+      end: {
         lat: number;
         lng: number;
       };
-      midpoint?: // | LatLng
-      {
+      midpoint?: {
         lat: number;
         lng: number;
       };
-      start: // | LatLng
-      {
+      start: {
         lat: number;
         lng: number;
       };
