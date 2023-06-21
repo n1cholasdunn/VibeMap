@@ -143,12 +143,14 @@ const CreateTrip = () => {
               placeholder='Give your trip a name...'
               value={tripDescription}
               onChange={(e) => setTripDescription(e.target.value)}
-              className='border rounded-lg border-gray-300 pl-2 h-full w-full mr-2'></input>
+              className='border rounded-lg border-gray-300 pl-2 h-full w-full mr-2'
+            ></input>
             <button
               type='submit'
               className='
                             hover:text-white text-white hover:bg-gray-500 bg-gradient-to-r from-blue-600 to-indigo-400   hover:drop-shadow-lg
-                            text-md font-semibold border p-2 rounded-lg w-1/6'>
+                            text-md font-semibold border p-2 rounded-lg w-1/6'
+            >
               Save Map ♡
             </button>
           </form>
@@ -166,7 +168,8 @@ const CreateTrip = () => {
                 autocomplete.setFields(['geometry']);
               }}
               onPlaceChanged={handlePlaceSelect}
-              className='z-[0] w-3/4 '>
+              className='z-[0] w-3/4 '
+            >
               <input
                 placeholder='Search for a place...'
                 className='border rounded-full border-gray-300 pl-2 h-full w-full'
@@ -183,7 +186,8 @@ const CreateTrip = () => {
               // onClick={handleAddPoint}  NON-FUNCTIONAL
               className='
                             hover:text-white hover:bg-gray-400 hover:drop-shadow-lg
-                            text-sm border border-gray-300 p-2 rounded-xl w-28 h-full'>
+                            text-sm border border-gray-300 p-2 rounded-xl w-28 h-full'
+            >
               + Add to Map
             </button>
           </form>
