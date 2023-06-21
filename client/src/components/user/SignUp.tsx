@@ -55,14 +55,8 @@ const SignUp = () => {
           <label
             htmlFor='terms'
             className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'>
-            {/* TODO signup isn't implemented so we need to set the route to a signup page or something */}
             <Link to={'#'}></Link>
             {/*TODO ^^not sure if # is valid to go to  top or what page to route to  */}
-            {/* <a
-              href='#'
-              className='text-blue-600 hover:underline dark:text-blue-500'>
-              terms and conditions
-            </a> */}
           </label>
         </div>
         <button
