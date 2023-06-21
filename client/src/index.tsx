@@ -6,7 +6,6 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import ScrollTop from './helpers/ScrollTop';
 
-// const root = ReactDOM.createRoot(document.getElementById('root'));
 const rootElement = document.getElementById('root');
 const root = ReactDOM.createRoot(rootElement!);
 root.render(

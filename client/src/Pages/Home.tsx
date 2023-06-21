@@ -14,7 +14,6 @@ const Home: React.FC = () => {
               <h1 className=' self-end pl-3 mb-5 text-5xl font-bold text-white drop-shadow-lg'>
                 Hey{' '}
               </h1>
-              {/* TODO fix alt placeholder */}
               <img
                 src='1bvibe.png'
                 className='h-28 mb-5 self-end pl-3'
@@ -32,7 +31,6 @@ const Home: React.FC = () => {
             </p>
             <div className='rounded-md'>
               <TripChoice />
-              {/* <Explore className='rounded-md ' /> */}
             </div>
           </div>
         </div>

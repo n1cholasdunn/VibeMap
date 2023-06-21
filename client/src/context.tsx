@@ -4,7 +4,6 @@ import {
 } from 'geolib/es/types';
 import React, { createContext, useState } from 'react';
 import type { ReactNode } from 'react';
-// import { LatLng, LatLngLiteral, Place } from './services/googlePlaceService';
 
 export interface Coords {
   end?:
@@ -29,11 +28,6 @@ export interface Coords {
         lng: GeolibLongitudeInputValue;
       };
 }
-// export type Coords = {
-//   end: LatLng | LatLngLiteral | Place | string;
-//   midpoint: LatLng | LatLngLiteral | Place | string;
-//   start: LatLng | LatLngLiteral | Place | string;
-// };
 
 export interface Points {
   formatted_address: string | number | readonly string[] | undefined;
@@ -44,8 +38,8 @@ export interface Destination {
   user: string | number | null;
   type: string | null;
   coords: Coords;
-  categories: any[] | null; // You can replace any with a specific type
-  points: any; // You can replace any with a specific type
+  categories: any[] | null; // TODOYou can replace any with a specific type
+  points: any; // TODOYou can replace any with a specific type
   description: string | null;
 }
 
@@ -73,11 +67,7 @@ export const DestinationProvider = ({ children }: DestinationProviderProps) => {
       midpoint: undefined,
       end: undefined,
     },
-    // coords: {
-    //   start: '',
-    //   midpoint: '',
-    //   end: '',
-    // },
+
     categories: null, // tags will be an array of objects
     points: [],
     description: null,
