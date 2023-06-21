@@ -15,7 +15,7 @@ interface MapInfoWindowProp {
 }
 
 const MapInfoWindow: React.FC<MapInfoWindowProp> = ({ selectedLocation }) => {
-  const { destination, setDestination } = useContext(DestinationContext);
+  const { setDestination } = useContext(DestinationContext);
 
   const [likedPlace, setLikedPlace] = useState(false);
 
@@ -43,9 +43,6 @@ const MapInfoWindow: React.FC<MapInfoWindowProp> = ({ selectedLocation }) => {
       ...prevDestination,
       points: [...prevDestination.points, newPoint],
     }));
-
-    console.log('MAP INFO WINDOW ADD TO MAP FUNC');
-    console.log('SEL. LOC==>', destination);
   };
 
   return (
@@ -62,7 +59,8 @@ const MapInfoWindow: React.FC<MapInfoWindowProp> = ({ selectedLocation }) => {
       <div className='flex flex-col align-middle'>
         <button
           className='hover:text-white hover:bg-gray-400 hover:drop-shadow-lg text-md drop-shadow-md border p-1 rounded'
-          onClick={toggleFavourites}>
+          onClick={toggleFavourites}
+        >
           {likedPlace ? '𝗫 Remove' : '♡ Add to Map'}
         </button>
         <button className='text-md self-cente hover:text-gray-500 font-normal p-1'>

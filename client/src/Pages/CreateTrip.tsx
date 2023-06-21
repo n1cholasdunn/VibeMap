@@ -13,7 +13,6 @@ import { fetchPlaceInfo } from '../services/googlePlaceService';
 import React from 'react';
 import { Location } from '../components/map/PlaceCard';
 import { apiKey } from '../helpers/apiKey';
-//added comment to commit
 
 export type AutoComplete = google.maps.places.Autocomplete;
 export type Place = google.maps.places.PlaceResult;
@@ -74,7 +73,6 @@ const CreateTrip = () => {
           }));
           console.log('search place: ', destination);
           setSelectedPlaceFromSearch('');
-          // autocompleteRef.current.value = '';   DONT THINK THIS CODE IS BEING USED!!!
         }
       }
     }
@@ -122,11 +120,9 @@ const CreateTrip = () => {
       user: 1,
       id: `34567890kjnbvt6789${Math.round(Math.random() * 100000)}`,
     };
-    // await postUserTrip(newDestination, clearDestination);    <---- BEFORE
     void clearDestination; //
-    await postUserTrip(newDestination); //AFTER
+    await postUserTrip(newDestination);
 
-    //create condition to PUT instead of post if destination is already created by user
     console.log(newDestination);
   };
   const openPlaceInfo = async (lat: number, lng: number, name: string) => {
