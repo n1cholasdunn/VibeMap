@@ -1,5 +1,3 @@
-import { find } from 'cypress/types/lodash';
-
 describe('template spec', () => {
   it('renders home page', () => {
     cy.visit('http://localhost:3000/');
@@ -40,9 +38,13 @@ describe('template spec', () => {
         cy.get('[name="start"]')
           .type('Fallsview Casino Resort')
           .then(() => {
-            cy.get('[class="pac-container pac-logo"]').first().click();
-            cy.get('button').click();
-            cy.url().should('eq', 'http://localhost:3000/create');
+            cy.get('[class="pac-container pac-logo"]')
+              .first()
+              .click()
+              .then(() => {
+                cy.get('button', { timeout: 50000 }).click();
+                cy.url().should('eq', 'http://localhost:3000/create');
+              });
           });
       });
   });
