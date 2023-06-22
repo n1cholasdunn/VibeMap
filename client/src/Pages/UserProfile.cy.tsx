@@ -27,26 +27,4 @@ describe('<UserProfile />', () => {
         });
     });
   });
-
-  // it('button check', () => {
-  //   // see: https://on.cypress.io/mounting-reac
-
-  //   cy.location().should((loc) => {
-  //     expect(loc.pathname).to.contain('UserProfile');
-  //   });
-
-  //   // cy.url().should('include', '/profile');
-  //   //test that homepage elements are rendered after click
-
-  //   // cy.get('button')
-  //   //   .invoke('directToHome')
-  //   //   .should('eq', "(window.location.href = '/'");
-  //   cy.get('button')
-  //     .click()
-  //     .then(() => {
-  //       cy.url();
-  //     });
-
-  //   // cy.url().should('eq', 'http://localhost:3000/profile');
-  // });
 });
