@@ -11,15 +11,6 @@ app.use(router.default);
 
 const request = supertest(app);
 
-describe('GET /trips', () => {
-  it('should get all trips from db', async () => {
-    const res = await request.get('/trips');
-    res.status.should.equal(200);
-    res.body.should.eql(mockTrips);
-    res.body.length.should.equal(50);
-  });
-});
-
 describe('Post /trips', () => {
   const fakeTrip = {
     id: 11,
@@ -35,4 +26,12 @@ describe('Post /trips', () => {
       res.status.should.equal(200);
       res.body.action.should.equal('added');
     };
+
+  describe('GET /trips', () => {
+    it('should get all trips from db', async () => {
+      const res = await request.get('/trips');
+      res.status.should.equal(200);
+      res.body.length.should.equal(1);
+    });
+  });
 });

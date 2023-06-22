@@ -9,9 +9,6 @@ describe('<UserProfile />', () => {
   it('renders page', () => {
     // see: https://on.cypress.io/mounting-react
     cy.mount(<UserProfile />);
-
-    // cy.url().should('eq', 'http://localhost:3000/');
-    // cy.get('button');
   });
 
   it('renders profile pic', () => {

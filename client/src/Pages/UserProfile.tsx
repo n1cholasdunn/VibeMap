@@ -18,11 +18,6 @@ const UserProfile = () => {
     fetchUserTrips();
   }, []);
 
-  //NON FUNCTIONAL
-  // function handleCreateMap() {
-  //   return redirect("/");
-  // }
-
   const directToHome = () => {
     return (window.location.href = '/');
   };
@@ -35,7 +30,6 @@ const UserProfile = () => {
             <img
               className='mx-auto mb-4 w-36 h-36 rounded-full'
               src='IMG_7069.jpg'
-              //TODO set alt
               alt='profile pic'
             />
             <h3 className='mb-1 text-2xl font-bold tracking-tight text-gray-900'>
@@ -57,11 +51,8 @@ const UserProfile = () => {
 
         <div>
           <div className='flex justify-end p-10'>
-            {/* ADDED LINK TO REDIRECT USER TO HOME PAGE IF THEY WANT TO CREATE NEW MAP */}
-
             <button
               type='submit'
-              // onClick={handleCreateMap} NON - FUNCTIONAL
               onClick={directToHome}
               className='
 							hover:text-white text-white hover:bg-gray-500 bg-gradient-to-r from-blue-600 to-indigo-400   hover:drop-shadow-lg

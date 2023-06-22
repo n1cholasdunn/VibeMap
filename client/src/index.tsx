@@ -9,12 +9,10 @@ import ScrollTop from './helpers/ScrollTop';
 const rootElement = document.getElementById('root');
 const root = ReactDOM.createRoot(rootElement!);
 root.render(
-  // <React.StrictMode>
   <BrowserRouter>
     <ScrollTop />
     <App />
   </BrowserRouter>
-  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

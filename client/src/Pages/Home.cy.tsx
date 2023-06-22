@@ -34,7 +34,5 @@ describe('<Home />', () => {
     cy.get('[type="radio"]').should('be.visible');
 
     cy.get('[type="radio"]').first().check();
-
-    // cy.get('[type="radio"]').contains('Single Destination').click();
   });
 });
