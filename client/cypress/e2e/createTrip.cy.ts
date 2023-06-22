@@ -3,6 +3,21 @@ describe('template spec', () => {
     cy.visit('http://localhost:3000/');
   });
 
+  it('can redirect to profile page', () => {
+    cy.visit('http://localhost:3000/');
+    cy.get('[class="w-10 rounded-full"')
+      .click()
+      .then(() => {
+        cy.get(
+          '[class="menu menu-sm dropdown-content mt-3 p-2 shadow bg-white rounded-box w-40 z-[1]"'
+        )
+          .find('a')
+          .first()
+          .click();
+      });
+    cy.location('pathname').should('equal', '/profile');
+  });
+
   it('radio buttons should be visible and allow user to input location', () => {
     cy.visit('http://localhost:3000/');
 
