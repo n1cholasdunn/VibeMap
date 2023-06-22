@@ -36,15 +36,34 @@ describe('template spec', () => {
       .click()
       .then(() => {
         cy.get('[name="start"]')
-          .type('Fallsview Casino Resort')
+          .type(
+            'Fallsview Casino Resort, Fallsview Boulevard, Niagara Falls, ON, Canada'
+          )
+          .wait(2000)
           .then(() => {
             cy.get('[class="pac-container pac-logo"]')
               .first()
               .click()
+              .wait(2000)
               .then(() => {
                 cy.get('button', { timeout: 50000 }).click();
                 cy.url().should('eq', 'http://localhost:3000/create');
               });
+          });
+      });
+    cy.get('[id=":r0:"]')
+      .click()
+      .then(() => {
+        cy.get('[id=":r0:-option-0"]').click();
+        cy.get('[id=":r0:"]')
+          .click()
+          .then(() => {
+            cy.get(
+              '[class="overflow-scroll overflow-y-scroll no-scrollbar h-[500px]"]'
+            ).should('be.visible');
+            cy.get('[class="flex flex-row"]').each(($pTag) => {
+              cy.wrap($pTag).should('contain', 'Adventure');
+            });
           });
       });
   });
